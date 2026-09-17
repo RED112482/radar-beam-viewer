@@ -105,6 +105,19 @@
           }
         }
       }
+
+      // Anchor the radar-origin cell to exactly 0 ft ARL. This matches the
+      // operational convention used by the earlier precomputed-grid builder.
+      const x0=Math.floor(((radar.lon-west)/(east-west))*width);
+      const y0=Math.floor(((north-radar.lat)/(north-south))*height);
+      if(x0>=0&&x0<width&&y0>=0&&y0<height){
+        const idx=y0*width+x0;
+        if(0<minHeight[idx]){
+          minHeight[idx]=0;
+          winner[idx]=r;
+        }
+      }
+
       if(opts.onProgress)opts.onProgress((r+1)/radars.length,radar.id);
       await new Promise(resolve=>setTimeout(resolve,0));
     }
@@ -127,7 +140,37 @@
       image.data[p+3]=alpha;
     }
     ctx.putImageData(image,0,0);
-    return{dataUrl:canvas.toDataURL('image/png'),width,height,minHeight,winner};
+
+    return{
+      dataUrl:canvas.toDataURL('image/png'),
+      width,height,minHeight,winner,radars,
+      west,east,south,north
+    };
+  }
+
+  // Read the exact cell used to draw the mosaic. This is intentionally
+  // different from recomputing at the raw mouse coordinate: it guarantees
+  // the hover radar/height agrees with the colored raster cell on screen.
+  function sampleMosaic(result,lat,lon){
+    if(!result)return null;
+    const {west,east,south,north,width,height,winner,minHeight,radars}=result;
+    if(lon<west||lon>east||lat<south||lat>north)return null;
+    let x=Math.floor(((lon-west)/(east-west))*width);
+    let y=Math.floor(((north-lat)/(north-south))*height);
+    x=Math.max(0,Math.min(width-1,x));
+    y=Math.max(0,Math.min(height-1,y));
+    const idx=y*width+x;
+    const ri=winner[idx];
+    if(ri<0||!Number.isFinite(minHeight[idx]))return null;
+    const cellLon=west+((x+.5)/width)*(east-west);
+    const cellLat=north-((y+.5)/height)*(north-south);
+    return{
+      radar:radars[ri],
+      height_ft:minHeight[idx],
+      x,y,index:idx,
+      cell_lat:cellLat,
+      cell_lon:cellLon
+    };
   }
 
   window.BeamEngine={
@@ -136,6 +179,7 @@
     bestRadarAt,
     nearestRadarAt,
     haversineMeters,
-    computeMosaic
+    computeMosaic,
+    sampleMosaic
   };
 })();
