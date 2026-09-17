@@ -49,11 +49,20 @@
       </section>
 
       <section class="panel">
-        <div class="field-label">Display</div>
+        <div class="field-label">Beam & Reference Layers</div>
         <label class="toggle-row"><input id="mosaicToggle" type="checkbox" checked> <span>Lowest-beam mosaic</span></label>
         <label class="toggle-row"><input id="sitesToggle" type="checkbox" checked> <span>Radar center dots</span></label>
         <label class="toggle-row"><input id="cwaToggle" type="checkbox" checked> <span>Selected CWA outline</span></label>
+        <label class="toggle-row"><input id="allCwaToggle" type="checkbox"> <span>All NWS CWA outlines</span></label>
+        <label class="toggle-row"><input id="stateToggle" type="checkbox" checked> <span>State outlines</span></label>
         <label class="toggle-row"><input id="countyToggle" type="checkbox" checked> <span>County outlines when zoomed in</span></label>
+      </section>
+
+      <section class="panel">
+        <div class="field-label">Live Weather Overlays</div>
+        <div class="muted overlay-note">Transparent overlays; both default off.</div>
+        <label class="toggle-row"><input id="mrmsToggle" type="checkbox"> <span>MRMS radar mosaic</span></label>
+        <label class="toggle-row"><input id="warningsToggle" type="checkbox"> <span>NWS warning polygons</span></label>
       </section>
 
       <section class="panel readout-panel">
@@ -70,6 +79,7 @@
 
     <section class="map-wrap">
       <div id="map"></div>
+      <div id="hoverReadout" class="hover-readout hidden"></div>
       <div id="busyOverlay" class="busy-overlay hidden">
         <div class="spinner"></div>
         <div id="busyText">Recalculating beam coverage…</div>
