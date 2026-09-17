@@ -17,5 +17,7 @@
   "TMSY": {"lowest_tilt_deg": 0.3, "range_nm": 48},
   "TMIA": {"lowest_tilt_deg": 0.3, "range_nm": 48},
   "TFLL": {"lowest_tilt_deg": 0.3, "range_nm": 48},
-  "TPBI": {"lowest_tilt_deg": 0.3, "range_nm": 48}
+  "TPBI": {"lowest_tilt_deg": 0.3, "range_nm": 48},
+  "TIAH": {"lowest_tilt_deg": 0.3, "range_nm": 48},
+  "THOU": {"lowest_tilt_deg": 0.3, "range_nm": 48}
 }
