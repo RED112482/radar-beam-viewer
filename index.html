@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>National Radar Beam Height Viewer</title>
+  <meta name="description" content="Interactive NWS WFO radar beam-height viewer using above-radar-level beam geometry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">NATIONAL RADAR TOOL</div>
+      <h1>Radar Beam Height Viewer</h1>
+    </div>
+    <div class="status-pill" id="appStatus">Initializing…</div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <section class="panel">
+        <label class="field-label" for="wfoSelect">NWS Forecast Office</label>
+        <select id="wfoSelect" class="select-control"></select>
+        <div class="office-subtitle" id="officeSubtitle"></div>
+      </section>
+
+      <section class="panel compact-row">
+        <button id="localViewBtn" class="btn active" type="button">Local WFO</button>
+        <button id="conusViewBtn" class="btn" type="button">CONUS</button>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <div class="field-label">Radar Availability</div>
+            <div class="muted">Toggle office groups or individual radars.</div>
+          </div>
+        </div>
+        <div class="quick-actions">
+          <button class="mini-btn" id="allGroupsBtn" type="button">All</button>
+          <button class="mini-btn" id="homeOnlyBtn" type="button">Home only</button>
+          <button class="mini-btn" id="backupsOnlyBtn" type="button">Backups only</button>
+        </div>
+        <div id="groupControls" class="group-controls"></div>
+      </section>
+
+      <section class="panel">
+        <div class="field-label">Display</div>
+        <label class="toggle-row"><input id="mosaicToggle" type="checkbox" checked> <span>Lowest-beam mosaic</span></label>
+        <label class="toggle-row"><input id="sitesToggle" type="checkbox" checked> <span>Radar center dots</span></label>
+        <label class="toggle-row"><input id="cwaToggle" type="checkbox" checked> <span>Selected CWA outline</span></label>
+        <label class="toggle-row"><input id="countyToggle" type="checkbox" checked> <span>County outlines when zoomed in</span></label>
+      </section>
+
+      <section class="panel readout-panel">
+        <div class="field-label">Cursor Readout</div>
+        <div id="cursorReadout" class="readout">Move over the map.</div>
+      </section>
+
+      <section class="panel methodology">
+        <div class="field-label">Beam Reference</div>
+        <div><strong>ARL</strong> — Above Radar Level</div>
+        <div class="muted">4/3 Earth-radius beam-center approximation. Radar origin = 0 ft ARL.</div>
+      </section>
+    </aside>
+
+    <section class="map-wrap">
+      <div id="map"></div>
+      <div id="busyOverlay" class="busy-overlay hidden">
+        <div class="spinner"></div>
+        <div id="busyText">Recalculating beam coverage…</div>
+      </div>
+      <div class="map-badge" id="mapBadge">MOB</div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="./src/beam-engine.js"></script>
+  <script src="./src/map.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+</html>
