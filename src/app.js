@@ -1,1 +1,155 @@
-(async function(){const $=id=>document.getElementById(id),status=$('appStatus'),busy=$('busyOverlay'),busyText=$('busyText'),wfoSelect=$('wfoSelect'),groupControls=$('groupControls'),mapBadge=$('mapBadge'),cursorReadout=$('cursorReadout'),mapUI=new RadarMap('map');let radarCatalog,wfoCatalog,backups,currentWfo=null,groups=[],activeMode='local',localBounds=null,renderToken=0;function showBusy(t){busyText.textContent=t;busy.classList.remove('hidden')}function hideBusy(){busy.classList.add('hidden')}function setStatus(t){status.textContent=t}async function loadJson(p){const r=await fetch(p,{cache:'no-cache'});if(!r.ok)throw new Error(`${p} returned HTTP ${r.status}`);return r.json()}function mergedRadar(id,office){const base=radarCatalog.radars[id];if(!base)throw new Error(`Radar ${id} is referenced by ${office.id} but missing from radar_catalog.json`);const override=(office.radar_overrides||{})[id]||{};return{id,...base,...override,color:override.color||base.color||'#3887be'}}function officeGroup(officeId,role,label){const office=wfoCatalog.wfos[officeId];if(!office)return null;office.id=officeId;const radars=(office.radars||[]).map(id=>mergedRadar(id,office));return{key:`${role}:${officeId}`,role,label,officeId,officeName:office.name,enabled:true,radars,radarEnabled:new Map(radars.map(r=>[r.id,true]))}}function buildGroups(wfo){const out=[officeGroup(wfo,'home','Home Office')],b=backups[wfo]||{};if(b.primary)out.push(officeGroup(b.primary,'primary','Primary Backup'));if(b.secondary)out.push(officeGroup(b.secondary,'secondary','Secondary Backup'));if(b.tertiary)out.push(officeGroup(b.tertiary,'tertiary','Tertiary Backup'));return out.filter(Boolean)}function activeRadars(){const byId=new Map;for(const g of groups){if(!g.enabled)continue;for(const r of g.radars)if(g.radarEnabled.get(r.id))byId.set(r.id,r)}return[...byId.values()]}function homeBounds(homeRadars){let s=90,n=-90,w=180,e=-180;for(const r of homeRadars){const lp=(r.range_nm*1.15078)/69,lop=lp/Math.max(.35,Math.cos(r.lat*Math.PI/180));s=Math.min(s,r.lat-lp);n=Math.max(n,r.lat+lp);w=Math.min(w,r.lon-lop);e=Math.max(e,r.lon+lop)}return L.latLngBounds([s,w],[n,e])}function renderGroupControls(){groupControls.innerHTML='';for(const g of groups){const card=document.createElement('div');card.className='group-card';const head=document.createElement('div');head.className='group-head';head.innerHTML=`<input type="checkbox" ${g.enabled?'checked':''}><div><div class="group-title">${g.officeId} — ${g.officeName}</div><div class="group-role">${g.label}</div></div><div class="group-count">${g.radars.length} radars</div>`;const gb=head.querySelector('input');gb.addEventListener('change',async()=>{g.enabled=gb.checked;await recalc()});card.appendChild(head);const details=document.createElement('details');details.className='group-details';const summary=document.createElement('summary');summary.textContent='Show individual radars';details.appendChild(summary);for(const r of g.radars){const row=document.createElement('label');row.className='radar-row';row.innerHTML=`<input type="checkbox" ${g.radarEnabled.get(r.id)?'checked':''}><span class="swatch" style="background:${r.color}"></span><span>${r.id}</span><span class="radar-meta">${r.lowest_tilt_deg.toFixed(1)}° • ${r.range_nm} nmi</span>`;const box=row.querySelector('input');box.addEventListener('change',async()=>{g.radarEnabled.set(r.id,box.checked);await recalc()});details.appendChild(row)}card.appendChild(details);groupControls.appendChild(card)}}async function recalc(){const token=++renderToken,radars=activeRadars();mapUI.setSites(radars,$('sitesToggle').checked);if(!localBounds||!radars.length){mapUI.setMosaicVisible(false);setStatus(radars.length?'Ready':'No radars selected');return}if(!$('mosaicToggle').checked){mapUI.setMosaicVisible(false);return}showBusy(`Calculating ${radars.length} active radars…`);setStatus('Calculating…');try{const result=await BeamEngine.computeMosaic(localBounds,radars,{width:680,maxHeight:520,opacity:.5,onProgress:(p,id)=>{if(token===renderToken)busyText.textContent=`Calculating beam mosaic… ${Math.round(p*100)}% (${id})`}});if(token!==renderToken)return;mapUI.setMosaic(result.dataUrl,localBounds,true);setStatus(`${currentWfo} • ${radars.length} active radars`)}finally{if(token===renderToken)hideBusy()}}async function selectWfo(wfo){currentWfo=wfo;mapBadge.textContent=wfo;const office=wfoCatalog.wfos[wfo];$('officeSubtitle').textContent=office.description||office.name;groups=buildGroups(wfo);renderGroupControls();const home=groups.find(g=>g.role==='home');localBounds=homeBounds(home.radars);const cwaBounds=await mapUI.setOfficeCwa(wfo);if(cwaBounds&&cwaBounds.isValid())localBounds.extend(cwaBounds);if(activeMode==='local')mapUI.showLocal(localBounds);else mapUI.showConus(office.center);await recalc()}function setGroupPreset(mode){for(const g of groups)g.enabled=mode==='all'||mode==='home'&&g.role==='home'||mode==='backups'&&g.role!=='home';renderGroupControls();recalc()}function setViewMode(mode){activeMode=mode;$('localViewBtn').classList.toggle('active',mode==='local');$('conusViewBtn').classList.toggle('active',mode==='conus');const office=wfoCatalog.wfos[currentWfo];mode==='local'?mapUI.showLocal(localBounds):mapUI.showConus(office.center)}try{showBusy('Loading national radar catalogs…');[radarCatalog,wfoCatalog,backups]=await Promise.all([loadJson('./catalogs/radar_catalog.json'),loadJson('./catalogs/wfo_catalog.json'),loadJson('./catalogs/backup_assignments.json')]);await mapUI.initReferenceLayers();const selectable=Object.entries(wfoCatalog.wfos).filter(([,v])=>v.selectable);for(const[id,info]of selectable){const o=document.createElement('option');o.value=id;o.textContent=`${id} — ${info.name}`;wfoSelect.appendChild(o)}wfoSelect.addEventListener('change',()=>selectWfo(wfoSelect.value));$('allGroupsBtn').addEventListener('click',()=>setGroupPreset('all'));$('homeOnlyBtn').addEventListener('click',()=>setGroupPreset('home'));$('backupsOnlyBtn').addEventListener('click',()=>setGroupPreset('backups'));$('localViewBtn').addEventListener('click',()=>setViewMode('local'));$('conusViewBtn').addEventListener('click',()=>setViewMode('conus'));$('mosaicToggle').addEventListener('change',()=>$('mosaicToggle').checked?recalc():mapUI.setMosaicVisible(false));$('sitesToggle').addEventListener('change',e=>mapUI.setSitesVisible(e.target.checked));$('cwaToggle').addEventListener('change',e=>mapUI.setCwaVisible(e.target.checked));$('countyToggle').addEventListener('change',e=>mapUI.setCountyVisible(e.target.checked));mapUI.map.on('mousemove',e=>{const best=BeamEngine.bestRadarAt(e.latlng.lat,e.latlng.lng,activeRadars());cursorReadout.innerHTML=best?`Lat: ${e.latlng.lat.toFixed(3)} &nbsp; Lon: ${e.latlng.lng.toFixed(3)}<br><strong>${Math.round(best.height_ft).toLocaleString()} ft ARL</strong> — ${best.radar.id}`:`Lat: ${e.latlng.lat.toFixed(3)} &nbsp; Lon: ${e.latlng.lng.toFixed(3)}<br>No selected radar coverage`});hideBusy();const def=wfoCatalog.default_wfo||selectable[0]?.[0];wfoSelect.value=def;await selectWfo(def)}catch(e){console.error(e);hideBusy();setStatus('Startup error');alert(`Startup error: ${e.message}`)}})();
+(async function(){
+  const $=id=>document.getElementById(id),status=$('appStatus'),busy=$('busyOverlay'),busyText=$('busyText'),wfoSelect=$('wfoSelect'),groupControls=$('groupControls'),mapBadge=$('mapBadge'),cursorReadout=$('cursorReadout'),mapUI=new RadarMap('map');
+  let radarCatalog,wfoCatalog,backups,currentWfo=null,groups=[],activeMode='local',localBounds=null,renderToken=0;
+
+  function showBusy(t){busyText.textContent=t;busy.classList.remove('hidden')}
+  function hideBusy(){busy.classList.add('hidden')}
+  function setStatus(t){status.textContent=t}
+
+  async function loadJson(p){
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),8000);
+    try{
+      const r=await fetch(p,{cache:'no-cache',signal:controller.signal});
+      if(!r.ok)throw new Error(`${p} returned HTTP ${r.status}`);
+      return await r.json();
+    }finally{clearTimeout(timer)}
+  }
+
+  function mergedRadar(id,office){
+    const base=radarCatalog.radars[id];
+    if(!base)throw new Error(`Radar ${id} is referenced by ${office.id} but missing from radar_catalog.json`);
+    const override=(office.radar_overrides||{})[id]||{};
+    return{id,...base,...override,color:override.color||base.color||'#3887be'};
+  }
+
+  function officeGroup(officeId,role,label){
+    const office=wfoCatalog.wfos[officeId];
+    if(!office)return null;
+    office.id=officeId;
+    const radars=(office.radars||[]).map(id=>mergedRadar(id,office));
+    return{key:`${role}:${officeId}`,role,label,officeId,officeName:office.name,enabled:true,radars,radarEnabled:new Map(radars.map(r=>[r.id,true]))};
+  }
+
+  function buildGroups(wfo){
+    const out=[officeGroup(wfo,'home','Home Office')],b=backups[wfo]||{};
+    if(b.primary)out.push(officeGroup(b.primary,'primary','Primary Backup'));
+    if(b.secondary)out.push(officeGroup(b.secondary,'secondary','Secondary Backup'));
+    if(b.tertiary)out.push(officeGroup(b.tertiary,'tertiary','Tertiary Backup'));
+    return out.filter(Boolean);
+  }
+
+  function activeRadars(){
+    const byId=new Map;
+    for(const g of groups){
+      if(!g.enabled)continue;
+      for(const r of g.radars)if(g.radarEnabled.get(r.id))byId.set(r.id,r);
+    }
+    return[...byId.values()];
+  }
+
+  function homeBounds(homeRadars){
+    let s=90,n=-90,w=180,e=-180;
+    for(const r of homeRadars){
+      const lp=(r.range_nm*1.15078)/69,lop=lp/Math.max(.35,Math.cos(r.lat*Math.PI/180));
+      s=Math.min(s,r.lat-lp);n=Math.max(n,r.lat+lp);w=Math.min(w,r.lon-lop);e=Math.max(e,r.lon+lop);
+    }
+    return L.latLngBounds([s,w],[n,e]);
+  }
+
+  function renderGroupControls(){
+    groupControls.innerHTML='';
+    for(const g of groups){
+      const card=document.createElement('div');card.className='group-card';
+      const head=document.createElement('div');head.className='group-head';
+      head.innerHTML=`<input type="checkbox" ${g.enabled?'checked':''}><div><div class="group-title">${g.officeId} — ${g.officeName}</div><div class="group-role">${g.label}</div></div><div class="group-count">${g.radars.length} radars</div>`;
+      const gb=head.querySelector('input');
+      gb.addEventListener('change',async()=>{g.enabled=gb.checked;await recalc()});
+      card.appendChild(head);
+      const details=document.createElement('details');details.className='group-details';
+      const summary=document.createElement('summary');summary.textContent='Show individual radars';details.appendChild(summary);
+      for(const r of g.radars){
+        const row=document.createElement('label');row.className='radar-row';
+        row.innerHTML=`<input type="checkbox" ${g.radarEnabled.get(r.id)?'checked':''}><span class="swatch" style="background:${r.color}"></span><span>${r.id}</span><span class="radar-meta">${r.lowest_tilt_deg.toFixed(1)}° • ${r.range_nm} nmi</span>`;
+        const box=row.querySelector('input');
+        box.addEventListener('change',async()=>{g.radarEnabled.set(r.id,box.checked);await recalc()});
+        details.appendChild(row);
+      }
+      card.appendChild(details);groupControls.appendChild(card);
+    }
+  }
+
+  async function recalc(){
+    const token=++renderToken,radars=activeRadars();
+    mapUI.setSites(radars,$('sitesToggle').checked);
+    if(!localBounds||!radars.length){mapUI.setMosaicVisible(false);setStatus(radars.length?'Ready':'No radars selected');return}
+    if(!$('mosaicToggle').checked){mapUI.setMosaicVisible(false);setStatus(`${currentWfo} • ${radars.length} active radars`);return}
+    showBusy(`Calculating ${radars.length} active radars…`);setStatus('Calculating…');
+    try{
+      const result=await BeamEngine.computeMosaic(localBounds,radars,{width:560,maxHeight:440,opacity:.5,onProgress:(p,id)=>{if(token===renderToken)busyText.textContent=`Calculating beam mosaic… ${Math.round(p*100)}% (${id})`}});
+      if(token!==renderToken)return;
+      mapUI.setMosaic(result.dataUrl,localBounds,true);
+      setStatus(`${currentWfo} • ${radars.length} active radars`);
+    }finally{if(token===renderToken)hideBusy()}
+  }
+
+  async function selectWfo(wfo){
+    currentWfo=wfo;mapBadge.textContent=wfo;
+    const office=wfoCatalog.wfos[wfo];
+    $('officeSubtitle').textContent=office.description||office.name;
+    groups=buildGroups(wfo);renderGroupControls();
+    const home=groups.find(g=>g.role==='home');localBounds=homeBounds(home.radars);
+    showBusy(`Loading ${wfo} map context…`);
+    const cwaBounds=await mapUI.setOfficeCwa(wfo);
+    if(cwaBounds&&cwaBounds.isValid())localBounds.extend(cwaBounds);
+    if(activeMode==='local')mapUI.showLocal(localBounds);else mapUI.showConus(office.center);
+    await recalc();
+  }
+
+  function setGroupPreset(mode){
+    for(const g of groups)g.enabled=mode==='all'||mode==='home'&&g.role==='home'||mode==='backups'&&g.role!=='home';
+    renderGroupControls();recalc();
+  }
+
+  function setViewMode(mode){
+    activeMode=mode;
+    $('localViewBtn').classList.toggle('active',mode==='local');
+    $('conusViewBtn').classList.toggle('active',mode==='conus');
+    const office=wfoCatalog.wfos[currentWfo];
+    mode==='local'?mapUI.showLocal(localBounds):mapUI.showConus(office.center);
+  }
+
+  try{
+    showBusy('Loading national radar catalogs…');
+    [radarCatalog,wfoCatalog,backups]=await Promise.all([
+      loadJson('./catalogs/radar_catalog.json'),
+      loadJson('./catalogs/wfo_catalog.json'),
+      loadJson('./catalogs/backup_assignments.json')
+    ]);
+
+    // NOAA reference boundaries are optional map context. Load them in the background so a slow service never blocks startup.
+    mapUI.initReferenceLayers();
+
+    const selectable=Object.entries(wfoCatalog.wfos).filter(([,v])=>v.selectable);
+    for(const[id,info]of selectable){const o=document.createElement('option');o.value=id;o.textContent=`${id} — ${info.name}`;wfoSelect.appendChild(o)}
+    wfoSelect.addEventListener('change',()=>selectWfo(wfoSelect.value));
+    $('allGroupsBtn').addEventListener('click',()=>setGroupPreset('all'));
+    $('homeOnlyBtn').addEventListener('click',()=>setGroupPreset('home'));
+    $('backupsOnlyBtn').addEventListener('click',()=>setGroupPreset('backups'));
+    $('localViewBtn').addEventListener('click',()=>setViewMode('local'));
+    $('conusViewBtn').addEventListener('click',()=>setViewMode('conus'));
+    $('mosaicToggle').addEventListener('change',()=>$('mosaicToggle').checked?recalc():mapUI.setMosaicVisible(false));
+    $('sitesToggle').addEventListener('change',e=>mapUI.setSitesVisible(e.target.checked));
+    $('cwaToggle').addEventListener('change',e=>mapUI.setCwaVisible(e.target.checked));
+    $('countyToggle').addEventListener('change',e=>mapUI.setCountyVisible(e.target.checked));
+    mapUI.map.on('mousemove',e=>{const best=BeamEngine.bestRadarAt(e.latlng.lat,e.latlng.lng,activeRadars());cursorReadout.innerHTML=best?`Lat: ${e.latlng.lat.toFixed(3)} &nbsp; Lon: ${e.latlng.lng.toFixed(3)}<br><strong>${Math.round(best.height_ft).toLocaleString()} ft ARL</strong> — ${best.radar.id}`:`Lat: ${e.latlng.lat.toFixed(3)} &nbsp; Lon: ${e.latlng.lng.toFixed(3)}<br>No selected radar coverage`});
+
+    const def=wfoCatalog.default_wfo||selectable[0]?.[0];
+    wfoSelect.value=def;
+    await selectWfo(def);
+  }catch(e){
+    console.error(e);hideBusy();setStatus('Startup error');
+    const msg=e?.name==='AbortError'?'A startup request timed out. Refresh the page to retry.':e.message;
+    alert(`Startup error: ${msg}`);
+  }
+})();
