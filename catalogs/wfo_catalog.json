@@ -35,14 +35,14 @@
       "description": "Starter neighboring-radar ring for use as LIX secondary backup.",
       "selectable": false,
       "center": {"lat": 30.13, "lon": -93.22},
-      "radars": ["KLCH", "KPOE", "KDGX", "KHDC", "KMOB", "TMSY", "V015", "V018"]
+      "radars": ["KLCH", "KPOE", "KDGX", "KHDC", "KSHV", "KHGX", "TIAH", "THOU", "TMSY", "V015", "V018"]
     },
     "JAX": {
       "name": "Jacksonville",
       "description": "Starter neighboring-radar ring for use as LIX tertiary backup.",
       "selectable": false,
       "center": {"lat": 30.48, "lon": -81.70},
-      "radars": ["KJAX", "KTLH", "KVAX", "KJGX", "KEVX", "KAMX"]
+      "radars": ["KJAX", "KTLH", "KVAX", "KJGX", "KEVX"]
     }
   }
 }
