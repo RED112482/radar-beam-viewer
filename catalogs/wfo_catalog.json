@@ -4,17 +4,17 @@
   "wfos": {
     "MOB": {
       "name": "Mobile/Pensacola",
-      "description": "WFO MOB — first selectable national-viewer case",
+      "description": "WFO MOB — home office with LIX / TAE / KEY backup groups",
       "selectable": true,
       "center": {"lat": 30.68, "lon": -88.24},
       "radars": ["KMOB", "KDGX", "KBMX", "KMXX", "KEOX", "KEVX", "KHDC", "V179", "V001"]
     },
     "LIX": {
       "name": "New Orleans/Baton Rouge",
-      "description": "Configured as MOB primary backup; selectable can be enabled when its office relationships are finalized.",
-      "selectable": false,
+      "description": "WFO LIX — home office with MOB / LCH / JAX backup groups",
+      "selectable": true,
       "center": {"lat": 30.34, "lon": -89.83},
-      "radars": ["KHDC", "KMOB", "KDGX", "KPOE", "KLCH", "TMSY", "V018", "V014"]
+      "radars": ["KHDC", "KMOB", "KDGX", "KPOE", "KLCH", "TMSY", "V018", "V015", "V014"]
     },
     "TAE": {
       "name": "Tallahassee",
@@ -29,6 +29,20 @@
       "selectable": false,
       "center": {"lat": 24.60, "lon": -81.70},
       "radars": ["KBYX", "KAMX", "TMIA", "TFLL", "TPBI"]
+    },
+    "LCH": {
+      "name": "Lake Charles",
+      "description": "Starter neighboring-radar ring for use as LIX secondary backup.",
+      "selectable": false,
+      "center": {"lat": 30.13, "lon": -93.22},
+      "radars": ["KLCH", "KPOE", "KDGX", "KHDC", "KMOB", "TMSY", "V015", "V018"]
+    },
+    "JAX": {
+      "name": "Jacksonville",
+      "description": "Starter neighboring-radar ring for use as LIX tertiary backup.",
+      "selectable": false,
+      "center": {"lat": 30.48, "lon": -81.70},
+      "radars": ["KJAX", "KTLH", "KVAX", "KJGX", "KEVX", "KAMX"]
     }
   }
 }
