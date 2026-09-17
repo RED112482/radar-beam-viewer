@@ -1,0 +1,6 @@
+{
+  "V001": {"name":"Climavision V001","network":"CLIMAVISION","lat":31.99,"lon":-87.58,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#FF1493"},
+  "V014": {"name":"Climavision V014","network":"CLIMAVISION","lat":29.44,"lon":-90.58,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00B894"},
+  "V018": {"name":"Climavision V018","network":"CLIMAVISION","lat":30.92,"lon":-91.33,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#9B59B6"},
+  "V179": {"name":"Climavision V179","network":"CLIMAVISION","lat":32.42,"lon":-88.62,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00C853"}
+}
