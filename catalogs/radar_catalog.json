@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_utc": "2026-09-17T00:00:00Z",
-  "notes": "Starter catalog for the first MOB national-viewer case. scripts/update_noaa_radars.py expands this to the current NCEI NEXRAD/TDWR inventory while preserving manual tilt/range overrides and Climavision sites.",
+  "notes": "Starter catalog for MOB and LIX national-viewer test cases. scripts/update_noaa_radars.py expands this to the current NCEI NEXRAD/TDWR inventory while preserving manual tilt/range overrides and Climavision sites.",
   "radars": {
     "KAMX": {"name":"Miami, FL","network":"NEXRAD","lat":25.611083,"lon":-80.412667,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#8E44AD"},
     "KBMX": {"name":"Birmingham, AL","network":"NEXRAD","lat":33.172417,"lon":-86.770167,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#7A3DB8"},
@@ -23,8 +23,9 @@
     "TMSY": {"name":"New Orleans TDWR","network":"TDWR","lat":30.021944,"lon":-90.403056,"lowest_tilt_deg":0.3,"range_nm":48,"color":"#F4D03F"},
     "TPBI": {"name":"West Palm Beach TDWR","network":"TDWR","lat":26.688056,"lon":-80.273056,"lowest_tilt_deg":0.3,"range_nm":48,"color":"#EC4899"},
     "V001": {"name":"Climavision V001","network":"CLIMAVISION","lat":31.990000,"lon":-87.580000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#FF1493"},
-    "V014": {"name":"Climavision V014","network":"CLIMAVISION","lat":29.440000,"lon":-90.580000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00B894"},
-    "V018": {"name":"Climavision V018","network":"CLIMAVISION","lat":30.920000,"lon":-91.330000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#9B59B6"},
+    "V014": {"name":"Climavision V014 — Chauvin, LA","network":"CLIMAVISION","lat":29.448167,"lon":-90.589500,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00B894"},
+    "V015": {"name":"Climavision V015 — Franklin, LA","network":"CLIMAVISION","lat":29.791417,"lon":-91.499528,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#FF6B6B"},
+    "V018": {"name":"Climavision V018 — St. Francisville, LA","network":"CLIMAVISION","lat":30.920000,"lon":-91.330000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#9B59B6"},
     "V179": {"name":"Climavision V179","network":"CLIMAVISION","lat":32.420000,"lon":-88.620000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00C853"}
   }
 }
