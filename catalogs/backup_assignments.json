@@ -3,5 +3,10 @@
     "primary": "LIX",
     "secondary": "TAE",
     "tertiary": "KEY"
+  },
+  "LIX": {
+    "primary": "MOB",
+    "secondary": "LCH",
+    "tertiary": "JAX"
   }
 }
