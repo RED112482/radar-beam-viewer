@@ -1,5 +1,5 @@
 (function(){
-  const REF_WMS='https://mapservices.weather.noaa.gov/static/services/nws_reference_maps/nws_reference_map/MapServer/WMSServer';
+  const REF_FS='https://mapservices.weather.noaa.gov/static/rest/services/nws_reference_maps/nws_reference_map/FeatureServer';
   const WARN_BASE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/FeatureServer/0';
   const MRMS_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity/MapServer/export';
 
@@ -31,20 +31,14 @@
       this.map.createPane('cwaPane');this.map.getPane('cwaPane').style.zIndex=430;this.map.getPane('cwaPane').style.pointerEvents='none';
       this.map.createPane('warningPane');this.map.getPane('warningPane').style.zIndex=460;
 
-      // Key-free OSM tiles, transformed to a dark appearance in CSS.
       this.baseLayer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
         maxZoom:18,attribution:'&copy; OpenStreetMap contributors',className:'dark-osm'
       }).addTo(this.map);
 
-      // Stream state/county linework as WMS tiles at every zoom level.
-      this.referenceLayer=L.tileLayer.wms(REF_WMS,{
-        layers:'2,3',format:'image/png',transparent:true,version:'1.3.0',pane:'referencePane',opacity:.86,className:'nws-reference-wms'
-      }).addTo(this.map);
-
-      // One national CWA layer only; no selected-office CWA geometry.
-      this.allCwaLayer=L.tileLayer.wms(REF_WMS,{
-        layers:'1',format:'image/png',transparent:true,version:'1.3.0',pane:'cwaPane',opacity:.72,className:'nws-cwa-wms'
-      });
+      this.stateLayer=L.geoJSON(null,{pane:'referencePane',style:{color:'#ffffff',weight:1.25,opacity:.88,fillOpacity:0},interactive:false});
+      this.countyLayer=L.geoJSON(null,{pane:'referencePane',style:{color:'#ffffff',weight:.55,opacity:.52,fillOpacity:0},interactive:false});
+      this.referenceLayer=L.layerGroup([this.stateLayer,this.countyLayer]).addTo(this.map);
+      this.allCwaLayer=L.geoJSON(null,{pane:'cwaPane',style:{color:'#ff3b30',weight:1.5,opacity:.92,fillOpacity:0},interactive:false});
 
       this.map.setView([37.8,-96.5],4);
       this.mosaic=null;this.mrmsLayer=null;this.siteLayer=L.layerGroup().addTo(this.map);
@@ -54,13 +48,91 @@
       });
 
       this.referenceEnabled=true;this.allCwaEnabled=false;this.warningEnabled=false;this.mrmsEnabled=false;
-      this._warningTimer=null;this._mrmsTimer=null;this._warningKey='';
-      this.map.on('moveend',()=>{if(this.warningEnabled)this._maybeRefreshWarnings();if(this.mrmsEnabled)this._refreshMrms()});
+      this._warningTimer=null;this._mrmsTimer=null;this._referenceTimer=null;this._warningKey='';this._referenceKey='';this._allCwasLoaded=false;
+      this.map.on('moveend',()=>{
+        if(this.referenceEnabled)this._scheduleReferenceRefresh();
+        if(this.warningEnabled)this._maybeRefreshWarnings();
+        if(this.mrmsEnabled)this._refreshMrms();
+      });
     }
 
-    async initReferenceLayers(){return true}
-    async setAllCwaVisible(show){this.allCwaEnabled=show;if(show&&!this.map.hasLayer(this.allCwaLayer))this.allCwaLayer.addTo(this.map);if(!show&&this.map.hasLayer(this.allCwaLayer))this.map.removeLayer(this.allCwaLayer)}
-    setReferenceVisible(show){this.referenceEnabled=show;if(show&&!this.map.hasLayer(this.referenceLayer))this.referenceLayer.addTo(this.map);if(!show&&this.map.hasLayer(this.referenceLayer))this.map.removeLayer(this.referenceLayer)}
+    async initReferenceLayers(){this._refreshReference(true)}
+
+    _referenceSimplify(){
+      const z=this.map.getZoom();
+      if(z<=4)return .05;
+      if(z<=6)return .02;
+      if(z<=8)return .008;
+      return .003;
+    }
+
+    _scheduleReferenceRefresh(force=false){
+      clearTimeout(this._referenceTimer);
+      this._referenceTimer=setTimeout(()=>this._refreshReference(force),180);
+    }
+
+    async _fetchLayerPage(layerId,b,offset,maxOffset){
+      const geom=`${b.getWest()},${b.getSouth()},${b.getEast()},${b.getNorth()}`;
+      const q=new URLSearchParams({
+        where:'1=1',geometry:geom,geometryType:'esriGeometryEnvelope',inSR:'4326',spatialRel:'esriSpatialRelIntersects',
+        outFields:'objectid',returnGeometry:'true',outSR:'4326',maxAllowableOffset:String(maxOffset),geometryPrecision:'4',
+        resultOffset:String(offset),resultRecordCount:'2000',f:'geojson'
+      });
+      return fetchJsonWithTimeout(`${REF_FS}/${layerId}/query?${q.toString()}`,7000);
+    }
+
+    async _fetchPagedLayer(layerId,b,maxOffset,maxPages=3){
+      const features=[];
+      for(let page=0;page<maxPages;page++){
+        const d=await this._fetchLayerPage(layerId,b,page*2000,maxOffset);
+        const batch=d?.features||[];
+        features.push(...batch);
+        if(batch.length<2000)break;
+      }
+      return{type:'FeatureCollection',features};
+    }
+
+    async _refreshReference(force=false){
+      if(!this.referenceEnabled)return;
+      const b=this.map.getBounds();
+      const key=[this.map.getZoom(),b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].map((v,i)=>i?Number(v).toFixed(1):v).join(',');
+      if(!force&&key===this._referenceKey)return;
+      this._referenceKey=key;
+      const simplify=this._referenceSimplify();
+      try{
+        const [states,counties]=await Promise.all([
+          this._fetchPagedLayer(3,b,simplify,1),
+          this._fetchPagedLayer(2,b,simplify,3)
+        ]);
+        if(!this.referenceEnabled)return;
+        this.stateLayer.clearLayers();this.stateLayer.addData(states);
+        this.countyLayer.clearLayers();this.countyLayer.addData(counties);
+      }catch(e){console.warn('State/county reference layer skipped/failed',e)}
+    }
+
+    async _loadAllCwas(){
+      if(this._allCwasLoaded)return;
+      const q=new URLSearchParams({
+        where:'1=1',outFields:'cwa',returnGeometry:'true',outSR:'4326',maxAllowableOffset:'.02',geometryPrecision:'4',f:'geojson'
+      });
+      try{
+        const d=await fetchJsonWithTimeout(`${REF_FS}/1/query?${q.toString()}`,7000);
+        this.allCwaLayer.clearLayers();this.allCwaLayer.addData(d);this._allCwasLoaded=true;
+      }catch(e){console.warn('All-CWA layer skipped/failed',e)}
+    }
+
+    async setAllCwaVisible(show){
+      this.allCwaEnabled=show;
+      if(show){await this._loadAllCwas();if(this.allCwaEnabled&&!this.map.hasLayer(this.allCwaLayer))this.allCwaLayer.addTo(this.map)}
+      else if(this.map.hasLayer(this.allCwaLayer))this.map.removeLayer(this.allCwaLayer);
+    }
+
+    setReferenceVisible(show){
+      this.referenceEnabled=show;
+      if(show){if(!this.map.hasLayer(this.referenceLayer))this.referenceLayer.addTo(this.map);this._refreshReference(true)}
+      else if(this.map.hasLayer(this.referenceLayer))this.map.removeLayer(this.referenceLayer);
+    }
+
     showConus(center){this.map.setView([center.lat,center.lon],4)}
     showLocal(bounds){this.map.fitBounds(bounds,{padding:[24,24],maxZoom:7})}
 
