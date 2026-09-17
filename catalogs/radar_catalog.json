@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-09-17T00:00:00Z",
+  "notes": "Starter catalog for the first MOB national-viewer case. scripts/update_noaa_radars.py expands this to the current NCEI NEXRAD/TDWR inventory while preserving manual tilt/range overrides and Climavision sites.",
+  "radars": {
+    "KAMX": {"name":"Miami, FL","network":"NEXRAD","lat":25.611083,"lon":-80.412667,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#8E44AD"},
+    "KBMX": {"name":"Birmingham, AL","network":"NEXRAD","lat":33.172417,"lon":-86.770167,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#7A3DB8"},
+    "KBYX": {"name":"Key West, FL","network":"NEXRAD","lat":24.597500,"lon":-81.703167,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#246BCE"},
+    "KDGX": {"name":"Jackson/Brandon, MS","network":"NEXRAD","lat":32.279944,"lon":-89.984444,"lowest_tilt_deg":0.3,"range_nm":124,"color":"#18A558"},
+    "KEOX": {"name":"Fort Novosel, AL","network":"NEXRAD","lat":31.460556,"lon":-85.459389,"lowest_tilt_deg":0.5,"range_nm":124,"color":"#00A7B5"},
+    "KEVX": {"name":"Eglin AFB, FL","network":"NEXRAD","lat":30.565033,"lon":-85.921667,"lowest_tilt_deg":0.3,"range_nm":124,"color":"#E6A700"},
+    "KHDC": {"name":"Hammond, LA","network":"NEXRAD","lat":30.519300,"lon":-90.407400,"lowest_tilt_deg":0.3,"range_nm":124,"color":"#1E90FF"},
+    "KJAX": {"name":"Jacksonville, FL","network":"NEXRAD","lat":30.484633,"lon":-81.701900,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#D35400"},
+    "KJGX": {"name":"Robins AFB, GA","network":"NEXRAD","lat":32.675683,"lon":-83.350833,"lowest_tilt_deg":0.5,"range_nm":124,"color":"#5D6D7E"},
+    "KLCH": {"name":"Lake Charles, LA","network":"NEXRAD","lat":30.125306,"lon":-93.215889,"lowest_tilt_deg":0.5,"range_nm":124,"color":"#C0392B"},
+    "KMOB": {"name":"Mobile, AL","network":"NEXRAD","lat":30.679444,"lon":-88.240000,"lowest_tilt_deg":0.2,"range_nm":124,"color":"#D7191C"},
+    "KMXX": {"name":"Maxwell AFB, AL","network":"NEXRAD","lat":32.536650,"lon":-85.789750,"lowest_tilt_deg":0.5,"range_nm":124,"color":"#F28E2B"},
+    "KPOE": {"name":"Fort Johnson, LA","network":"NEXRAD","lat":31.155278,"lon":-92.976111,"lowest_tilt_deg":0.5,"range_nm":124,"color":"#A23B72"},
+    "KTLH": {"name":"Tallahassee, FL","network":"NEXRAD","lat":30.397583,"lon":-84.328944,"lowest_tilt_deg":0.3,"range_nm":124,"color":"#2E86AB"},
+    "KVAX": {"name":"Moody AFB, GA","network":"NEXRAD","lat":30.890278,"lon":-83.001806,"lowest_tilt_deg":0.4,"range_nm":124,"color":"#6A994E"},
+    "TFLL": {"name":"Fort Lauderdale TDWR","network":"TDWR","lat":26.143056,"lon":-80.343889,"lowest_tilt_deg":0.3,"range_nm":48,"color":"#8B5CF6"},
+    "TMIA": {"name":"Miami TDWR","network":"TDWR","lat":25.758056,"lon":-80.491111,"lowest_tilt_deg":0.3,"range_nm":48,"color":"#0EA5E9"},
+    "TMSY": {"name":"New Orleans TDWR","network":"TDWR","lat":30.021944,"lon":-90.403056,"lowest_tilt_deg":0.3,"range_nm":48,"color":"#F4D03F"},
+    "TPBI": {"name":"West Palm Beach TDWR","network":"TDWR","lat":26.688056,"lon":-80.273056,"lowest_tilt_deg":0.3,"range_nm":48,"color":"#EC4899"},
+    "V001": {"name":"Climavision V001","network":"CLIMAVISION","lat":31.990000,"lon":-87.580000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#FF1493"},
+    "V014": {"name":"Climavision V014","network":"CLIMAVISION","lat":29.440000,"lon":-90.580000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00B894"},
+    "V018": {"name":"Climavision V018","network":"CLIMAVISION","lat":30.920000,"lon":-91.330000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#9B59B6"},
+    "V179": {"name":"Climavision V179","network":"CLIMAVISION","lat":32.420000,"lon":-88.620000,"lowest_tilt_deg":0.5,"range_nm":40,"color":"#00C853"}
+  }
+}
