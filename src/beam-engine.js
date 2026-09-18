@@ -67,6 +67,28 @@
     ];
   }
 
+  function mixRgb(a,b,t){
+    const q=Math.max(0,Math.min(1,t));
+    return[
+      Math.round(a[0]+(b[0]-a[0])*q),
+      Math.round(a[1]+(b[1]-a[1])*q),
+      Math.round(a[2]+(b[2]-a[2])*q)
+    ];
+  }
+
+  // Preserve each radar's assigned hue while using brightness as a visual
+  // proxy for beam height: low ARL = lighter, high ARL = darker.
+  function heightShadedRgb(baseRgb,heightFt,maxHeightFt=18000){
+    const t=Math.max(0,Math.min(1,heightFt/maxHeightFt));
+    const curved=Math.pow(t,.72);
+    if(curved<=.5){
+      const towardWhite=((.5-curved)/.5)*.58;
+      return mixRgb(baseRgb,[255,255,255],towardWhite);
+    }
+    const towardBlack=((curved-.5)/.5)*.48;
+    return mixRgb(baseRgb,[0,0,0],towardBlack);
+  }
+
   async function computeMosaic(bounds,radars,opts={}){
     const targetWidth=opts.width||620;
     const maxHeight=opts.maxHeight||520;
@@ -144,11 +166,12 @@
     const image=ctx.createImageData(width,height);
     const colorCache=radars.map(r=>parseHex(r.color||'#3887be'));
     const alpha=Math.round(opacity*255);
+    const shadeMaxFt=opts.shadeMaxFt||18000;
 
     for(let i=0;i<count;i++){
       const ri=winner[i];
       if(ri<0)continue;
-      const[rr,gg,bb]=colorCache[ri],p=i*4;
+      const[rr,gg,bb]=heightShadedRgb(colorCache[ri],minHeight[i],shadeMaxFt),p=i*4;
       image.data[p]=rr;
       image.data[p+1]=gg;
       image.data[p+2]=bb;
@@ -198,6 +221,7 @@
     nearestRadarAt,
     haversineMeters,
     computeMosaic,
-    sampleMosaic
+    sampleMosaic,
+    heightShadedRgb
   };
 })();
