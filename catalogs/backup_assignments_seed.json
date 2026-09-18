@@ -1,0 +1,1003 @@
+{
+  "_meta": {
+    "description": "Official backup assignments transcribed from NWS regional backup directives. Roles not listed here are filled as provisional nearby offices by the national catalog builder.",
+    "sources": {
+      "SR": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf",
+      "CR": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf",
+      "WR": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+    }
+  },
+  "ABQ": {
+    "primary": "EPZ",
+    "secondary": "AMA",
+    "tertiary": "MAF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "AMA": {
+    "primary": "LUB",
+    "secondary": "ABQ",
+    "tertiary": "TSA",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "FFC": {
+    "primary": "BMX",
+    "secondary": "MRX",
+    "tertiary": "JAN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "BMX": {
+    "primary": "FFC",
+    "secondary": "HUN",
+    "tertiary": "LZK",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "BRO": {
+    "primary": "LCH",
+    "secondary": "EWX",
+    "tertiary": "SJU",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "CRP": {
+    "primary": "EWX",
+    "secondary": "HGX",
+    "tertiary": "MLB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "EPZ": {
+    "primary": "ABQ",
+    "secondary": "MAF",
+    "tertiary": "SJT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "FWD": {
+    "primary": "SHV",
+    "secondary": "OUN",
+    "tertiary": "OHX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "HUN": {
+    "primary": "JAN",
+    "secondary": "BMX",
+    "tertiary": "MRX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "HGX": {
+    "primary": "LCH",
+    "secondary": "CRP",
+    "tertiary": "TAE",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "JAN": {
+    "primary": "HUN",
+    "secondary": "SHV",
+    "tertiary": "FFC",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "JAX": {
+    "primary": "TAE",
+    "secondary": "KEY",
+    "tertiary": "LIX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "KEY": {
+    "primary": "MFL",
+    "secondary": "JAX",
+    "tertiary": "MOB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "LCH": {
+    "primary": "HGX",
+    "secondary": "LIX",
+    "tertiary": "TBW",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "LZK": {
+    "primary": "MEG",
+    "secondary": "TSA",
+    "tertiary": "BMX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "LUB": {
+    "primary": "AMA",
+    "secondary": "SJT",
+    "tertiary": "OUN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "MLB": {
+    "primary": "TBW",
+    "secondary": "SJU",
+    "tertiary": "CRP",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "MEG": {
+    "primary": "LZK",
+    "secondary": "OHX",
+    "tertiary": "SHV",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "MFL": {
+    "primary": "KEY",
+    "secondary": "TBW",
+    "tertiary": "EWX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "MAF": {
+    "primary": "SJT",
+    "secondary": "EPZ",
+    "tertiary": "ABQ",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "MOB": {
+    "primary": "LIX",
+    "secondary": "TAE",
+    "tertiary": "KEY",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "MRX": {
+    "primary": "OHX",
+    "secondary": "FFC",
+    "tertiary": "HUN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "OHX": {
+    "primary": "MRX",
+    "secondary": "MEG",
+    "tertiary": "FWD",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "LIX": {
+    "primary": "MOB",
+    "secondary": "LCH",
+    "tertiary": "JAX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "OUN": {
+    "primary": "TSA",
+    "secondary": "FWD",
+    "tertiary": "LUB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "SJT": {
+    "primary": "MAF",
+    "secondary": "LUB",
+    "tertiary": "EPZ",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "EWX": {
+    "primary": "CRP",
+    "secondary": "BRO",
+    "tertiary": "MFL",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "SJU": {
+    "primary": "MFL",
+    "secondary": "MLB",
+    "tertiary": "BRO",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "SHV": {
+    "primary": "FWD",
+    "secondary": "JAN",
+    "tertiary": "MEG",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "TAE": {
+    "primary": "JAX",
+    "secondary": "MOB",
+    "tertiary": "HGX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "TBW": {
+    "primary": "MLB",
+    "secondary": "MFL",
+    "tertiary": "LCH",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "TSA": {
+    "primary": "OUN",
+    "secondary": "LZK",
+    "tertiary": "AMA",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "SR"
+  },
+  "ABR": {
+    "primary": "FSD",
+    "secondary": "BIS",
+    "tertiary": "GLD",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "APX": {
+    "primary": "MQT",
+    "secondary": "DTX",
+    "tertiary": "LOT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "ARX": {
+    "primary": "DMX",
+    "secondary": "DVN",
+    "tertiary": "DLH",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "BIS": {
+    "primary": "FGF",
+    "secondary": "ABR",
+    "tertiary": "GID",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "CYS": {
+    "primary": "RIW",
+    "secondary": "UNR",
+    "tertiary": "TOP",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "DDC": {
+    "primary": "GLD",
+    "secondary": "ICT",
+    "tertiary": "FGF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "BOU": {
+    "primary": "PUB",
+    "secondary": "GJT",
+    "tertiary": "MPX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "DLH": {
+    "primary": "MPX",
+    "secondary": "FGF",
+    "tertiary": "ARX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "DMX": {
+    "primary": "DVN",
+    "secondary": "OAX",
+    "tertiary": "LBF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "DTX": {
+    "primary": "GRR",
+    "secondary": "APX",
+    "tertiary": "MQT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "DVN": {
+    "primary": "ARX",
+    "secondary": "DMX",
+    "tertiary": "PAH",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "EAX": {
+    "primary": "SGF",
+    "secondary": "TOP",
+    "tertiary": "LMK",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "FGF": {
+    "primary": "BIS",
+    "secondary": "DLH",
+    "tertiary": "DDC",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "FSD": {
+    "primary": "ABR",
+    "secondary": "MPX",
+    "tertiary": "ILX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "GID": {
+    "primary": "OAX",
+    "secondary": "LBF",
+    "tertiary": "BIS",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "GJT": {
+    "primary": "SLC",
+    "secondary": "BOU",
+    "tertiary": "UNR",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "GLD": {
+    "primary": "DDC",
+    "secondary": "PUB",
+    "tertiary": "ABR",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "GRB": {
+    "primary": "MKX",
+    "secondary": "MQT",
+    "tertiary": "GRR",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "GRR": {
+    "primary": "DTX",
+    "secondary": "IWX",
+    "tertiary": "GRB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "ICT": {
+    "primary": "TOP",
+    "secondary": "DDC",
+    "tertiary": "IND",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "ILX": {
+    "primary": "LOT",
+    "secondary": "LSX",
+    "tertiary": "FSD",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "IND": {
+    "primary": "IWX",
+    "secondary": "LMK",
+    "tertiary": "ICT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "IWX": {
+    "primary": "IND",
+    "secondary": "GRR",
+    "tertiary": "MKX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "JKL": {
+    "primary": "ILN",
+    "secondary": "RLX",
+    "tertiary": "SGF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "LBF": {
+    "primary": "UNR",
+    "secondary": "GID",
+    "tertiary": "DMX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "LMK": {
+    "primary": "PAH",
+    "secondary": "IND",
+    "tertiary": "EAX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "LOT": {
+    "primary": "ILX",
+    "secondary": "MKX",
+    "tertiary": "APX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "LSX": {
+    "primary": "EAX",
+    "secondary": "ILX",
+    "tertiary": "OAX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "MKX": {
+    "primary": "GRB",
+    "secondary": "LOT",
+    "tertiary": "IWX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "MPX": {
+    "primary": "DLH",
+    "secondary": "ARX",
+    "tertiary": "BOU",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "MQT": {
+    "primary": "APX",
+    "secondary": "GRB",
+    "tertiary": "DTX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "OAX": {
+    "primary": "GID",
+    "secondary": "FSD",
+    "tertiary": "LSX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "PAH": {
+    "primary": "LMK",
+    "secondary": "SGF",
+    "tertiary": "DVN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "PUB": {
+    "primary": "BOU",
+    "secondary": "GLD",
+    "tertiary": "RIW",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "RIW": {
+    "primary": "CYS",
+    "secondary": "BYZ",
+    "tertiary": "PUB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "SGF": {
+    "primary": "LSX",
+    "secondary": "PAH",
+    "tertiary": "JKL",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "TOP": {
+    "primary": "ICT",
+    "secondary": "EAX",
+    "tertiary": "CYS",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "UNR": {
+    "primary": "LBF",
+    "secondary": "CYS",
+    "tertiary": "GJT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "region": "CR"
+  },
+  "GGW": {
+    "primary": "BYZ",
+    "secondary": "TFX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "BYZ": {
+    "primary": "GGW",
+    "secondary": "RIW",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "TFX": {
+    "primary": "MSO",
+    "secondary": "GGW",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "MSO": {
+    "primary": "TFX",
+    "secondary": "OTX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "PIH": {
+    "primary": "BOI",
+    "secondary": "SLC",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "BOI": {
+    "primary": "PIH",
+    "secondary": "PDT",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "OTX": {
+    "primary": "PDT",
+    "secondary": "MSO",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "PDT": {
+    "primary": "OTX",
+    "secondary": "SEW",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "SEW": {
+    "primary": "PQR",
+    "secondary": "MFR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "PQR": {
+    "primary": "SEW",
+    "secondary": "MFR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "MFR": {
+    "primary": "EKA",
+    "secondary": "PQR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "EKA": {
+    "primary": "MFR",
+    "secondary": "MTR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "STO": {
+    "primary": "HNX",
+    "secondary": "REV",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "MTR": {
+    "primary": "LOX",
+    "secondary": "EKA",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "HNX": {
+    "primary": "STO",
+    "secondary": "SGX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "LOX": {
+    "primary": "SGX",
+    "secondary": "MTR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "SGX": {
+    "primary": "LOX",
+    "secondary": "MTR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "PSR": {
+    "primary": "TWC",
+    "secondary": "VEF",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "TWC": {
+    "primary": "PSR",
+    "secondary": "FGZ",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "FGZ": {
+    "primary": "VEF",
+    "secondary": "PSR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "VEF": {
+    "primary": "FGZ",
+    "secondary": "REV",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "REV": {
+    "primary": "LKN",
+    "secondary": "STO",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "LKN": {
+    "primary": "REV",
+    "secondary": "BOI",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "SLC": {
+    "primary": "GJT",
+    "secondary": "PIH",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "region": "WR"
+  },
+  "HFO": {
+    "primary": "MTR",
+    "verified_roles": [
+      "primary"
+    ],
+    "region": "WR"
+  }
+}
