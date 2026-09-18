@@ -6,43 +6,117 @@
       "name": "Mobile/Pensacola",
       "description": "WFO MOB — home office with LIX / TAE / KEY backup groups",
       "selectable": true,
-      "center": {"lat": 30.68, "lon": -88.24},
-      "radars": ["KMOB", "KDGX", "KBMX", "KMXX", "KEOX", "KEVX", "KHDC", "V179", "V001"]
+      "center": {
+        "lat": 30.68,
+        "lon": -88.24
+      },
+      "radars": [
+        "KMOB",
+        "KDGX",
+        "KBMX",
+        "KMXX",
+        "KEOX",
+        "KEVX",
+        "KHDC",
+        "V179",
+        "V001"
+      ]
     },
     "LIX": {
       "name": "New Orleans/Baton Rouge",
       "description": "WFO LIX — home office with MOB / LCH / JAX backup groups",
       "selectable": true,
-      "center": {"lat": 30.34, "lon": -89.83},
-      "radars": ["KHDC", "KMOB", "KDGX", "KPOE", "KLCH", "TMSY", "V018", "V015", "V014"]
+      "center": {
+        "lat": 30.34,
+        "lon": -89.83
+      },
+      "radars": [
+        "KHDC",
+        "KMOB",
+        "KDGX",
+        "KPOE",
+        "KLCH",
+        "TMSY",
+        "V018",
+        "V015",
+        "V014"
+      ]
     },
     "TAE": {
       "name": "Tallahassee",
       "description": "Configured as MOB secondary backup.",
       "selectable": false,
-      "center": {"lat": 30.40, "lon": -84.33},
-      "radars": ["KEVX", "KMOB", "KEOX", "KMXX", "KTLH", "KVAX", "KJAX", "KJGX"]
+      "center": {
+        "lat": 30.4,
+        "lon": -84.33
+      },
+      "radars": [
+        "KEVX",
+        "KMOB",
+        "KEOX",
+        "KMXX",
+        "KTLH",
+        "KVAX",
+        "KJAX",
+        "KJGX"
+      ]
     },
     "KEY": {
       "name": "Key West",
       "description": "Configured as MOB tertiary backup.",
       "selectable": false,
-      "center": {"lat": 24.60, "lon": -81.70},
-      "radars": ["KBYX", "KAMX", "TMIA", "TFLL", "TPBI"]
+      "center": {
+        "lat": 24.6,
+        "lon": -81.7
+      },
+      "radars": [
+        "KBYX",
+        "KAMX",
+        "TMIA",
+        "TFLL",
+        "TPBI"
+      ]
     },
     "LCH": {
       "name": "Lake Charles",
       "description": "Starter neighboring-radar ring for use as LIX secondary backup.",
       "selectable": false,
-      "center": {"lat": 30.13, "lon": -93.22},
-      "radars": ["KLCH", "KPOE", "KDGX", "KHDC", "KSHV", "KHGX", "TIAH", "THOU", "TMSY", "V015", "V018"]
+      "center": {
+        "lat": 30.13,
+        "lon": -93.22
+      },
+      "radars": [
+        "KLCH",
+        "KPOE",
+        "KDGX",
+        "KHDC",
+        "KSHV",
+        "KHGX",
+        "TIAH",
+        "THOU",
+        "TMSY",
+        "V015",
+        "V018"
+      ]
     },
     "JAX": {
       "name": "Jacksonville",
       "description": "Starter neighboring-radar ring for use as LIX tertiary backup.",
       "selectable": false,
-      "center": {"lat": 30.48, "lon": -81.70},
-      "radars": ["KJAX", "KTLH", "KVAX", "KJGX", "KEVX"]
+      "center": {
+        "lat": 30.48,
+        "lon": -81.7
+      },
+      "radars": [
+        "KJAX",
+        "KTLH",
+        "KVAX",
+        "KJGX",
+        "KEVX",
+        "KMLB",
+        "KTBW",
+        "TMCO"
+      ]
     }
   }
 }
