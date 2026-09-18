@@ -77,6 +77,65 @@
 
     <section class="map-wrap">
       <div id="map"></div>
+    <button id="toolsDrawerToggle" class="tools-drawer-toggle" type="button" aria-expanded="true" aria-controls="toolsDrawer">
+      Radar Tools
+    </button>
+
+    <aside id="toolsDrawer" class="tools-drawer open" aria-label="Radar tools">
+      <div class="tools-drawer-head">
+        <div>
+          <div class="eyebrow">RADAR TOOLS</div>
+          <div class="tools-drawer-title">Beam & Scanning Strategy</div>
+        </div>
+        <button id="toolsCloseBtn" class="drawer-close" type="button" aria-label="Close radar tools">×</button>
+      </div>
+
+      <div class="tool-tabs" role="tablist" aria-label="Radar tools">
+        <button id="beamToolTab" class="tool-tab active" type="button" data-tool="beam" role="tab" aria-selected="true">Beam Height</button>
+        <button id="scanToolTab" class="tool-tab" type="button" data-tool="scan" role="tab" aria-selected="false">Scanning Strategy</button>
+      </div>
+
+      <section id="beamToolPanel" class="tool-panel">
+        <div class="tool-label">Selected radar</div>
+        <div id="selectedRadarBeam" class="selected-radar-card">Click a radar dot on the map.</div>
+
+        <div class="tool-label target-label">Target / comparison</div>
+        <div id="beamTargetReadout" class="tool-readout">
+          Select a radar, then click the map to compare that radar with the lowest beam available from the active WFO radar set.
+        </div>
+      </section>
+
+      <section id="scanToolPanel" class="tool-panel hidden" aria-hidden="true">
+        <div class="tool-label">Selected WSR-88D</div>
+        <div id="strategyRadarStatus" class="selected-radar-card">Click a WSR-88D radar dot on the map.</div>
+
+        <label class="tool-label" for="strategyRisk">Primary target risk</label>
+        <select id="strategyRisk" class="select-control strategy-select">
+          <option value="TOR">Tornadoes / Supercell / QLCS</option>
+          <option value="HAIL">Hail</option>
+          <option value="RAIN">Heavy Rain / Flooding</option>
+          <option value="WIND">Damaging Wind</option>
+          <option value="MICRO">Summer Microbursts</option>
+          <option value="WINTER">Winter / Sensitive</option>
+          <option value="LAND">Landspouts / Waterspouts</option>
+        </select>
+
+        <div id="strategyTargetInfo" class="strategy-target-info">
+          Click a WSR-88D radar, then click a target point on the map.
+        </div>
+
+        <div class="tool-label">Recommended strategy</div>
+        <div id="strategyRecommendation" class="strategy-recommendation">
+          No target selected.
+        </div>
+
+        <details class="strategy-reference">
+          <summary>Quick reference</summary>
+          <div id="strategyReferenceBody" class="strategy-reference-body"></div>
+        </details>
+      </section>
+    </aside>
+
       <div id="hoverReadout" class="hover-readout hidden"></div>
       <div id="busyOverlay" class="busy-overlay hidden">
         <div class="spinner"></div>
@@ -88,6 +147,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="./src/beam-engine.js"></script>
+  <script src="./src/scanning-strategy.js"></script>
   <script src="./src/map.js"></script>
   <script src="./src/app.js"></script>
 </body>
