@@ -1,23 +1,81 @@
 {
-  "KMOB": {"lowest_tilt_deg": 0.2},
-  "KDGX": {"lowest_tilt_deg": 0.3},
-  "KBMX": {"lowest_tilt_deg": 0.4},
-  "KMXX": {"lowest_tilt_deg": 0.5},
-  "KEOX": {"lowest_tilt_deg": 0.5},
-  "KEVX": {"lowest_tilt_deg": 0.3},
-  "KHDC": {"lowest_tilt_deg": 0.3},
-  "KTLH": {"lowest_tilt_deg": 0.3},
-  "KVAX": {"lowest_tilt_deg": 0.4},
-  "KJAX": {"lowest_tilt_deg": 0.4},
-  "KJGX": {"lowest_tilt_deg": 0.5},
-  "KPOE": {"lowest_tilt_deg": 0.5},
-  "KLCH": {"lowest_tilt_deg": 0.5},
-  "KBYX": {"lowest_tilt_deg": 0.4},
-  "KAMX": {"lowest_tilt_deg": 0.4},
-  "TMSY": {"lowest_tilt_deg": 0.3, "range_nm": 48},
-  "TMIA": {"lowest_tilt_deg": 0.3, "range_nm": 48},
-  "TFLL": {"lowest_tilt_deg": 0.3, "range_nm": 48},
-  "TPBI": {"lowest_tilt_deg": 0.3, "range_nm": 48},
-  "TIAH": {"lowest_tilt_deg": 0.3, "range_nm": 48},
-  "THOU": {"lowest_tilt_deg": 0.3, "range_nm": 48}
+  "KAMX": {
+    "lowest_tilt_deg": 0.4
+  },
+  "KBMX": {
+    "lowest_tilt_deg": 0.4
+  },
+  "KBYX": {
+    "lowest_tilt_deg": 0.4
+  },
+  "KDGX": {
+    "lowest_tilt_deg": 0.3
+  },
+  "KEOX": {
+    "lowest_tilt_deg": 0.5
+  },
+  "KEVX": {
+    "lowest_tilt_deg": 0.3
+  },
+  "KHDC": {
+    "lowest_tilt_deg": 0.3
+  },
+  "KJAX": {
+    "lowest_tilt_deg": 0.4
+  },
+  "KJGX": {
+    "lowest_tilt_deg": 0.5
+  },
+  "KLCH": {
+    "lowest_tilt_deg": 0.5
+  },
+  "KMLB": {
+    "lowest_tilt_deg": 0.5
+  },
+  "KMOB": {
+    "lowest_tilt_deg": 0.2
+  },
+  "KMXX": {
+    "lowest_tilt_deg": 0.5
+  },
+  "KPOE": {
+    "lowest_tilt_deg": 0.5
+  },
+  "KTBW": {
+    "lowest_tilt_deg": 0.4
+  },
+  "KTLH": {
+    "lowest_tilt_deg": 0.3
+  },
+  "KVAX": {
+    "lowest_tilt_deg": 0.4
+  },
+  "TFLL": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  },
+  "THOU": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  },
+  "TIAH": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  },
+  "TMCO": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  },
+  "TMIA": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  },
+  "TMSY": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  },
+  "TPBI": {
+    "lowest_tilt_deg": 0.3,
+    "range_nm": 48
+  }
 }
