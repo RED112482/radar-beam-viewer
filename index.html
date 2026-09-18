@@ -103,11 +103,11 @@
       </div>
 
       <div class="tool-tabs" role="tablist" aria-label="Radar tools">
-        <button id="beamToolTab" class="tool-tab active" type="button" data-tool="beam" role="tab" aria-selected="true">Beam Height</button>
-        <button id="scanToolTab" class="tool-tab" type="button" data-tool="scan" role="tab" aria-selected="false">Scanning Strategy</button>
+        <button id="beamToolTab" class="tool-tab" type="button" data-tool="beam" role="tab" aria-selected="false">Beam Height</button>
+        <button id="scanToolTab" class="tool-tab active" type="button" data-tool="scan" role="tab" aria-selected="true">Scanning Strategy</button>
       </div>
 
-      <section id="beamToolPanel" class="tool-panel">
+      <section id="beamToolPanel" class="tool-panel hidden">
         <div class="tool-label">Selected radar</div>
         <div id="selectedRadarBeam" class="selected-radar-card">Click a radar dot on the map.</div>
 
@@ -117,7 +117,7 @@
         </div>
       </section>
 
-      <section id="scanToolPanel" class="tool-panel hidden" aria-hidden="true">
+      <section id="scanToolPanel" class="tool-panel" aria-hidden="false">
         <div class="tool-label">Selected WSR-88D</div>
         <div id="strategyRadarStatus" class="selected-radar-card">Click a WSR-88D radar dot on the map.</div>
 
