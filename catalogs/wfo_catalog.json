@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
-  "updated_utc": "2026-09-18T19:58:53Z",
+  "updated_utc": "2026-09-18T20:01:02Z",
   "default_wfo": "MOB",
   "generation": {
     "source": "NOAA/NWS CWA FeatureServer + radar_catalog.json",
     "cwa_url": "https://mapservices.weather.noaa.gov/static/rest/services/nws_reference_maps/nws_reference_map/FeatureServer/1/query",
     "radar_margin_nm": 25.0,
     "supplemental_max_gap_nm": {
-      "NEXRAD": 70.0,
-      "TDWR": 40.0,
-      "TERMINAL": 40.0,
+      "NEXRAD": 100.0,
+      "TDWR": 50.0,
+      "TERMINAL": 50.0,
       "CLIMAVISION": 35.0
     },
     "wfo_count": 125
@@ -29,7 +29,9 @@
         "KFDX",
         "KHDX",
         "KLBB",
-        "KAMA"
+        "KAMA",
+        "KEPZ",
+        "KPUX"
       ],
       "nearby_wfos": [
         "EPZ",
@@ -51,7 +53,9 @@
         "KABR",
         "V055",
         "KBIS",
-        "KFSD"
+        "KFSD",
+        "KUDX",
+        "KMVX"
       ],
       "nearby_wfos": [
         "FSD",
@@ -73,7 +77,8 @@
         "PABC",
         "PAHG",
         "PAIH",
-        "PAKC"
+        "PAKC",
+        "PAPD"
       ],
       "nearby_wfos": [
         "AFG",
@@ -113,7 +118,8 @@
       },
       "region": "AR",
       "radars": [
-        "PACG"
+        "PACG",
+        "PAIH"
       ],
       "nearby_wfos": [
         "AFC",
@@ -140,7 +146,9 @@
         "TRDU",
         "KLWX",
         "KRAX",
-        "KMHX"
+        "KMHX",
+        "KFCX",
+        "KDIX"
       ],
       "nearby_wfos": [
         "LWX",
@@ -163,7 +171,9 @@
         "KTYX",
         "KOKX",
         "KCXX",
-        "KBGM"
+        "KBGM",
+        "KBOX",
+        "KDIX"
       ],
       "nearby_wfos": [
         "BGM",
@@ -187,7 +197,8 @@
         "KFDX",
         "KDDC",
         "KFDR",
-        "KLBB"
+        "KLBB",
+        "KVNX"
       ],
       "nearby_wfos": [
         "LUB",
@@ -207,7 +218,10 @@
       "region": "CR",
       "radars": [
         "KAPX",
-        "KGRR"
+        "KGRR",
+        "KMQT",
+        "KDTX",
+        "KGRB"
       ],
       "nearby_wfos": [
         "GRR",
@@ -231,7 +245,8 @@
         "KMPX",
         "KDVN",
         "KMKX",
-        "KGRB"
+        "KGRB",
+        "KDMX"
       ],
       "nearby_wfos": [
         "MKX",
@@ -253,8 +268,12 @@
         "KBGM",
         "KTYX",
         "KENX",
+        "TEWR",
         "KBUF",
-        "KCCX"
+        "KCCX",
+        "KDIX",
+        "KOKX",
+        "KCXX"
       ],
       "nearby_wfos": [
         "BUF",
@@ -304,7 +323,11 @@
         "V002",
         "KFFC",
         "KHTX",
-        "KEVX"
+        "KEVX",
+        "KMOB",
+        "KDGX",
+        "KJGX",
+        "KTLH"
       ],
       "nearby_wfos": [
         "HUN",
@@ -325,7 +348,9 @@
       "radars": [
         "KCBX",
         "KPDT",
-        "KSFX"
+        "KSFX",
+        "KLRX",
+        "KMTX"
       ],
       "nearby_wfos": [
         "PDT",
@@ -348,7 +373,9 @@
         "TDEN",
         "KPUX",
         "KCYS",
-        "KGLD"
+        "KGLD",
+        "KLNX",
+        "KGJX"
       ],
       "nearby_wfos": [
         "CYS",
@@ -413,7 +440,8 @@
         "KCXX",
         "KTYX",
         "KENX",
-        "KGYX"
+        "KGYX",
+        "KBOX"
       ],
       "nearby_wfos": [
         "ALY",
@@ -436,7 +464,10 @@
         "KTYX",
         "V109",
         "KBGM",
-        "KCCX"
+        "KCCX",
+        "KENX",
+        "KCXX",
+        "KPBZ"
       ],
       "nearby_wfos": [
         "BGM",
@@ -456,7 +487,9 @@
       "region": "WR",
       "radars": [
         "KBLX",
-        "KTFX"
+        "KTFX",
+        "KUDX",
+        "KGGW"
       ],
       "nearby_wfos": [
         "GGW",
@@ -482,7 +515,10 @@
         "V024",
         "V025",
         "KGSP",
-        "KJGX"
+        "KJGX",
+        "KLTX",
+        "KRAX",
+        "KFFC"
       ],
       "nearby_wfos": [
         "CHS",
@@ -526,7 +562,8 @@
         "KCAE",
         "KJAX",
         "KJGX",
-        "KLTX"
+        "KLTX",
+        "KVAX"
       ],
       "nearby_wfos": [
         "CAE",
@@ -552,9 +589,12 @@
         "TDTW",
         "TPIT",
         "KPBZ",
+        "TDAY",
         "KDTX",
         "KBUF",
-        "KILN"
+        "KILN",
+        "KIWX",
+        "KCCX"
       ],
       "nearby_wfos": [
         "PBZ",
@@ -576,7 +616,10 @@
         "KCRP",
         "V037",
         "KEWX",
-        "KDFX"
+        "KDFX",
+        "KHGX",
+        "KBRO",
+        "KGRK"
       ],
       "nearby_wfos": [
         "BRO",
@@ -627,7 +670,9 @@
       "radars": [
         "KCYS",
         "KRIW",
-        "KUDX"
+        "KUDX",
+        "KFTG",
+        "KLNX"
       ],
       "nearby_wfos": [
         "BOU",
@@ -649,8 +694,10 @@
         "KDDC",
         "KVNX",
         "V031",
+        "TICH",
         "KICT",
-        "KGLD"
+        "KGLD",
+        "KUEX"
       ],
       "nearby_wfos": [
         "GLD",
@@ -670,7 +717,11 @@
       "region": "CR",
       "radars": [
         "KDLH",
-        "KMPX"
+        "TMSP",
+        "KMPX",
+        "KARX",
+        "KGRB",
+        "KMQT"
       ],
       "nearby_wfos": [
         "MPX",
@@ -691,7 +742,10 @@
       "radars": [
         "KDMX",
         "KOAX",
-        "KARX"
+        "KARX",
+        "KDVN",
+        "KFSD",
+        "KMPX"
       ],
       "nearby_wfos": [
         "DVN",
@@ -738,7 +792,9 @@
         "KMKX",
         "KLOT",
         "KILX",
-        "KDMX"
+        "KDMX",
+        "KARX",
+        "KLSX"
       ],
       "nearby_wfos": [
         "LOT",
@@ -764,7 +820,8 @@
         "KTWX",
         "KOAX",
         "KSGF",
-        "KDMX"
+        "KDMX",
+        "KLSX"
       ],
       "nearby_wfos": [
         "TOP",
@@ -786,7 +843,8 @@
         "KBHX",
         "KMAX",
         "KDAX",
-        "KBBX"
+        "KBBX",
+        "KMUX"
       ],
       "nearby_wfos": [
         "STO",
@@ -806,7 +864,9 @@
       "region": "SR",
       "radars": [
         "KEPZ",
-        "KHDX"
+        "KHDX",
+        "KEMX",
+        "KABX"
       ],
       "nearby_wfos": [
         "ABQ",
@@ -831,7 +891,10 @@
         "V037",
         "V038",
         "KCRP",
-        "KSJT"
+        "KSJT",
+        "KHGX",
+        "KFWS",
+        "KDYX"
       ],
       "nearby_wfos": [
         "CRP",
@@ -860,7 +923,14 @@
         "KEOX",
         "KCLX",
         "KVAX",
-        "KGSP"
+        "KGSP",
+        "KCAE",
+        "KMRX",
+        "KBMX",
+        "KTLH",
+        "KOHX",
+        "KJAX",
+        "KEVX"
       ],
       "nearby_wfos": [
         "BMX",
@@ -882,7 +952,9 @@
         "KMVX",
         "V055",
         "KABR",
-        "KMBX"
+        "KMBX",
+        "KBIS",
+        "KDLH"
       ],
       "nearby_wfos": [
         "DLH",
@@ -904,7 +976,8 @@
         "KFSX",
         "TPHX",
         "KICX",
-        "KIWA"
+        "KIWA",
+        "KESX"
       ],
       "nearby_wfos": [
         "PSR",
@@ -925,7 +998,10 @@
       "radars": [
         "KFSD",
         "KABR",
-        "KOAX"
+        "KOAX",
+        "KMPX",
+        "KDMX",
+        "KLNX"
       ],
       "nearby_wfos": [
         "OAX",
@@ -955,7 +1031,11 @@
         "V038",
         "V039",
         "KFDR",
-        "KEWX"
+        "KEWX",
+        "KSJT",
+        "KSHV",
+        "KTLX",
+        "KSRX"
       ],
       "nearby_wfos": [
         "SJT",
@@ -996,7 +1076,11 @@
       "radars": [
         "KUEX",
         "KOAX",
-        "KLNX"
+        "KLNX",
+        "KGLD",
+        "KTWX",
+        "KDDC",
+        "KICT"
       ],
       "nearby_wfos": [
         "OAX",
@@ -1015,7 +1099,11 @@
       },
       "region": "CR",
       "radars": [
-        "KGJX"
+        "KGJX",
+        "KFTG",
+        "KCYS",
+        "KPUX",
+        "KICX"
       ],
       "nearby_wfos": [
         "SLC",
@@ -1038,7 +1126,8 @@
         "KPUX",
         "KDDC",
         "KUEX",
-        "KFTG"
+        "KFTG",
+        "KLNX"
       ],
       "nearby_wfos": [
         "DDC",
@@ -1060,7 +1149,9 @@
         "KGRB",
         "KMQT",
         "KARX",
-        "KMKX"
+        "KMKX",
+        "KAPX",
+        "KDLH"
       ],
       "nearby_wfos": [
         "MQT",
@@ -1083,7 +1174,10 @@
         "TDTW",
         "KDTX",
         "KIWX",
-        "KAPX"
+        "KAPX",
+        "KGRB",
+        "KLOT",
+        "KMKX"
       ],
       "nearby_wfos": [
         "DTX",
@@ -1109,7 +1203,12 @@
         "KMRX",
         "V011",
         "KCAE",
-        "KFCX"
+        "KFCX",
+        "KFFC",
+        "KJGX",
+        "KRAX",
+        "KCLX",
+        "KJKL"
       ],
       "nearby_wfos": [
         "CAE",
@@ -1151,7 +1250,8 @@
         "TBOS",
         "KBOX",
         "KCXX",
-        "KENX"
+        "KENX",
+        "KCBW"
       ],
       "nearby_wfos": [
         "BTV",
@@ -1199,7 +1299,10 @@
         "V038",
         "KGRK",
         "KEWX",
-        "KLCH"
+        "KLCH",
+        "KCRP",
+        "KPOE",
+        "KSHV"
       ],
       "nearby_wfos": [
         "LCH",
@@ -1223,7 +1326,9 @@
         "KVTX",
         "KMUX",
         "KVBX",
-        "KSOX"
+        "KSOX",
+        "KDAX",
+        "KRGX"
       ],
       "nearby_wfos": [
         "LOX",
@@ -1247,7 +1352,11 @@
         "KGWX",
         "TBNA",
         "KBMX",
-        "KOHX"
+        "KOHX",
+        "KFFC",
+        "KNQA",
+        "KHPX",
+        "KMXX"
       ],
       "nearby_wfos": [
         "OHX",
@@ -1274,7 +1383,8 @@
         "KINX",
         "KDDC",
         "KEAX",
-        "KUEX"
+        "KUEX",
+        "KSGF"
       ],
       "nearby_wfos": [
         "TOP",
@@ -1327,7 +1437,9 @@
         "KIND",
         "KLVX",
         "KRLX",
-        "KIWX"
+        "KIWX",
+        "KCLE",
+        "KPBZ"
       ],
       "nearby_wfos": [
         "IND",
@@ -1349,9 +1461,13 @@
         "KILX",
         "KVWX",
         "KDVN",
+        "TSTL",
         "KLSX",
         "KLOT",
-        "KIND"
+        "KIND",
+        "KLVX",
+        "KPAH",
+        "KIWX"
       ],
       "nearby_wfos": [
         "LOT",
@@ -1374,9 +1490,14 @@
         "TIDS",
         "KVWX",
         "TDAY",
+        "TCVG",
+        "TSDF",
         "KLVX",
         "KIWX",
-        "KILN"
+        "KILN",
+        "KLOT",
+        "KILX",
+        "KPAH"
       ],
       "nearby_wfos": [
         "IWX",
@@ -1399,10 +1520,13 @@
         "TDTW",
         "TDAY",
         "TMDW",
+        "TORD",
         "KIND",
         "KGRR",
         "KLOT",
-        "KDTX"
+        "KDTX",
+        "KILN",
+        "KCLE"
       ],
       "nearby_wfos": [
         "IND",
@@ -1429,7 +1553,12 @@
         "V018",
         "KHDC",
         "KMOB",
-        "KPOE"
+        "KPOE",
+        "KBMX",
+        "KLZK",
+        "KNQA",
+        "KSHV",
+        "KLCH"
       ],
       "nearby_wfos": [
         "LIX",
@@ -1480,7 +1609,10 @@
         "V090",
         "TCVG",
         "KRLX",
-        "KILN"
+        "KILN",
+        "KLVX",
+        "KOHX",
+        "KFCX"
       ],
       "nearby_wfos": [
         "MRX",
@@ -1525,7 +1657,10 @@
         "KLNX",
         "KUEX",
         "KGLD",
-        "KUDX"
+        "KUDX",
+        "KFSD",
+        "KOAX",
+        "KCYS"
       ],
       "nearby_wfos": [
         "GID",
@@ -1601,7 +1736,12 @@
       },
       "region": "WR",
       "radars": [
-        "KLRX"
+        "KLRX",
+        "KMTX",
+        "KRGX",
+        "KICX",
+        "KCBX",
+        "KSFX"
       ],
       "nearby_wfos": [
         "REV",
@@ -1631,7 +1771,10 @@
         "KJKL",
         "TBNA",
         "KILN",
-        "KIND"
+        "KIND",
+        "KPAH",
+        "KMRX",
+        "KRLX"
       ],
       "nearby_wfos": [
         "JKL",
@@ -1658,7 +1801,8 @@
         "KILX",
         "KDVN",
         "KIWX",
-        "KIND"
+        "KIND",
+        "KGRR"
       ],
       "nearby_wfos": [
         "ILX",
@@ -1682,7 +1826,8 @@
         "KSOX",
         "KEYX",
         "KHNX",
-        "KNKX"
+        "KNKX",
+        "KMUX"
       ],
       "nearby_wfos": [
         "HNX",
@@ -1707,7 +1852,9 @@
         "KILX",
         "KVWX",
         "KPAH",
-        "KEAX"
+        "KEAX",
+        "KSGF",
+        "KDVN"
       ],
       "nearby_wfos": [
         "ILX",
@@ -1732,7 +1879,8 @@
         "KAMA",
         "KDYX",
         "KFDR",
-        "KMAF"
+        "KMAF",
+        "KSJT"
       ],
       "nearby_wfos": [
         "AMA",
@@ -1761,7 +1909,10 @@
         "KDOX",
         "KPBZ",
         "KDIX",
-        "KAKQ"
+        "KAKQ",
+        "KFCX",
+        "KCCX",
+        "KRLX"
       ],
       "nearby_wfos": [
         "AKQ",
@@ -1786,7 +1937,9 @@
         "V021",
         "KSGF",
         "KNQA",
-        "KSHV"
+        "KSHV",
+        "KINX",
+        "KDGX"
       ],
       "nearby_wfos": [
         "MEG",
@@ -1811,7 +1964,10 @@
         "KSJT",
         "KLBB",
         "KFDX",
-        "KHDX"
+        "KHDX",
+        "KDYX",
+        "KDFX",
+        "KEPZ"
       ],
       "nearby_wfos": [
         "SJT",
@@ -1838,7 +1994,10 @@
         "KPAH",
         "KHPX",
         "KLZK",
-        "KOHX"
+        "KOHX",
+        "KBMX",
+        "KDGX",
+        "KHTX"
       ],
       "nearby_wfos": [
         "HUN",
@@ -1884,7 +2043,8 @@
       "region": "WR",
       "radars": [
         "KMAX",
-        "KBHX"
+        "KBHX",
+        "KRGX"
       ],
       "nearby_wfos": [
         "EKA",
@@ -1906,6 +2066,7 @@
         "KMHX",
         "KRAX",
         "KLTX",
+        "TRDU",
         "KAKQ"
       ],
       "nearby_wfos": [
@@ -1929,8 +2090,10 @@
         "TMKE",
         "KGRB",
         "KARX",
+        "TORD",
         "KLOT",
-        "KDVN"
+        "KDVN",
+        "KGRR"
       ],
       "nearby_wfos": [
         "LOT",
@@ -1952,8 +2115,11 @@
         "KMLB",
         "TMCO",
         "TPBI",
+        "TTPA",
         "KTBW",
-        "KJAX"
+        "TFLL",
+        "KJAX",
+        "KAMX"
       ],
       "nearby_wfos": [
         "TBW",
@@ -2004,7 +2170,8 @@
         "V055",
         "KARX",
         "KDLH",
-        "KFSD"
+        "KFSD",
+        "KABR"
       ],
       "nearby_wfos": [
         "ARX",
@@ -2024,7 +2191,9 @@
       "region": "CR",
       "radars": [
         "KMQT",
-        "KGRB"
+        "KGRB",
+        "KDLH",
+        "KAPX"
       ],
       "nearby_wfos": [
         "GRB",
@@ -2050,7 +2219,10 @@
         "KJKL",
         "KGSP",
         "KOHX",
-        "KFCX"
+        "KFCX",
+        "KRLX",
+        "KFFC",
+        "KLVX"
       ],
       "nearby_wfos": [
         "JKL",
@@ -2072,7 +2244,9 @@
         "KMSX",
         "KTFX",
         "KOTX",
-        "KSFX"
+        "KSFX",
+        "KPDT",
+        "KCBX"
       ],
       "nearby_wfos": [
         "TFX",
@@ -2095,7 +2269,8 @@
         "KDAX",
         "KHNX",
         "KBBX",
-        "KVBX"
+        "KVBX",
+        "KVTX"
       ],
       "nearby_wfos": [
         "STO",
@@ -2119,7 +2294,8 @@
         "KUEX",
         "KFSD",
         "KDMX",
-        "KTWX"
+        "KTWX",
+        "KEAX"
       ],
       "nearby_wfos": [
         "GID",
@@ -2148,7 +2324,11 @@
         "V002",
         "KPAH",
         "KMRX",
-        "KGWX"
+        "KGWX",
+        "KLVX",
+        "KNQA",
+        "KJKL",
+        "KVWX"
       ],
       "nearby_wfos": [
         "HUN",
@@ -2172,6 +2352,8 @@
         "TEWR",
         "KDIX",
         "KBOX",
+        "TPHL",
+        "TBOS",
         "KENX",
         "KBGM"
       ],
@@ -2223,10 +2405,15 @@
         "TICH",
         "TTUL",
         "KICT",
+        "TDFW",
         "KDDC",
+        "TDAL",
         "KINX",
         "KDYX",
-        "KFWS"
+        "KFWS",
+        "KSRX",
+        "KAMA",
+        "KLBB"
       ],
       "nearby_wfos": [
         "TSA",
@@ -2251,8 +2438,11 @@
         "V035",
         "KOHX",
         "KLVX",
+        "TBNA",
         "KLSX",
-        "KNQA"
+        "KNQA",
+        "KIND",
+        "KILX"
       ],
       "nearby_wfos": [
         "LSX",
@@ -2276,7 +2466,12 @@
         "V109",
         "TCMH",
         "KCCX",
-        "KCLE"
+        "TLVE",
+        "KCLE",
+        "KRLX",
+        "KILN",
+        "KBUF",
+        "KLWX"
       ],
       "nearby_wfos": [
         "CLE",
@@ -2298,7 +2493,9 @@
         "KPDT",
         "KRTX",
         "KOTX",
-        "KATX"
+        "KATX",
+        "KCBX",
+        "KMAX"
       ],
       "nearby_wfos": [
         "PQR",
@@ -2328,7 +2525,9 @@
         "TDCA",
         "KLWX",
         "KOKX",
-        "KBGM"
+        "KBGM",
+        "KCCX",
+        "KENX"
       ],
       "nearby_wfos": [
         "OKX",
@@ -2403,7 +2602,9 @@
       "region": "WR",
       "radars": [
         "KRTX",
-        "KLGX"
+        "KLGX",
+        "KMAX",
+        "KATX"
       ],
       "nearby_wfos": [
         "PDT",
@@ -2445,7 +2646,9 @@
         "KFSX",
         "KNKX",
         "KSOX",
-        "KEMX"
+        "KEMX",
+        "KEYX",
+        "KESX"
       ],
       "nearby_wfos": [
         "TWC",
@@ -2469,7 +2672,8 @@
         "TDEN",
         "KFTG",
         "KGLD",
-        "KGJX"
+        "KGJX",
+        "KDDC"
       ],
       "nearby_wfos": [
         "BOU",
@@ -2498,7 +2702,8 @@
         "KAKQ",
         "KFCX",
         "KMHX",
-        "KCAE"
+        "KCAE",
+        "KGSP"
       ],
       "nearby_wfos": [
         "ILM",
@@ -2519,7 +2724,10 @@
       "radars": [
         "KRGX",
         "KLRX",
-        "KBBX"
+        "KBBX",
+        "KDAX",
+        "KHNX",
+        "KMAX"
       ],
       "nearby_wfos": [
         "STO",
@@ -2540,7 +2748,9 @@
       "radars": [
         "KRIW",
         "KBLX",
-        "KMTX"
+        "KMTX",
+        "KSFX",
+        "KCYS"
       ],
       "nearby_wfos": [
         "BYZ",
@@ -2565,7 +2775,9 @@
         "KFCX",
         "KILN",
         "KPBZ",
-        "KMRX"
+        "KMRX",
+        "KLWX",
+        "KCLE"
       ],
       "nearby_wfos": [
         "RNK",
@@ -2589,8 +2801,13 @@
         "TRDU",
         "V025",
         "KRLX",
+        "TCLT",
         "KRAX",
-        "KAKQ"
+        "KAKQ",
+        "KMRX",
+        "KJKL",
+        "KGSP",
+        "KLWX"
       ],
       "nearby_wfos": [
         "RAH",
@@ -2635,7 +2852,10 @@
         "V066",
         "KEAX",
         "KINX",
-        "KLSX"
+        "KLSX",
+        "KSRX",
+        "KTWX",
+        "KNQA"
       ],
       "nearby_wfos": [
         "EAX",
@@ -2657,7 +2877,9 @@
         "KNKX",
         "KSOX",
         "KEYX",
-        "KVTX"
+        "KVTX",
+        "KYUX",
+        "KESX"
       ],
       "nearby_wfos": [
         "LOX",
@@ -2681,7 +2903,12 @@
         "V040",
         "KPOE",
         "KSRX",
-        "KLCH"
+        "KLCH",
+        "KLZK",
+        "KFWS",
+        "KHDC",
+        "KDGX",
+        "KHGX"
       ],
       "nearby_wfos": [
         "LCH",
@@ -2708,7 +2935,9 @@
         "KGRK",
         "KFDR",
         "KDFX",
-        "KEWX"
+        "KEWX",
+        "KLBB",
+        "KFWS"
       ],
       "nearby_wfos": [
         "EWX",
@@ -2752,7 +2981,9 @@
         "KICX",
         "KMTX",
         "TSLC",
-        "KSFX"
+        "KSFX",
+        "KGJX",
+        "KESX"
       ],
       "nearby_wfos": [
         "GJT",
@@ -2776,7 +3007,8 @@
         "KMUX",
         "KRGX",
         "KMAX",
-        "KBHX"
+        "KBHX",
+        "KHNX"
       ],
       "nearby_wfos": [
         "REV",
@@ -2826,7 +3058,12 @@
         "TTPA",
         "V009",
         "TMCO",
-        "KMLB"
+        "KMLB",
+        "TPBI",
+        "KJAX",
+        "KVAX",
+        "KAMX",
+        "KTLH"
       ],
       "nearby_wfos": [
         "MLB",
@@ -2847,7 +3084,9 @@
       "radars": [
         "KTFX",
         "KMSX",
-        "KBLX"
+        "KBLX",
+        "KGGW",
+        "KSFX"
       ],
       "nearby_wfos": [
         "MSO",
@@ -2871,7 +3110,9 @@
         "TMCI",
         "KUEX",
         "KEAX",
-        "KICT"
+        "KICT",
+        "KOAX",
+        "KSGF"
       ],
       "nearby_wfos": [
         "ICT",
@@ -2896,8 +3137,11 @@
         "V040",
         "KTLX",
         "KSGF",
+        "TOKC",
+        "TICH",
         "KICT",
-        "KVNX"
+        "KVNX",
+        "KLZK"
       ],
       "nearby_wfos": [
         "SGF",
@@ -2919,7 +3163,8 @@
         "KEMX",
         "KIWA",
         "TPHX",
-        "KYUX"
+        "KYUX",
+        "KFSX"
       ],
       "nearby_wfos": [
         "PSR",
@@ -2939,7 +3184,8 @@
       "region": "CR",
       "radars": [
         "KUDX",
-        "KLNX"
+        "KLNX",
+        "KBIS"
       ],
       "nearby_wfos": [
         "CYS",
@@ -2963,7 +3209,10 @@
         "TLAS",
         "KICX",
         "KSOX",
-        "KHNX"
+        "KHNX",
+        "KNKX",
+        "KVTX",
+        "KYUX"
       ],
       "nearby_wfos": [
         "SGX",
