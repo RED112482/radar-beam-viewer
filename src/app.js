@@ -8,9 +8,24 @@
   const mapBadge=$('mapBadge');
   const cursorReadout=$('cursorReadout');
   const hoverReadout=$('hoverReadout');
+  const toolsDrawer=$('toolsDrawer');
+  const toolsDrawerToggle=$('toolsDrawerToggle');
+  const toolsCloseBtn=$('toolsCloseBtn');
+  const beamToolPanel=$('beamToolPanel');
+  const scanToolPanel=$('scanToolPanel');
+  const beamToolTab=$('beamToolTab');
+  const scanToolTab=$('scanToolTab');
+  const selectedRadarBeam=$('selectedRadarBeam');
+  const beamTargetReadout=$('beamTargetReadout');
+  const strategyRadarStatus=$('strategyRadarStatus');
+  const strategyRisk=$('strategyRisk');
+  const strategyTargetInfo=$('strategyTargetInfo');
+  const strategyRecommendation=$('strategyRecommendation');
+  const strategyReferenceBody=$('strategyReferenceBody');
   const mapUI=new RadarMap('map');
 
   let radarCatalog,wfoCatalog,backups,currentWfo=null,groups=[],activeMode='local',localBounds=null,renderToken=0,currentMosaic=null;
+  let selectedRadar=null,strategyTarget=null,activeToolTab='beam';
 
   function showBusy(t){busyText.textContent=t;busy.classList.remove('hidden')}
   function hideBusy(){busy.classList.add('hidden')}
@@ -89,10 +104,160 @@
     }
   }
 
+
+  function escapeHtml(value){
+    return String(value==null?'':value)
+      .replaceAll('&','&amp;')
+      .replaceAll('<','&lt;')
+      .replaceAll('>','&gt;')
+      .replaceAll('"','&quot;')
+      .replaceAll("'",'&#39;');
+  }
+
+  function setDrawerOpen(open){
+    toolsDrawer.classList.toggle('open',!!open);
+    toolsDrawerToggle.classList.toggle('drawer-open',!!open);
+    toolsDrawerToggle.setAttribute('aria-expanded',open?'true':'false');
+  }
+
+  function setToolTab(tab){
+    activeToolTab=tab==='scan'?'scan':'beam';
+    const scan=activeToolTab==='scan';
+    beamToolTab.classList.toggle('active',!scan);
+    scanToolTab.classList.toggle('active',scan);
+    beamToolTab.setAttribute('aria-selected',scan?'false':'true');
+    scanToolTab.setAttribute('aria-selected',scan?'true':'false');
+    beamToolPanel.classList.toggle('hidden',scan);
+    scanToolPanel.classList.toggle('hidden',!scan);
+    scanToolPanel.setAttribute('aria-hidden',scan?'false':'true');
+  }
+
+  function renderStrategyReference(){
+    strategyReferenceBody.innerHTML=ScanningStrategy.QUICK_REFERENCE
+      .map(item=>'<div class="strategy-ref-row"><strong>'+escapeHtml(item.term)+':</strong> '+escapeHtml(item.text)+'</div>')
+      .join('');
+  }
+
+  function renderStrategySegment(rec){
+    const seg=rec&&rec.segment;
+    if(!seg)return '<span class="soft">No recommendation rule found.</span>';
+    const blocks=[];
+    if(seg.primary&&seg.primary.length){
+      blocks.push('<div class="strategy-option">'+seg.primary.map(line=>'<div class="strategy-line">'+escapeHtml(line)+'</div>').join('')+'</div>');
+    }
+    if(seg.options&&seg.options.length){
+      for(const opt of seg.options){
+        blocks.push(
+          '<div class="strategy-option">'+
+            '<div class="strategy-option-title">'+escapeHtml(opt.label)+'</div>'+
+            (opt.lines||[]).map(line=>'<div class="strategy-line">'+escapeHtml(line)+'</div>').join('')+
+          '</div>'
+        );
+      }
+    }
+    return blocks.join('');
+  }
+
+  function activeRadarById(id){
+    return activeRadars().find(r=>r.id===id)||null;
+  }
+
+  function handleRadarSelect(radar){
+    selectedRadar=radar;
+    mapUI.setSelectedRadar(radar.id);
+    setDrawerOpen(true);
+    renderToolReadouts();
+  }
+
+  function setTargetPoint(latlng){
+    strategyTarget=L.latLng(latlng.lat,latlng.lng);
+    const color=ScanningStrategy.RISK_COLORS[strategyRisk.value]||'#ff2d2d';
+    mapUI.setTarget(strategyTarget,color);
+    renderToolReadouts();
+  }
+
+  function clearToolSelection(){
+    selectedRadar=null;
+    strategyTarget=null;
+    mapUI.setSelectedRadar(null);
+    mapUI.clearTarget();
+    renderToolReadouts();
+  }
+
+  function renderToolReadouts(){
+    if(!selectedRadar){
+      selectedRadarBeam.innerHTML='Click a radar dot on the map.';
+      beamTargetReadout.innerHTML='Select a radar, then click the map to compare that radar with the lowest beam available from the active WFO radar set.';
+      strategyRadarStatus.classList.remove('strategy-unavailable');
+      strategyRadarStatus.innerHTML='Click a WSR-88D radar dot on the map.';
+      strategyTargetInfo.innerHTML='Click a WSR-88D radar, then click a target point on the map.';
+      strategyRecommendation.innerHTML='No target selected.';
+      return;
+    }
+
+    const network=selectedRadar.network||'';
+    selectedRadarBeam.innerHTML=
+      '<strong>'+escapeHtml(selectedRadar.id)+'</strong> — '+escapeHtml(selectedRadar.name||'')+
+      '<br><span class="soft">'+escapeHtml(network)+' • '+selectedRadar.lowest_tilt_deg.toFixed(1)+'° • '+selectedRadar.range_nm+' nmi</span>';
+
+    if(strategyTarget){
+      const best=currentMosaic&&$('mosaicToggle').checked
+        ?BeamEngine.sampleMosaic(currentMosaic,strategyTarget.lat,strategyTarget.lng)
+        :BeamEngine.bestRadarAt(strategyTarget.lat,strategyTarget.lng,activeRadars());
+      const selectedHeight=BeamEngine.radarValueAt(strategyTarget.lat,strategyTarget.lng,selectedRadar);
+      const distanceNm=BeamEngine.haversineMeters(selectedRadar.lat,selectedRadar.lon,strategyTarget.lat,strategyTarget.lng)/1852;
+      const bestLine=best
+        ?'<strong>'+Math.round(best.height_ft).toLocaleString()+' ft ARL</strong> — '+escapeHtml(best.radar.id)
+        :'<span class="soft">No active radar coverage</span>';
+      const selectedLine=selectedHeight==null
+        ?'<span class="soft">Outside '+escapeHtml(selectedRadar.id)+' configured range</span>'
+        :'<strong>'+Math.round(selectedHeight).toLocaleString()+' ft ARL</strong>';
+
+      beamTargetReadout.innerHTML=
+        '<div><span class="soft">Target:</span> '+strategyTarget.lat.toFixed(3)+', '+strategyTarget.lng.toFixed(3)+'</div>'+
+        '<div style="margin-top:6px"><span class="soft">Lowest active beam:</span> '+bestLine+'</div>'+
+        '<div><span class="soft">'+escapeHtml(selectedRadar.id)+' beam:</span> '+selectedLine+' <span class="soft">('+distanceNm.toFixed(1)+' nmi)</span></div>';
+    }else{
+      beamTargetReadout.innerHTML='Click the map to set a target and compare <strong>'+escapeHtml(selectedRadar.id)+'</strong> with the lowest active beam.';
+    }
+
+    if(network!=='NEXRAD'){
+      strategyRadarStatus.classList.add('strategy-unavailable');
+      strategyRadarStatus.innerHTML=
+        '<strong>'+escapeHtml(selectedRadar.id)+'</strong> — '+escapeHtml(network)+
+        '<br><span class="soft">Scanning-strategy recommendations are only available for WSR-88D/NEXRAD sites.</span>';
+      strategyTargetInfo.innerHTML='Select a WSR-88D radar dot to use the scanning-strategy tool.';
+      strategyRecommendation.innerHTML='<span class="soft">Not applicable to this radar type.</span>';
+      return;
+    }
+
+    strategyRadarStatus.classList.remove('strategy-unavailable');
+    strategyRadarStatus.innerHTML=
+      '<strong>'+escapeHtml(selectedRadar.id)+'</strong> — '+escapeHtml(selectedRadar.name||'')+
+      '<br><span class="soft">'+selectedRadar.lowest_tilt_deg.toFixed(1)+'° lowest tilt</span>';
+
+    if(!strategyTarget){
+      strategyTargetInfo.innerHTML='Click a target point on the map to calculate distance and the recommended strategy.';
+      strategyRecommendation.innerHTML='No target selected.';
+      return;
+    }
+
+    const distanceNm=BeamEngine.haversineMeters(selectedRadar.lat,selectedRadar.lon,strategyTarget.lat,strategyTarget.lng)/1852;
+    const rec=ScanningStrategy.recommendation(strategyRisk.value,distanceNm);
+    strategyTargetInfo.innerHTML=
+      '<div><strong>'+distanceNm.toFixed(1)+' nmi</strong> from '+escapeHtml(selectedRadar.id)+'</div>'+
+      '<div class="soft">'+strategyTarget.lat.toFixed(3)+', '+strategyTarget.lng.toFixed(3)+' • '+escapeHtml(rec.label)+'</div>';
+    strategyRecommendation.innerHTML=renderStrategySegment(rec);
+  }
+
   async function recalc(){
     const token=++renderToken;
     const radars=activeRadars();
+    if(selectedRadar&&!radars.some(r=>r.id===selectedRadar.id)){
+      clearToolSelection();
+    }
     mapUI.setSites(radars,$('sitesToggle').checked);
+    if(selectedRadar)mapUI.setSelectedRadar(selectedRadar.id);
     if(!localBounds||!radars.length){currentMosaic=null;mapUI.setMosaicVisible(false);setStatus(radars.length?'Ready':'No radars selected');return}
     if(!$('mosaicToggle').checked){mapUI.setMosaicVisible(false);currentMosaic=null;setStatus(`${currentWfo} • ${radars.length} active radars`);return}
 
@@ -110,6 +275,7 @@
   async function selectWfo(wfo){
     currentWfo=wfo;mapBadge.textContent=wfo;
     const office=wfoCatalog.wfos[wfo];$('officeSubtitle').textContent=office.description||office.name;
+    clearToolSelection();
     groups=buildGroups(wfo);
     for(const g of groups)g.enabled=g.role==='home';
     renderGroupControls();
@@ -164,6 +330,25 @@
     $('referenceToggle').addEventListener('change',e=>mapUI.setReferenceVisible(e.target.checked));
     $('mrmsToggle').addEventListener('change',e=>mapUI.setMrmsVisible(e.target.checked));
     $('warningsToggle').addEventListener('change',e=>mapUI.setWarningsVisible(e.target.checked));
+
+    mapUI.setRadarSelectHandler(handleRadarSelect);
+    mapUI.map.on('click',e=>{if(selectedRadar)setTargetPoint(e.latlng)});
+    toolsDrawerToggle.addEventListener('click',()=>setDrawerOpen(true));
+    toolsCloseBtn.addEventListener('click',()=>setDrawerOpen(false));
+    beamToolTab.addEventListener('click',()=>setToolTab('beam'));
+    scanToolTab.addEventListener('click',()=>setToolTab('scan'));
+    strategyRisk.addEventListener('change',()=>{
+      if(strategyTarget){
+        const color=ScanningStrategy.RISK_COLORS[strategyRisk.value]||'#ff2d2d';
+        mapUI.setTarget(strategyTarget,color);
+      }
+      renderToolReadouts();
+    });
+    renderStrategyReference();
+    setToolTab('beam');
+    setDrawerOpen(true);
+    renderToolReadouts();
+
     mapUI.map.on('mousemove',e=>updateCursor(e.latlng,e.originalEvent));
     mapUI.map.getContainer().addEventListener('mouseleave',()=>hoverReadout.classList.add('hidden'));
     mapUI.setReferenceVisible($('referenceToggle').checked);mapUI.setAllCwaVisible($('allCwaToggle').checked);
