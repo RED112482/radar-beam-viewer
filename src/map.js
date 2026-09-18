@@ -30,6 +30,7 @@
       this.map.createPane('referencePane');this.map.getPane('referencePane').style.zIndex=420;this.map.getPane('referencePane').style.pointerEvents='none';
       this.map.createPane('cwaPane');this.map.getPane('cwaPane').style.zIndex=430;this.map.getPane('cwaPane').style.pointerEvents='none';
       this.map.createPane('warningPane');this.map.getPane('warningPane').style.zIndex=460;
+      this.map.createPane('toolPane');this.map.getPane('toolPane').style.zIndex=490;
 
       this.baseLayer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
         maxZoom:18,attribution:'&copy; OpenStreetMap contributors',className:'dark-osm'
@@ -42,6 +43,7 @@
 
       this.map.setView([37.8,-96.5],4);
       this.mosaic=null;this.mrmsLayer=null;this.siteLayer=L.layerGroup().addTo(this.map);
+      this.siteMarkers=new Map();this.radarSelectHandler=null;this.selectedRadarId=null;this.targetMarker=null;
       this.warningLayer=L.geoJSON(null,{
         pane:'warningPane',style:warningStyle,
         onEachFeature:(feature,layer)=>{const p=feature.properties||{};const label=p.prod_type||`${p.phenom||''}.${p.sig||''}`;layer.bindTooltip(`<strong>${label}</strong>${p.wfo?`<br>WFO ${p.wfo}`:''}`,{sticky:true})}
@@ -145,12 +147,63 @@
 
     setSites(radars,show=true){
       this.siteLayer.clearLayers();
+      this.siteMarkers.clear();
       for(const r of radars){
-        const m=L.circleMarker([r.lat,r.lon],{pane:'markerPane',radius:5.5,color:'#ffffff',weight:2,fillColor:r.color,fillOpacity:1,opacity:1});
-        m.bindTooltip(`<strong>${r.id}</strong><br>${r.name||''}<br>${r.lowest_tilt_deg.toFixed(1)}° • ${r.range_nm} nmi`,{direction:'top'});m.addTo(this.siteLayer);
+        const selected=r.id===this.selectedRadarId;
+        const m=L.circleMarker([r.lat,r.lon],{
+          pane:'markerPane',
+          radius:selected?8:5.5,
+          color:selected?'#ffe66d':'#ffffff',
+          weight:selected?3:2,
+          fillColor:r.color,
+          fillOpacity:1,
+          opacity:1
+        });
+        m.bindTooltip(`<strong>${r.id}</strong><br>${r.name||''}<br>${r.network||''}<br>${r.lowest_tilt_deg.toFixed(1)}° • ${r.range_nm} nmi`,{direction:'top'});
+        m.on('click',evt=>{
+          L.DomEvent.stopPropagation(evt);
+          if(this.radarSelectHandler)this.radarSelectHandler(r);
+        });
+        m.addTo(this.siteLayer);
+        this.siteMarkers.set(r.id,m);
       }
       this.setSitesVisible(show);
     }
+
+    setRadarSelectHandler(handler){this.radarSelectHandler=typeof handler==='function'?handler:null}
+
+    setSelectedRadar(id){
+      this.selectedRadarId=id||null;
+      for(const [rid,m] of this.siteMarkers.entries()){
+        const selected=rid===this.selectedRadarId;
+        m.setStyle({
+          radius:selected?8:5.5,
+          color:selected?'#ffe66d':'#ffffff',
+          weight:selected?3:2
+        });
+      }
+    }
+
+    setTarget(latlng,color='#ff2d2d'){
+      const icon=L.divIcon({
+        className:'',
+        html:`<div class="strategy-target-icon" style="--target-color:${color}"><div class="strategy-target-ring"></div></div>`,
+        iconSize:[34,34],
+        iconAnchor:[17,17]
+      });
+      if(!this.targetMarker){
+        this.targetMarker=L.marker(latlng,{pane:'toolPane',icon,interactive:false}).addTo(this.map);
+      }else{
+        this.targetMarker.setLatLng(latlng);
+        this.targetMarker.setIcon(icon);
+      }
+    }
+
+    clearTarget(){
+      if(this.targetMarker&&this.map.hasLayer(this.targetMarker))this.map.removeLayer(this.targetMarker);
+      this.targetMarker=null;
+    }
+
     setSitesVisible(show){if(show&&!this.map.hasLayer(this.siteLayer))this.siteLayer.addTo(this.map);if(!show&&this.map.hasLayer(this.siteLayer))this.map.removeLayer(this.siteLayer)}
 
     async setMrmsVisible(show){
