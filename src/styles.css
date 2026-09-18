@@ -276,7 +276,7 @@ button,select,input{font-family:"Poppins",sans-serif}input[type="checkbox"]{acce
 
 @media(max-width:720px){
   .topbar{height:72px;min-height:72px;padding:8px 9px;gap:7px}
-  .app-shell{height:calc(100vh - 72px)}
+  .app-shell{height:auto}
   .brand-logo{width:31px;height:31px;max-width:31px;max-height:31px;flex-basis:31px}
   .brand-title{font-size:13px}
   .brand-subtitle{font-size:8.5px;margin-top:2px}
