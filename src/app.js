@@ -110,7 +110,9 @@
   async function selectWfo(wfo){
     currentWfo=wfo;mapBadge.textContent=wfo;
     const office=wfoCatalog.wfos[wfo];$('officeSubtitle').textContent=office.description||office.name;
-    groups=buildGroups(wfo);renderGroupControls();
+    groups=buildGroups(wfo);
+    for(const g of groups)g.enabled=g.role==='home';
+    renderGroupControls();
     const home=groups.find(g=>g.role==='home');localBounds=coverageBounds(home.radars);
     if(activeMode==='local')mapUI.showLocal(localBounds);else mapUI.showConus(office.center);
     await recalc();
@@ -130,16 +132,13 @@
     const radars=activeRadars();
     const rasterSample=currentMosaic&&$('mosaicToggle').checked?BeamEngine.sampleMosaic(currentMosaic,latlng.lat,latlng.lng):null;
     const best=rasterSample||BeamEngine.bestRadarAt(latlng.lat,latlng.lng,radars);
-    const nearest=BeamEngine.nearestRadarAt(latlng.lat,latlng.lng,radars);
     const coord=`${latlng.lat.toFixed(3)}, ${latlng.lng.toFixed(3)}`;
     let detail;
     if(best){
-      const d=BeamEngine.haversineMeters(latlng.lat,latlng.lng,best.radar.lat,best.radar.lon)/1852;
-      detail=`<strong>${Math.round(best.height_ft).toLocaleString()} ft ARL</strong> — ${best.radar.id} <span class="soft">(${d.toFixed(1)} nmi)</span>`;
+      detail=`<strong>${Math.round(best.height_ft).toLocaleString()} ft ARL</strong> — ${best.radar.id}`;
     }else detail=`<span class="soft">No selected radar coverage</span>`;
-    const nearestLine=nearest?`Nearest center: <strong>${nearest.radar.id}</strong> <span class="soft">(${nearest.distance_nm.toFixed(1)} nmi)</span>`:'No active radars';
-    cursorReadout.innerHTML=`<div>${coord}</div><div>${detail}</div><div>${nearestLine}</div>`;
-    hoverReadout.innerHTML=`<div class="hover-coord">${coord}</div><div>${detail}</div><div>${nearestLine}</div>`;
+    cursorReadout.innerHTML=`<div>${coord}</div><div>${detail}</div>`;
+    hoverReadout.innerHTML=`<div class="hover-coord">${coord}</div><div>${detail}</div>`;
     hoverReadout.classList.remove('hidden');
     if(originalEvent){
       const rect=mapUI.map.getContainer().getBoundingClientRect();let left=originalEvent.clientX-rect.left+16;let top=originalEvent.clientY-rect.top+16;
@@ -153,6 +152,7 @@
     showBusy('Loading national radar catalogs…');
     [radarCatalog,wfoCatalog,backups]=await Promise.all([loadJson('./catalogs/radar_catalog.json'),loadJson('./catalogs/wfo_catalog.json'),loadJson('./catalogs/backup_assignments.json')]);
     mapUI.initReferenceLayers();
+    for(const id of ['mosaicToggle','sitesToggle','allCwaToggle','referenceToggle'])$(id).checked=true;
     const selectable=Object.entries(wfoCatalog.wfos).filter(([,v])=>v.selectable);
     for(const[id,info]of selectable){const o=document.createElement('option');o.value=id;o.textContent=`${id} — ${info.name}`;wfoSelect.appendChild(o)}
     wfoSelect.addEventListener('change',()=>selectWfo(wfoSelect.value));
