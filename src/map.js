@@ -38,7 +38,7 @@
       this.stateLayer=L.geoJSON(null,{pane:'referencePane',style:{color:'#ffffff',weight:1.25,opacity:.88,fillOpacity:0},interactive:false});
       this.countyLayer=L.geoJSON(null,{pane:'referencePane',style:{color:'#ffffff',weight:.55,opacity:.52,fillOpacity:0},interactive:false});
       this.referenceLayer=L.layerGroup([this.stateLayer,this.countyLayer]).addTo(this.map);
-      this.allCwaLayer=L.geoJSON(null,{pane:'cwaPane',style:{color:'#ff3b30',weight:1.5,opacity:.92,fillOpacity:0},interactive:false});
+      this.allCwaLayer=L.geoJSON(null,{pane:'cwaPane',style:{color:'#ff3b30',weight:2.35,opacity:.94,fillOpacity:0},interactive:false});
 
       this.map.setView([37.8,-96.5],4);
       this.mosaic=null;this.mrmsLayer=null;this.siteLayer=L.layerGroup().addTo(this.map);
