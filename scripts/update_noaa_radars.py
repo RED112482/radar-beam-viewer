@@ -80,7 +80,7 @@ def main():
         if not parsed:
             continue
         site_id, item, country = parsed
-        if country not in {"UNITED STATES", "GUAM"}:
+        if country not in {"UNITED STATES", "GUAM", "PUERTO RICO", "VIRGIN ISLANDS", "AMERICAN SAMOA"}:
             continue
         if not args.include_test and site_id in DEFAULT_EXCLUDES:
             continue
