@@ -32,6 +32,17 @@ CWA_URL = (
 M_PER_NM = 1852.0
 EARTH_RADIUS_KM = 6371.0088
 
+# A radar whose site is outside the CWA must be reasonably close to the CWA
+# boundary to be included as supplemental coverage.  The former rule allowed
+# a full nominal range circle to merely touch the CWA, which could pull in
+# distant 88Ds that were not operationally useful for low-level sampling.
+SUPPLEMENTAL_MAX_GAP_NM = {
+    "NEXRAD": 60.0,
+    "TDWR": 35.0,
+    "TERMINAL": 35.0,
+    "CLIMAVISION": 30.0,
+}
+
 
 def read_json(path: pathlib.Path, default):
     return json.loads(path.read_text()) if path.exists() else default
@@ -115,8 +126,10 @@ def candidate_radars_for_cwa(cwa_geom, center_lat, center_lon, radars, margin_nm
 
         p = transform(tf, Point(lon, lat))
         gap_nm = p.distance(cwa_m) / M_PER_NM
-        if gap_nm <= range_nm + margin_nm:
-            network = str(radar.get("network", ""))
+        network = str(radar.get("network", ""))
+        max_gap_nm = SUPPLEMENTAL_MAX_GAP_NM.get(network, range_nm)
+        threshold_nm = min(range_nm + margin_nm, max_gap_nm)
+        if gap_nm <= threshold_nm:
             result.append(
                 {
                     "id": rid,
@@ -296,6 +309,7 @@ def main():
             "source": "NOAA/NWS CWA FeatureServer + radar_catalog.json",
             "cwa_url": CWA_URL,
             "radar_margin_nm": args.margin_nm,
+            "supplemental_max_gap_nm": SUPPLEMENTAL_MAX_GAP_NM,
             "wfo_count": len(wfos),
         },
         "wfos": wfos,
