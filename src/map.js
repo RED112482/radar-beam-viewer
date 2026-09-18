@@ -176,8 +176,8 @@
       this.selectedRadarId=id||null;
       for(const [rid,m] of this.siteMarkers.entries()){
         const selected=rid===this.selectedRadarId;
+        m.setRadius(selected?8:5.5);
         m.setStyle({
-          radius:selected?8:5.5,
           color:selected?'#ffe66d':'#ffffff',
           weight:selected?3:2
         });
