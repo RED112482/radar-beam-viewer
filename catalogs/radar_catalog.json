@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-09-18T19:53:54Z",
+  "updated_utc": "2026-09-18T19:58:46Z",
   "source_url": "https://www.ncei.noaa.gov/access/homr/file/nexrad-stations.txt",
   "radar_count": 235,
   "radars": {
