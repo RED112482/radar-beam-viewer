@@ -25,7 +25,7 @@
   const mapUI=new RadarMap('map');
 
   let radarCatalog,wfoCatalog,backups,currentWfo=null,groups=[],activeMode='local',localBounds=null,renderToken=0,currentMosaic=null;
-  let selectedRadar=null,strategyTarget=null,activeToolTab='beam';
+  let selectedRadar=null,strategyTarget=null,activeToolTab='scan';
 
   function showBusy(t){busyText.textContent=t;busy.classList.remove('hidden')}
   function hideBusy(){busy.classList.add('hidden')}
@@ -354,7 +354,7 @@
       renderToolReadouts();
     });
     renderStrategyReference();
-    setToolTab('beam');
+    setToolTab('scan');
     setDrawerOpen(true);
     renderToolReadouts();
 
