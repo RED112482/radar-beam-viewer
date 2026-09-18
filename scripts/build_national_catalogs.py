@@ -255,7 +255,14 @@ def main():
         override = overrides.get(wfo_id, {})
         radar_list = list(auto_radars)
         if "radars_replace" in override:
+            # Preserve the hand-curated office ring, but do not let a curated
+            # NEXRAD list suppress newly-added TDWR or Climavision coverage.
+            # This lets the national supplemental networks grow automatically.
             radar_list = [rid for rid in override["radars_replace"] if rid in radars]
+            for rid in auto_radars:
+                network = str(radars.get(rid, {}).get("network", ""))
+                if network in {"TDWR", "TERMINAL", "CLIMAVISION"} and rid not in radar_list:
+                    radar_list.append(rid)
         for rid in override.get("radars_add", []):
             if rid in radars and rid not in radar_list:
                 radar_list.append(rid)
