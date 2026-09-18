@@ -282,3 +282,22 @@ button,select,input{font-family:"Poppins",sans-serif}input[type="checkbox"]{acce
   .brand-subtitle{font-size:8.5px;margin-top:2px}
   .topbar .status-pill{font-size:9px;padding:5px 7px}
 }
+
+.height-shade-key{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:7px;
+  margin-top:9px;
+  font-size:9.5px;
+  color:#aebdca;
+  white-space:nowrap
+}
+.height-shade-bar{
+  height:8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(90deg,#dcecff 0%,#4f8fc2 50%,#172d3f 100%);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)
+}
+.height-shade-note{margin-top:4px;font-size:9.5px}
