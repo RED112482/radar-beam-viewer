@@ -1,0 +1,82 @@
+{
+  "MOB": {
+    "name": "Mobile/Pensacola",
+    "radars_replace": [
+      "KMOB",
+      "KDGX",
+      "KBMX",
+      "KMXX",
+      "KEOX",
+      "KEVX",
+      "KHDC",
+      "V179",
+      "V001"
+    ]
+  },
+  "LIX": {
+    "name": "New Orleans/Baton Rouge",
+    "radars_replace": [
+      "KHDC",
+      "KMOB",
+      "KDGX",
+      "KPOE",
+      "KLCH",
+      "TMSY",
+      "V018",
+      "V015",
+      "V014"
+    ]
+  },
+  "TAE": {
+    "name": "Tallahassee",
+    "radars_replace": [
+      "KEVX",
+      "KMOB",
+      "KEOX",
+      "KMXX",
+      "KTLH",
+      "KVAX",
+      "KJAX",
+      "KJGX"
+    ]
+  },
+  "KEY": {
+    "name": "Key West",
+    "radars_replace": [
+      "KBYX",
+      "KAMX",
+      "TMIA",
+      "TFLL",
+      "TPBI"
+    ]
+  },
+  "LCH": {
+    "name": "Lake Charles",
+    "radars_replace": [
+      "KLCH",
+      "KPOE",
+      "KDGX",
+      "KHDC",
+      "KSHV",
+      "KHGX",
+      "TIAH",
+      "THOU",
+      "TMSY",
+      "V015",
+      "V018"
+    ]
+  },
+  "JAX": {
+    "name": "Jacksonville",
+    "radars_replace": [
+      "KJAX",
+      "KTLH",
+      "KVAX",
+      "KJGX",
+      "KEVX",
+      "KMLB",
+      "KTBW",
+      "TMCO"
+    ]
+  }
+}
