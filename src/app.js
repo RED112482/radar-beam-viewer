@@ -56,12 +56,20 @@
     return{key:`${role}:${officeId}`,role,label,officeId,officeName:office.name,enabled:true,radars,radarEnabled:new Map(radars.map(r=>[r.id,true]))};
   }
 
+  function backupRoleLabel(backupInfo,role,index){
+    const roleStatus=(backupInfo.role_status||{})[role];
+    if(roleStatus==='official'){
+      return role==='primary'?'Primary Backup':role==='secondary'?'Secondary Backup':'Tertiary Backup';
+    }
+    return `Nearby Office ${index} (provisional)`;
+  }
+
   function buildGroups(wfo){
     const out=[officeGroup(wfo,'home','Home Office')];
     const b=backups[wfo]||{};
-    if(b.primary)out.push(officeGroup(b.primary,'primary','Primary Backup'));
-    if(b.secondary)out.push(officeGroup(b.secondary,'secondary','Secondary Backup'));
-    if(b.tertiary)out.push(officeGroup(b.tertiary,'tertiary','Tertiary Backup'));
+    if(b.primary)out.push(officeGroup(b.primary,'primary',backupRoleLabel(b,'primary',1)));
+    if(b.secondary)out.push(officeGroup(b.secondary,'secondary',backupRoleLabel(b,'secondary',2)));
+    if(b.tertiary)out.push(officeGroup(b.tertiary,'tertiary',backupRoleLabel(b,'tertiary',3)));
     return out.filter(Boolean);
   }
 
