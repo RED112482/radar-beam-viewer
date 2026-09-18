@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-09-18T17:22:47Z",
+  "updated_utc": "2026-09-18T19:53:54Z",
   "source_url": "https://www.ncei.noaa.gov/access/homr/file/nexrad-stations.txt",
-  "radar_count": 236,
+  "radar_count": 235,
   "radars": {
     "KABR": {
       "name": "Aberdeen",
@@ -1010,18 +1010,6 @@
       "lowest_tilt_deg": 0.5,
       "range_nm": 124,
       "color": "#E6A700",
-      "source": "NOAA/NCEI HOMR"
-    },
-    "KLIX": {
-      "name": "New Orleans",
-      "network": "NEXRAD",
-      "lat": 30.336667,
-      "lon": -89.825417,
-      "state": "LA",
-      "county": "St. Tammany",
-      "lowest_tilt_deg": 0.5,
-      "range_nm": 124,
-      "color": "#6A994E",
       "source": "NOAA/NCEI HOMR"
     },
     "KLNX": {
