@@ -43,7 +43,7 @@
 
       this.map.setView([37.8,-96.5],4);
       this.mosaic=null;this.mrmsLayer=null;this.siteLayer=L.layerGroup().addTo(this.map);
-      this.siteMarkers=new Map();this.radarSelectHandler=null;this.selectedRadarId=null;this.targetMarker=null;
+      this.siteMarkers=new Map();this.radarSelectHandler=null;this.selectedRadarId=null;this.selectedRadarPulse=null;this.targetMarker=null;
       this.warningLayer=L.geoJSON(null,{
         pane:'warningPane',style:warningStyle,
         onEachFeature:(feature,layer)=>{const p=feature.properties||{};const label=p.prod_type||`${p.phenom||''}.${p.sig||''}`;layer.bindTooltip(`<strong>${label}</strong>${p.wfo?`<br>WFO ${p.wfo}`:''}`,{sticky:true})}
@@ -174,6 +174,7 @@
 
     setSelectedRadar(id){
       this.selectedRadarId=id||null;
+      let selectedMarker=null;
       for(const [rid,m] of this.siteMarkers.entries()){
         const selected=rid===this.selectedRadarId;
         m.setRadius(selected?8:5.5);
@@ -181,13 +182,34 @@
           color:selected?'#ffe66d':'#ffffff',
           weight:selected?3:2
         });
+        if(selected)selectedMarker=m;
+      }
+
+      if(this.selectedRadarPulse&&this.map.hasLayer(this.selectedRadarPulse)){
+        this.map.removeLayer(this.selectedRadarPulse);
+      }
+      this.selectedRadarPulse=null;
+
+      if(selectedMarker){
+        const icon=L.divIcon({
+          className:'',
+          html:'<div class="radar-pulse-icon"><div class="radar-pulse-ring radar-pulse-ring-a"></div><div class="radar-pulse-ring radar-pulse-ring-b"></div></div>',
+          iconSize:[72,72],
+          iconAnchor:[36,36]
+        });
+        this.selectedRadarPulse=L.marker(selectedMarker.getLatLng(),{
+          pane:'toolPane',
+          icon,
+          interactive:false,
+          keyboard:false
+        }).addTo(this.map);
       }
     }
 
     setTarget(latlng,color='#ff2d2d'){
       const icon=L.divIcon({
         className:'',
-        html:`<div class="strategy-target-icon" style="--target-color:${color}"><div class="strategy-target-ring"></div></div>`,
+        html:`<div class="strategy-target-icon" style="--target-color:${color}"><div class="strategy-target-pulse"></div><div class="strategy-target-ring"></div></div>`,
         iconSize:[34,34],
         iconAnchor:[17,17]
       });
