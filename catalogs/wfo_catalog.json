@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_utc": "2026-09-18T17:21:56Z",
+  "updated_utc": "2026-09-18T17:22:54Z",
   "default_wfo": "MOB",
   "generation": {
     "source": "NOAA/NWS CWA FeatureServer + radar_catalog.json",
@@ -1794,7 +1794,9 @@
         "KEVX",
         "KMLB",
         "KTBW",
-        "TMCO"
+        "TMCO",
+        "V010",
+        "TTPA"
       ],
       "nearby_wfos": [
         "TAE",
@@ -1907,7 +1909,8 @@
         "THOU",
         "TMSY",
         "V015",
-        "V018"
+        "V018",
+        "V014"
       ],
       "nearby_wfos": [
         "LIX",
@@ -2424,7 +2427,8 @@
         "KEVX",
         "KHDC",
         "V179",
-        "V001"
+        "V001",
+        "TMSY"
       ],
       "nearby_wfos": [
         "BMX",
@@ -3422,7 +3426,8 @@
         "KTLH",
         "KVAX",
         "KJAX",
-        "KJGX"
+        "KJGX",
+        "V010"
       ],
       "nearby_wfos": [
         "JAX",
