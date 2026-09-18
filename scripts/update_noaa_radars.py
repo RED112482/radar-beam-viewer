@@ -19,7 +19,7 @@ DEFAULTS = {
     "NEXRAD": {"lowest_tilt_deg": 0.5, "range_nm": 124},
     "TDWR": {"lowest_tilt_deg": 0.3, "range_nm": 48},
 }
-DEFAULT_EXCLUDES = {"KCRI", "KOUN"}
+DEFAULT_EXCLUDES = {"KCRI", "KOUN", "KLIX"}
 
 
 def read_json(path: pathlib.Path, default):
