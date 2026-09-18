@@ -258,8 +258,8 @@
     }
     mapUI.setSites(radars,$('sitesToggle').checked);
     if(selectedRadar)mapUI.setSelectedRadar(selectedRadar.id);
-    if(!localBounds||!radars.length){currentMosaic=null;mapUI.setMosaicVisible(false);setStatus(radars.length?'Ready':'No radars selected');return}
-    if(!$('mosaicToggle').checked){mapUI.setMosaicVisible(false);currentMosaic=null;setStatus(`${currentWfo} • ${radars.length} active radars`);return}
+    if(!localBounds||!radars.length){currentMosaic=null;mapUI.setMosaicVisible(false);setStatus(radars.length?'Ready':'No radars selected');renderToolReadouts();return}
+    if(!$('mosaicToggle').checked){mapUI.setMosaicVisible(false);currentMosaic=null;setStatus(`${currentWfo} • ${radars.length} active radars`);renderToolReadouts();return}
 
     const calcBounds=coverageBounds(radars);
     showBusy(`Calculating ${radars.length} active radars…`);setStatus('Calculating…');
@@ -269,6 +269,7 @@
       currentMosaic=result;
       mapUI.setMosaic(result.dataUrl,calcBounds,true);
       setStatus(`${currentWfo} • ${radars.length} active radars`);
+      renderToolReadouts();
     }finally{if(token===renderToken)hideBusy()}
   }
 
