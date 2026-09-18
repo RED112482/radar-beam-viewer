@@ -301,3 +301,65 @@ button,select,input{font-family:"Poppins",sans-serif}input[type="checkbox"]{acce
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)
 }
 .height-shade-note{margin-top:4px;font-size:9.5px}
+
+
+/* ===== Selected radar / target pulse emphasis ===== */
+.radar-pulse-icon{
+  width:72px;
+  height:72px;
+  position:relative;
+  pointer-events:none;
+}
+.radar-pulse-ring{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:22px;
+  height:22px;
+  border:3px solid rgba(255,230,109,.96);
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.85);
+  box-shadow:0 0 9px rgba(255,230,109,.62);
+  opacity:.9;
+  animation:radarPulse 1.45s ease-out infinite;
+}
+.radar-pulse-ring-b{animation-delay:.72s}
+@keyframes radarPulse{
+  0%{
+    transform:translate(-50%,-50%) scale(.82);
+    opacity:.92;
+  }
+  70%{opacity:.32}
+  100%{
+    transform:translate(-50%,-50%) scale(2.75);
+    opacity:0;
+  }
+}
+
+.strategy-target-pulse{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:17px;
+  height:17px;
+  border:2px solid var(--target-color,#ff2d2d);
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.9);
+  opacity:.72;
+  animation:targetPulse 1.8s ease-out infinite;
+}
+@keyframes targetPulse{
+  0%{
+    transform:translate(-50%,-50%) scale(.88);
+    opacity:.74;
+  }
+  70%{opacity:.24}
+  100%{
+    transform:translate(-50%,-50%) scale(1.75);
+    opacity:0;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .radar-pulse-ring,
+  .strategy-target-pulse{animation:none}
+}
