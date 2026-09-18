@@ -3,8 +3,17 @@
   const EFFECTIVE_EARTH_M=EARTH_RADIUS_M*(4/3);
   const FT_PER_M=3.280839895;
   const M_PER_NM=1852;
+  const MAX_MERCATOR_LAT=85.05112878;
 
   function toRad(v){return v*Math.PI/180}
+  function mercatorY(latDeg){
+    const lat=Math.max(-MAX_MERCATOR_LAT,Math.min(MAX_MERCATOR_LAT,latDeg));
+    const phi=toRad(lat);
+    return Math.log(Math.tan(Math.PI/4+phi/2));
+  }
+  function inverseMercatorY(y){
+    return (2*Math.atan(Math.exp(y))-Math.PI/2)*180/Math.PI;
+  }
 
   function haversineMeters(lat1,lon1,lat2,lon2){
     const p1=toRad(lat1),p2=toRad(lat2),dp=p2-p1,dl=toRad(lon2-lon1);
@@ -75,9 +84,14 @@
     const lonRads=new Float64Array(width);
     for(let x=0;x<width;x++)lonRads[x]=toRad(west+((x+.5)/width)*(east-west));
 
+    // Leaflet stretches ImageOverlay rows linearly in Web Mercator, not
+    // linearly in latitude. Generate the beam raster on that same row
+    // geometry so displayed color cells and cursor samples line up exactly.
+    const northMerc=mercatorY(north),southMerc=mercatorY(south);
     const latRads=new Float64Array(height),cosLats=new Float64Array(height);
     for(let y=0;y<height;y++){
-      latRads[y]=toRad(north-((y+.5)/height)*(north-south));
+      const my=northMerc-((y+.5)/height)*(northMerc-southMerc);
+      latRads[y]=toRad(inverseMercatorY(my));
       cosLats[y]=Math.cos(latRads[y]);
     }
 
@@ -109,7 +123,8 @@
       // Anchor the radar-origin cell to exactly 0 ft ARL. This matches the
       // operational convention used by the earlier precomputed-grid builder.
       const x0=Math.floor(((radar.lon-west)/(east-west))*width);
-      const y0=Math.floor(((north-radar.lat)/(north-south))*height);
+      const radarMerc=mercatorY(radar.lat);
+      const y0=Math.floor(((northMerc-radarMerc)/(northMerc-southMerc))*height);
       if(x0>=0&&x0<width&&y0>=0&&y0<height){
         const idx=y0*width+x0;
         if(0<minHeight[idx]){
@@ -155,15 +170,18 @@
     if(!result)return null;
     const {west,east,south,north,width,height,winner,minHeight,radars}=result;
     if(lon<west||lon>east||lat<south||lat>north)return null;
+    const northMerc=mercatorY(north),southMerc=mercatorY(south);
+    const pointMerc=mercatorY(lat);
     let x=Math.floor(((lon-west)/(east-west))*width);
-    let y=Math.floor(((north-lat)/(north-south))*height);
+    let y=Math.floor(((northMerc-pointMerc)/(northMerc-southMerc))*height);
     x=Math.max(0,Math.min(width-1,x));
     y=Math.max(0,Math.min(height-1,y));
     const idx=y*width+x;
     const ri=winner[idx];
     if(ri<0||!Number.isFinite(minHeight[idx]))return null;
     const cellLon=west+((x+.5)/width)*(east-west);
-    const cellLat=north-((y+.5)/height)*(north-south);
+    const cellMerc=northMerc-((y+.5)/height)*(northMerc-southMerc);
+    const cellLat=inverseMercatorY(cellMerc);
     return{
       radar:radars[ri],
       height_ft:minHeight[idx],
