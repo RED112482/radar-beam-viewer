@@ -37,9 +37,9 @@ EARTH_RADIUS_KM = 6371.0088
 # a full nominal range circle to merely touch the CWA, which could pull in
 # distant 88Ds that were not operationally useful for low-level sampling.
 SUPPLEMENTAL_MAX_GAP_NM = {
-    "NEXRAD": 70.0,
-    "TDWR": 40.0,
-    "TERMINAL": 40.0,
+    "NEXRAD": 100.0,
+    "TDWR": 50.0,
+    "TERMINAL": 50.0,
     "CLIMAVISION": 35.0,
 }
 
