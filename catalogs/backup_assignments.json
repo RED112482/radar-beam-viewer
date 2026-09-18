@@ -1,12 +1,2106 @@
 {
-  "MOB": {
-    "primary": "LIX",
-    "secondary": "TAE",
-    "tertiary": "KEY"
+  "ABQ": {
+    "primary": "EPZ",
+    "secondary": "AMA",
+    "tertiary": "MAF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "ABR": {
+    "primary": "FSD",
+    "secondary": "BIS",
+    "tertiary": "GLD",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "AFC": {
+    "primary": "AFG",
+    "secondary": "AJK",
+    "tertiary": "SEW",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "AFG": {
+    "primary": "AFC",
+    "secondary": "AJK",
+    "tertiary": "SEW",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "AJK": {
+    "primary": "AFC",
+    "secondary": "AFG",
+    "tertiary": "SEW",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "AKQ": {
+    "primary": "LWX",
+    "secondary": "MHX",
+    "tertiary": "RAH",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "ALY": {
+    "primary": "BGM",
+    "secondary": "BTV",
+    "tertiary": "OKX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "AMA": {
+    "primary": "LUB",
+    "secondary": "ABQ",
+    "tertiary": "TSA",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "APX": {
+    "primary": "MQT",
+    "secondary": "DTX",
+    "tertiary": "LOT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "ARX": {
+    "primary": "DMX",
+    "secondary": "DVN",
+    "tertiary": "DLH",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "BGM": {
+    "primary": "BUF",
+    "secondary": "ALY",
+    "tertiary": "CTP",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "BIS": {
+    "primary": "FGF",
+    "secondary": "ABR",
+    "tertiary": "GID",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "BMX": {
+    "primary": "FFC",
+    "secondary": "HUN",
+    "tertiary": "LZK",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "BOI": {
+    "primary": "PIH",
+    "secondary": "PDT",
+    "tertiary": "LKN",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "BOU": {
+    "primary": "PUB",
+    "secondary": "GJT",
+    "tertiary": "MPX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "BOX": {
+    "primary": "OKX",
+    "secondary": "ALY",
+    "tertiary": "GYX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "BRO": {
+    "primary": "LCH",
+    "secondary": "EWX",
+    "tertiary": "SJU",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "BTV": {
+    "primary": "ALY",
+    "secondary": "GYX",
+    "tertiary": "BOX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "BUF": {
+    "primary": "BGM",
+    "secondary": "CTP",
+    "tertiary": "ALY",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "BYZ": {
+    "primary": "GGW",
+    "secondary": "RIW",
+    "tertiary": "TFX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "CAE": {
+    "primary": "CHS",
+    "secondary": "GSP",
+    "tertiary": "ILM",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "CAR": {
+    "primary": "GYX",
+    "secondary": "BTV",
+    "tertiary": "BOX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "CHS": {
+    "primary": "CAE",
+    "secondary": "JAX",
+    "tertiary": "ILM",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "CLE": {
+    "primary": "PBZ",
+    "secondary": "DTX",
+    "tertiary": "ILN",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "CRP": {
+    "primary": "EWX",
+    "secondary": "HGX",
+    "tertiary": "MLB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "CTP": {
+    "primary": "LWX",
+    "secondary": "BGM",
+    "tertiary": "PBZ",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "CYS": {
+    "primary": "RIW",
+    "secondary": "UNR",
+    "tertiary": "TOP",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "DDC": {
+    "primary": "GLD",
+    "secondary": "ICT",
+    "tertiary": "FGF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "DLH": {
+    "primary": "MPX",
+    "secondary": "FGF",
+    "tertiary": "ARX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "DMX": {
+    "primary": "DVN",
+    "secondary": "OAX",
+    "tertiary": "LBF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "DTX": {
+    "primary": "GRR",
+    "secondary": "APX",
+    "tertiary": "MQT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "DVN": {
+    "primary": "ARX",
+    "secondary": "DMX",
+    "tertiary": "PAH",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "EAX": {
+    "primary": "SGF",
+    "secondary": "TOP",
+    "tertiary": "LMK",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "EKA": {
+    "primary": "MFR",
+    "secondary": "MTR",
+    "tertiary": "STO",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "EPZ": {
+    "primary": "ABQ",
+    "secondary": "MAF",
+    "tertiary": "SJT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "EWX": {
+    "primary": "CRP",
+    "secondary": "BRO",
+    "tertiary": "MFL",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "FFC": {
+    "primary": "BMX",
+    "secondary": "MRX",
+    "tertiary": "JAN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "FGF": {
+    "primary": "BIS",
+    "secondary": "DLH",
+    "tertiary": "DDC",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "FGZ": {
+    "primary": "VEF",
+    "secondary": "PSR",
+    "tertiary": "TWC",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "FSD": {
+    "primary": "ABR",
+    "secondary": "MPX",
+    "tertiary": "ILX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "FWD": {
+    "primary": "SHV",
+    "secondary": "OUN",
+    "tertiary": "OHX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "GGW": {
+    "primary": "BYZ",
+    "secondary": "TFX",
+    "tertiary": "BIS",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "GID": {
+    "primary": "OAX",
+    "secondary": "LBF",
+    "tertiary": "BIS",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "GJT": {
+    "primary": "SLC",
+    "secondary": "BOU",
+    "tertiary": "UNR",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "GLD": {
+    "primary": "DDC",
+    "secondary": "PUB",
+    "tertiary": "ABR",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "GRB": {
+    "primary": "MKX",
+    "secondary": "MQT",
+    "tertiary": "GRR",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "GRR": {
+    "primary": "DTX",
+    "secondary": "IWX",
+    "tertiary": "GRB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "GSP": {
+    "primary": "CAE",
+    "secondary": "MRX",
+    "tertiary": "FFC",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "GUM": {
+    "primary": "PQW",
+    "secondary": "PQE",
+    "tertiary": "PPG",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "GYX": {
+    "primary": "BTV",
+    "secondary": "BOX",
+    "tertiary": "CAR",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "HFO": {
+    "primary": "MTR",
+    "secondary": "EKA",
+    "tertiary": "STO",
+    "verified_roles": [
+      "primary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "HGX": {
+    "primary": "LCH",
+    "secondary": "CRP",
+    "tertiary": "TAE",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "HNX": {
+    "primary": "STO",
+    "secondary": "SGX",
+    "tertiary": "LOX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "HUN": {
+    "primary": "JAN",
+    "secondary": "BMX",
+    "tertiary": "MRX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "ICT": {
+    "primary": "TOP",
+    "secondary": "DDC",
+    "tertiary": "IND",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "ILM": {
+    "primary": "RAH",
+    "secondary": "CAE",
+    "tertiary": "MHX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "ILN": {
+    "primary": "IND",
+    "secondary": "IWX",
+    "tertiary": "RLX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "ILX": {
+    "primary": "LOT",
+    "secondary": "LSX",
+    "tertiary": "FSD",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "IND": {
+    "primary": "IWX",
+    "secondary": "LMK",
+    "tertiary": "ICT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "IWX": {
+    "primary": "IND",
+    "secondary": "GRR",
+    "tertiary": "MKX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "JAN": {
+    "primary": "HUN",
+    "secondary": "SHV",
+    "tertiary": "FFC",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "JAX": {
+    "primary": "TAE",
+    "secondary": "KEY",
+    "tertiary": "LIX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "JKL": {
+    "primary": "ILN",
+    "secondary": "RLX",
+    "tertiary": "SGF",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "KEY": {
+    "primary": "MFL",
+    "secondary": "JAX",
+    "tertiary": "MOB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "LBF": {
+    "primary": "UNR",
+    "secondary": "GID",
+    "tertiary": "DMX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "LCH": {
+    "primary": "HGX",
+    "secondary": "LIX",
+    "tertiary": "TBW",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
   },
   "LIX": {
     "primary": "MOB",
     "secondary": "LCH",
-    "tertiary": "JAX"
+    "tertiary": "JAX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "LKN": {
+    "primary": "REV",
+    "secondary": "BOI",
+    "tertiary": "SLC",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "LMK": {
+    "primary": "PAH",
+    "secondary": "IND",
+    "tertiary": "EAX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "LOT": {
+    "primary": "ILX",
+    "secondary": "MKX",
+    "tertiary": "APX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "LOX": {
+    "primary": "SGX",
+    "secondary": "MTR",
+    "tertiary": "HNX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "LSX": {
+    "primary": "EAX",
+    "secondary": "ILX",
+    "tertiary": "OAX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "LUB": {
+    "primary": "AMA",
+    "secondary": "SJT",
+    "tertiary": "OUN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "LWX": {
+    "primary": "AKQ",
+    "secondary": "CTP",
+    "tertiary": "PBZ",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "LZK": {
+    "primary": "MEG",
+    "secondary": "TSA",
+    "tertiary": "BMX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MAF": {
+    "primary": "SJT",
+    "secondary": "EPZ",
+    "tertiary": "ABQ",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MEG": {
+    "primary": "LZK",
+    "secondary": "OHX",
+    "tertiary": "SHV",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MFL": {
+    "primary": "KEY",
+    "secondary": "TBW",
+    "tertiary": "EWX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MFR": {
+    "primary": "EKA",
+    "secondary": "PQR",
+    "tertiary": "STO",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "MHX": {
+    "primary": "RAH",
+    "secondary": "AKQ",
+    "tertiary": "ILM",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "MKX": {
+    "primary": "GRB",
+    "secondary": "LOT",
+    "tertiary": "IWX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "MLB": {
+    "primary": "TBW",
+    "secondary": "SJU",
+    "tertiary": "CRP",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MOB": {
+    "primary": "LIX",
+    "secondary": "TAE",
+    "tertiary": "KEY",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MPX": {
+    "primary": "DLH",
+    "secondary": "ARX",
+    "tertiary": "BOU",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "MQT": {
+    "primary": "APX",
+    "secondary": "GRB",
+    "tertiary": "DTX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "MRX": {
+    "primary": "OHX",
+    "secondary": "FFC",
+    "tertiary": "HUN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "MSO": {
+    "primary": "TFX",
+    "secondary": "OTX",
+    "tertiary": "PIH",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "MTR": {
+    "primary": "LOX",
+    "secondary": "EKA",
+    "tertiary": "STO",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "OAX": {
+    "primary": "GID",
+    "secondary": "FSD",
+    "tertiary": "LSX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "OHX": {
+    "primary": "MRX",
+    "secondary": "MEG",
+    "tertiary": "FWD",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "OKX": {
+    "primary": "BOX",
+    "secondary": "ALY",
+    "tertiary": "PHI",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "OTX": {
+    "primary": "PDT",
+    "secondary": "MSO",
+    "tertiary": "SEW",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "OUN": {
+    "primary": "TSA",
+    "secondary": "FWD",
+    "tertiary": "LUB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "PAH": {
+    "primary": "LMK",
+    "secondary": "SGF",
+    "tertiary": "DVN",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "PBZ": {
+    "primary": "CLE",
+    "secondary": "CTP",
+    "tertiary": "RLX",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "PDT": {
+    "primary": "OTX",
+    "secondary": "SEW",
+    "tertiary": "PQR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "PHI": {
+    "primary": "OKX",
+    "secondary": "CTP",
+    "tertiary": "BGM",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "PIH": {
+    "primary": "BOI",
+    "secondary": "SLC",
+    "tertiary": "RIW",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "PPG": {
+    "primary": "PQE",
+    "secondary": "HFO",
+    "tertiary": "GUM",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "PQE": {
+    "primary": "GUM",
+    "secondary": "PQW",
+    "tertiary": "PPG",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "PQR": {
+    "primary": "SEW",
+    "secondary": "MFR",
+    "tertiary": "PDT",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "PQW": {
+    "primary": "GUM",
+    "secondary": "PQE",
+    "tertiary": "PPG",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "PSR": {
+    "primary": "TWC",
+    "secondary": "VEF",
+    "tertiary": "SGX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "PUB": {
+    "primary": "BOU",
+    "secondary": "GLD",
+    "tertiary": "RIW",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "RAH": {
+    "primary": "ILM",
+    "secondary": "MHX",
+    "tertiary": "RNK",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "REV": {
+    "primary": "LKN",
+    "secondary": "STO",
+    "tertiary": "MTR",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "RIW": {
+    "primary": "CYS",
+    "secondary": "BYZ",
+    "tertiary": "PUB",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "RLX": {
+    "primary": "RNK",
+    "secondary": "PBZ",
+    "tertiary": "JKL",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "RNK": {
+    "primary": "RAH",
+    "secondary": "RLX",
+    "tertiary": "GSP",
+    "verified_roles": [],
+    "role_status": {
+      "primary": "provisional",
+      "secondary": "provisional",
+      "tertiary": "provisional"
+    },
+    "status": "provisional",
+    "source_region": null,
+    "source_url": null
+  },
+  "SEW": {
+    "primary": "PQR",
+    "secondary": "MFR",
+    "tertiary": "OTX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "SGF": {
+    "primary": "LSX",
+    "secondary": "PAH",
+    "tertiary": "JKL",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "SGX": {
+    "primary": "LOX",
+    "secondary": "MTR",
+    "tertiary": "VEF",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "SHV": {
+    "primary": "FWD",
+    "secondary": "JAN",
+    "tertiary": "MEG",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "SJT": {
+    "primary": "MAF",
+    "secondary": "LUB",
+    "tertiary": "EPZ",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "SJU": {
+    "primary": "MFL",
+    "secondary": "MLB",
+    "tertiary": "BRO",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "SLC": {
+    "primary": "GJT",
+    "secondary": "PIH",
+    "tertiary": "LKN",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "STO": {
+    "primary": "HNX",
+    "secondary": "REV",
+    "tertiary": "EKA",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "TAE": {
+    "primary": "JAX",
+    "secondary": "MOB",
+    "tertiary": "HGX",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "TBW": {
+    "primary": "MLB",
+    "secondary": "MFL",
+    "tertiary": "LCH",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "TFX": {
+    "primary": "MSO",
+    "secondary": "GGW",
+    "tertiary": "BYZ",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "TOP": {
+    "primary": "ICT",
+    "secondary": "EAX",
+    "tertiary": "CYS",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "TSA": {
+    "primary": "OUN",
+    "secondary": "LZK",
+    "tertiary": "AMA",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "SR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001s012004curr.pdf"
+  },
+  "TWC": {
+    "primary": "PSR",
+    "secondary": "FGZ",
+    "tertiary": "EPZ",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
+  },
+  "UNR": {
+    "primary": "LBF",
+    "secondary": "CYS",
+    "tertiary": "GJT",
+    "verified_roles": [
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "official"
+    },
+    "status": "official",
+    "source_region": "CR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001c022004curr.pdf"
+  },
+  "VEF": {
+    "primary": "FGZ",
+    "secondary": "REV",
+    "tertiary": "SGX",
+    "verified_roles": [
+      "primary",
+      "secondary"
+    ],
+    "role_status": {
+      "primary": "official",
+      "secondary": "official",
+      "tertiary": "provisional"
+    },
+    "status": "mixed",
+    "source_region": "WR",
+    "source_url": "https://www.weather.gov/media/directives/010_pdfs/pd01022001w182003curr.pdf"
   }
 }

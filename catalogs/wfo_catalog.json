@@ -1,90 +1,1852 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "updated_utc": "2026-09-18T17:16:58Z",
   "default_wfo": "MOB",
+  "generation": {
+    "source": "NOAA/NWS CWA FeatureServer + radar_catalog.json",
+    "cwa_url": "https://mapservices.weather.noaa.gov/static/rest/services/nws_reference_maps/nws_reference_map/FeatureServer/1/query",
+    "radar_margin_nm": 25.0,
+    "wfo_count": 125
+  },
   "wfos": {
-    "MOB": {
-      "name": "Mobile/Pensacola",
-      "description": "WFO MOB — home office with LIX / TAE / KEY backup groups",
+    "ABQ": {
+      "name": "Albuquerque NM",
+      "description": "WFO ABQ \u2014 national radar ring generated from CWA coverage.",
       "selectable": true,
       "center": {
-        "lat": 30.68,
-        "lon": -88.24
+        "lat": 35.1125,
+        "lon": -106.0166
       },
+      "region": "SR",
       "radars": [
-        "KMOB",
-        "KDGX",
+        "KABX",
+        "KFDX",
+        "KHDX",
+        "KLBB",
+        "KAMA",
+        "KEPZ",
+        "KPUX",
+        "KMAF",
+        "KFSX",
+        "KEMX",
+        "KGJX",
+        "KIWA"
+      ],
+      "nearby_wfos": [
+        "EPZ",
+        "PUB",
+        "AMA"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ABR": {
+      "name": "Aberdeen SD",
+      "description": "WFO ABR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 45.0559,
+        "lon": -99.1579
+      },
+      "region": "CR",
+      "radars": [
+        "KABR",
+        "KBIS",
+        "KFSD",
+        "KUDX",
+        "KMVX",
+        "KLNX",
+        "KMPX",
+        "KMBX"
+      ],
+      "nearby_wfos": [
+        "FSD",
+        "BIS",
+        "UNR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "AFC": {
+      "name": "Anchorage AK",
+      "description": "WFO AFC \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 60.3118,
+        "lon": -152.6381
+      },
+      "region": "AR",
+      "radars": [
+        "PABC",
+        "PAHG",
+        "PAIH",
+        "PAKC",
+        "PAPD"
+      ],
+      "nearby_wfos": [
+        "AFG",
+        "AJK",
+        "SEW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "AFG": {
+      "name": "Fairbanks AK",
+      "description": "WFO AFG \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 66.3845,
+        "lon": -153.4725
+      },
+      "region": "AR",
+      "radars": [
+        "PAEC",
+        "PAPD",
+        "PABC",
+        "PAHG"
+      ],
+      "nearby_wfos": [
+        "AFC",
+        "AJK",
+        "SEW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "AJK": {
+      "name": "Juneau AK",
+      "description": "WFO AJK \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 57.7788,
+        "lon": -135.1704
+      },
+      "region": "AR",
+      "radars": [
+        "PACG",
+        "PAIH"
+      ],
+      "nearby_wfos": [
+        "AFC",
+        "AFG",
+        "SEW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "AKQ": {
+      "name": "Wakefield VA",
+      "description": "WFO AKQ \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.2356,
+        "lon": -77.0439
+      },
+      "region": "ER",
+      "radars": [
+        "KAKQ",
+        "KDOX",
+        "TADW",
+        "TDCA",
+        "TBWI",
+        "TRDU",
+        "KLWX",
+        "TIAD",
+        "KRAX",
+        "KMHX",
+        "KFCX",
+        "KDIX",
+        "KLTX"
+      ],
+      "nearby_wfos": [
+        "LWX",
+        "MHX",
+        "RAH"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ALY": {
+      "name": "Albany NY",
+      "description": "WFO ALY \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.814,
+        "lon": -73.9211
+      },
+      "region": "ER",
+      "radars": [
+        "KENX",
+        "KTYX",
+        "KOKX",
+        "KCXX",
+        "TJFK",
+        "KBGM",
+        "TEWR",
+        "KBOX",
+        "KDIX",
+        "KGYX"
+      ],
+      "nearby_wfos": [
+        "BGM",
+        "BTV",
+        "OKX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "AMA": {
+      "name": "Amarillo TX",
+      "description": "WFO AMA \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.8696,
+        "lon": -101.5164
+      },
+      "region": "SR",
+      "radars": [
+        "KAMA",
+        "KFDX",
+        "KDDC",
+        "KFDR",
+        "KLBB",
+        "KVNX",
+        "KPUX",
+        "KICT",
+        "KTLX",
+        "KDYX",
+        "KGLD"
+      ],
+      "nearby_wfos": [
+        "LUB",
+        "DDC",
+        "OUN"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "APX": {
+      "name": "Gaylord MI",
+      "description": "WFO APX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 45.0124,
+        "lon": -84.664
+      },
+      "region": "CR",
+      "radars": [
+        "KAPX",
+        "KGRR",
+        "KMQT",
+        "KDTX",
+        "KGRB",
+        "KMKX"
+      ],
+      "nearby_wfos": [
+        "GRR",
+        "DTX",
+        "MQT"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ARX": {
+      "name": "La Crosse WI",
+      "description": "WFO ARX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 43.7776,
+        "lon": -91.3508
+      },
+      "region": "CR",
+      "radars": [
+        "KARX",
+        "TMSP",
+        "KMPX",
+        "KDVN",
+        "KMKX",
+        "KGRB",
+        "KDMX",
+        "KDLH",
+        "KLOT",
+        "KMQT"
+      ],
+      "nearby_wfos": [
+        "MKX",
+        "GRB",
+        "MPX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BGM": {
+      "name": "Binghamton NY",
+      "description": "WFO BGM \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.2332,
+        "lon": -75.8994
+      },
+      "region": "ER",
+      "radars": [
+        "KBGM",
+        "KTYX",
+        "KENX",
+        "TEWR",
+        "KBUF",
+        "TJFK",
+        "KCCX",
+        "TPHL",
+        "KDIX",
+        "KOKX",
+        "KCXX",
+        "KDOX",
+        "KLWX",
+        "KPBZ",
+        "KBOX"
+      ],
+      "nearby_wfos": [
+        "BUF",
+        "ALY",
+        "CTP"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BIS": {
+      "name": "Bismarck ND",
+      "description": "WFO BIS \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.3647,
+        "lon": -101.4176
+      },
+      "region": "CR",
+      "radars": [
+        "KBIS",
+        "KMBX",
+        "KABR",
+        "KMVX",
+        "KGGW",
+        "KUDX"
+      ],
+      "nearby_wfos": [
+        "ABR",
+        "FGF",
+        "GGW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BMX": {
+      "name": "Birmingham AL",
+      "description": "WFO BMX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 33.0269,
+        "lon": -86.6759
+      },
+      "region": "SR",
+      "radars": [
         "KBMX",
         "KMXX",
+        "V001",
+        "KGWX",
         "KEOX",
-        "KEVX",
-        "KHDC",
         "V179",
-        "V001"
-      ]
-    },
-    "LIX": {
-      "name": "New Orleans/Baton Rouge",
-      "description": "WFO LIX — home office with MOB / LCH / JAX backup groups",
-      "selectable": true,
-      "center": {
-        "lat": 30.34,
-        "lon": -89.83
-      },
-      "radars": [
-        "KHDC",
+        "KFFC",
+        "KHTX",
+        "TATL",
+        "KEVX",
         "KMOB",
         "KDGX",
-        "KPOE",
-        "KLCH",
-        "TMSY",
-        "V018",
-        "V015",
-        "V014"
-      ]
+        "KJGX",
+        "KTLH",
+        "KNQA",
+        "KOHX",
+        "KVAX",
+        "KLIX",
+        "KMRX",
+        "KHPX",
+        "KHDC"
+      ],
+      "nearby_wfos": [
+        "HUN",
+        "MOB",
+        "FFC"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
     },
-    "TAE": {
-      "name": "Tallahassee",
-      "description": "Configured as MOB secondary backup.",
-      "selectable": false,
+    "BOI": {
+      "name": "Boise ID",
+      "description": "WFO BOI \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
       "center": {
-        "lat": 30.4,
-        "lon": -84.33
+        "lat": 43.4103,
+        "lon": -116.9358
       },
+      "region": "WR",
       "radars": [
-        "KEVX",
-        "KMOB",
-        "KEOX",
+        "KCBX",
+        "KPDT",
+        "KSFX",
+        "KLRX",
+        "KMTX",
+        "KMSX",
+        "KMAX",
+        "KRGX"
+      ],
+      "nearby_wfos": [
+        "PDT",
+        "PIH",
+        "LKN"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BOU": {
+      "name": "Denver CO",
+      "description": "WFO BOU \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 40.0124,
+        "lon": -104.5383
+      },
+      "region": "CR",
+      "radars": [
+        "KFTG",
+        "TDEN",
+        "KPUX",
+        "KCYS",
+        "KGLD",
+        "KLNX",
+        "KGJX",
+        "KRIW"
+      ],
+      "nearby_wfos": [
+        "CYS",
+        "PUB",
+        "GLD"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BOX": {
+      "name": "Boston/Norton MA",
+      "description": "WFO BOX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.1104,
+        "lon": -71.7529
+      },
+      "region": "ER",
+      "radars": [
+        "KBOX",
+        "TBOS",
+        "KOKX",
+        "KENX",
+        "KGYX",
+        "TJFK",
+        "KCXX",
+        "KDIX",
+        "KBGM",
+        "KTYX"
+      ],
+      "nearby_wfos": [
+        "OKX",
+        "ALY",
+        "GYX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BRO": {
+      "name": "Brownsville TX",
+      "description": "WFO BRO \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 26.7022,
+        "lon": -98.2654
+      },
+      "region": "SR",
+      "radars": [
+        "KBRO",
+        "KCRP",
+        "KDFX",
+        "KEWX"
+      ],
+      "nearby_wfos": [
+        "CRP",
+        "EWX",
+        "HGX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BTV": {
+      "name": "Burlington VT",
+      "description": "WFO BTV \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 44.3571,
+        "lon": -73.4551
+      },
+      "region": "ER",
+      "radars": [
+        "KCXX",
+        "KTYX",
+        "KENX",
+        "KGYX",
+        "KBOX",
+        "KBGM",
+        "KOKX"
+      ],
+      "nearby_wfos": [
+        "ALY",
+        "GYX",
+        "BOX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BUF": {
+      "name": "Buffalo NY",
+      "description": "WFO BUF \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.9996,
+        "lon": -77.5485
+      },
+      "region": "ER",
+      "radars": [
+        "KBUF",
+        "KTYX",
+        "KBGM",
+        "KCCX",
+        "KENX",
+        "KCXX",
+        "KPBZ",
+        "KCLE"
+      ],
+      "nearby_wfos": [
+        "BGM",
+        "CTP",
+        "ALY"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "BYZ": {
+      "name": "Billings MT",
+      "description": "WFO BYZ \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 45.7909,
+        "lon": -107.3678
+      },
+      "region": "WR",
+      "radars": [
+        "KBLX",
+        "KTFX",
+        "KUDX",
+        "KGGW",
+        "KRIW",
+        "KSFX",
+        "KBIS",
+        "KMSX"
+      ],
+      "nearby_wfos": [
+        "GGW",
+        "RIW",
+        "TFX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CAE": {
+      "name": "Columbia SC",
+      "description": "WFO CAE \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 33.848,
+        "lon": -81.1819
+      },
+      "region": "ER",
+      "radars": [
+        "KCAE",
+        "TCLT",
+        "KCLX",
+        "KGSP",
+        "KJGX",
+        "KLTX",
+        "KRAX",
+        "KFFC",
+        "KFCX",
+        "KVAX",
+        "KMRX",
+        "KJAX",
+        "KMHX"
+      ],
+      "nearby_wfos": [
+        "CHS",
+        "GSP",
+        "ILM"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CAR": {
+      "name": "Caribou ME",
+      "description": "WFO CAR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 45.8574,
+        "lon": -68.6686
+      },
+      "region": "ER",
+      "radars": [
+        "KCBW",
+        "KGYX"
+      ],
+      "nearby_wfos": [
+        "GYX",
+        "BTV",
+        "BOX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CHS": {
+      "name": "Charleston SC",
+      "description": "WFO CHS \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 32.5341,
+        "lon": -81.0332
+      },
+      "region": "ER",
+      "radars": [
+        "KCLX",
+        "KCAE",
+        "KJAX",
+        "KJGX",
+        "KLTX",
+        "KVAX",
+        "KGSP",
+        "KFFC",
+        "KTLH",
+        "KRAX"
+      ],
+      "nearby_wfos": [
+        "CAE",
+        "JAX",
+        "ILM"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CLE": {
+      "name": "Cleveland OH",
+      "description": "WFO CLE \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.1867,
+        "lon": -81.9405
+      },
+      "region": "ER",
+      "radars": [
+        "KCLE",
+        "TLVE",
+        "TCMH",
+        "TDTW",
+        "TPIT",
+        "KPBZ",
+        "TDAY",
+        "KDTX",
+        "KBUF",
+        "KILN",
+        "KIWX",
+        "KCCX",
+        "KGRR",
+        "KRLX",
+        "KIND"
+      ],
+      "nearby_wfos": [
+        "PBZ",
+        "DTX",
+        "ILN"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CRP": {
+      "name": "Corpus Christi TX",
+      "description": "WFO CRP \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 28.0716,
+        "lon": -98.2275
+      },
+      "region": "SR",
+      "radars": [
+        "KCRP",
+        "KEWX",
+        "KDFX",
+        "KHGX",
+        "KBRO",
+        "KGRK"
+      ],
+      "nearby_wfos": [
+        "BRO",
+        "EWX",
+        "HGX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CTP": {
+      "name": "State College PA",
+      "description": "WFO CTP \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 40.8077,
+        "lon": -77.674
+      },
+      "region": "ER",
+      "radars": [
+        "KCCX",
+        "TBWI",
+        "TIAD",
+        "TPHL",
+        "KBGM",
+        "KLWX",
+        "KPBZ",
+        "KBUF",
+        "TDCA",
+        "TPIT",
+        "TADW",
+        "KDOX",
+        "KDIX",
+        "TEWR",
+        "KCLE",
+        "KENX",
+        "KTYX",
+        "KOKX",
+        "KRLX"
+      ],
+      "nearby_wfos": [
+        "LWX",
+        "BGM",
+        "PBZ"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "CYS": {
+      "name": "Cheyenne WY",
+      "description": "WFO CYS \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.0422,
+        "lon": -105.0344
+      },
+      "region": "CR",
+      "radars": [
+        "KCYS",
+        "KRIW",
+        "KUDX",
+        "KFTG",
+        "KLNX",
+        "KGLD",
+        "KGJX"
+      ],
+      "nearby_wfos": [
+        "BOU",
+        "UNR",
+        "RIW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "DDC": {
+      "name": "Dodge City KS",
+      "description": "WFO DDC \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.8615,
+        "lon": -100.1623
+      },
+      "region": "CR",
+      "radars": [
+        "KDDC",
+        "KVNX",
+        "TICH",
+        "KICT",
+        "KGLD",
+        "KUEX",
+        "KPUX",
+        "KAMA",
+        "KTLX",
+        "KTWX",
+        "KINX",
+        "KFTG"
+      ],
+      "nearby_wfos": [
+        "GLD",
+        "AMA",
+        "ICT"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "DLH": {
+      "name": "Duluth MN",
+      "description": "WFO DLH \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.0512,
+        "lon": -92.4576
+      },
+      "region": "CR",
+      "radars": [
+        "KDLH",
+        "TMSP",
+        "KMPX",
+        "KARX",
+        "KGRB",
+        "KMQT",
+        "KMVX"
+      ],
+      "nearby_wfos": [
+        "MPX",
+        "FGF",
+        "GRB"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "DMX": {
+      "name": "Des Moines IA",
+      "description": "WFO DMX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.9757,
+        "lon": -93.7409
+      },
+      "region": "CR",
+      "radars": [
+        "KDMX",
+        "KOAX",
+        "TMCI",
+        "KARX",
+        "KDVN",
+        "KFSD",
+        "KMPX",
+        "KEAX",
+        "KTWX",
+        "KILX",
+        "KLSX"
+      ],
+      "nearby_wfos": [
+        "DVN",
+        "OAX",
+        "EAX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "DTX": {
+      "name": "Detroit/Pontiac MI",
+      "description": "WFO DTX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.946,
+        "lon": -83.5117
+      },
+      "region": "CR",
+      "radars": [
+        "KDTX",
+        "TDTW",
+        "KGRR",
+        "KAPX",
+        "KIWX",
+        "TLVE",
+        "KCLE",
+        "KILN",
+        "KIND"
+      ],
+      "nearby_wfos": [
+        "GRR",
+        "CLE",
+        "IWX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "DVN": {
+      "name": "Quad Cities IA IL",
+      "description": "WFO DVN \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.5122,
+        "lon": -91.0153
+      },
+      "region": "CR",
+      "radars": [
+        "KDVN",
+        "KMKX",
+        "KLOT",
+        "KILX",
+        "TORD",
+        "KDMX",
+        "TMKE",
+        "TMDW",
+        "KARX",
+        "KLSX",
+        "KEAX",
+        "KGRB",
+        "KMPX"
+      ],
+      "nearby_wfos": [
+        "LOT",
+        "DMX",
+        "ILX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "EAX": {
+      "name": "Kansas City/Pleasant Hill MO",
+      "description": "WFO EAX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.489,
+        "lon": -93.9302
+      },
+      "region": "CR",
+      "radars": [
+        "KEAX",
+        "TMCI",
+        "KTWX",
+        "KOAX",
+        "KSGF",
+        "KDMX",
+        "KLSX",
+        "KDVN",
+        "KINX",
+        "KICT",
+        "KUEX",
+        "KILX"
+      ],
+      "nearby_wfos": [
+        "TOP",
+        "SGF",
+        "DMX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "EKA": {
+      "name": "Eureka CA",
+      "description": "WFO EKA \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 40.2615,
+        "lon": -123.4333
+      },
+      "region": "WR",
+      "radars": [
+        "KBHX",
+        "KMAX",
+        "KDAX",
+        "KBBX",
+        "KMUX",
+        "KRGX"
+      ],
+      "nearby_wfos": [
+        "STO",
+        "MFR",
+        "MTR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "EPZ": {
+      "name": "El Paso Tx/Santa Teresa NM",
+      "description": "WFO EPZ \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 32.3506,
+        "lon": -106.9135
+      },
+      "region": "SR",
+      "radars": [
+        "KEPZ",
+        "KHDX",
+        "KEMX",
+        "KABX",
+        "KFDX",
+        "KIWA",
+        "KFSX",
+        "KMAF"
+      ],
+      "nearby_wfos": [
+        "ABQ",
+        "TWC",
+        "MAF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "EWX": {
+      "name": "Austin/San Antonio TX",
+      "description": "WFO EWX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 29.6502,
+        "lon": -98.9441
+      },
+      "region": "SR",
+      "radars": [
+        "KDFX",
+        "KEWX",
+        "KGRK",
+        "TIAH",
+        "KCRP",
+        "KSJT",
+        "THOU",
+        "KHGX",
+        "KFWS",
+        "KDYX",
+        "KMAF"
+      ],
+      "nearby_wfos": [
+        "CRP",
+        "SJT",
+        "HGX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "FFC": {
+      "name": "Peachtree City GA",
+      "description": "WFO FFC \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 33.3266,
+        "lon": -83.9246
+      },
+      "region": "SR",
+      "radars": [
+        "KFFC",
+        "KJGX",
+        "TATL",
+        "KHTX",
         "KMXX",
+        "KEOX",
+        "KCLX",
+        "KVAX",
+        "KGSP",
+        "KCAE",
+        "KMRX",
+        "KBMX",
+        "KTLH",
+        "KOHX",
+        "KJAX",
+        "KEVX",
+        "KHPX",
+        "KGWX"
+      ],
+      "nearby_wfos": [
+        "BMX",
+        "CAE",
+        "GSP"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "FGF": {
+      "name": "Grand Forks ND",
+      "description": "WFO FGF \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.6559,
+        "lon": -96.8023
+      },
+      "region": "CR",
+      "radars": [
+        "KMVX",
+        "KABR",
+        "KMBX",
+        "KBIS",
+        "KDLH",
+        "KMPX",
+        "KFSD"
+      ],
+      "nearby_wfos": [
+        "DLH",
+        "ABR",
+        "BIS"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "FGZ": {
+      "name": "Flagstaff AZ",
+      "description": "WFO FGZ \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.367,
+        "lon": -111.0606
+      },
+      "region": "WR",
+      "radars": [
+        "KFSX",
+        "TPHX",
+        "KICX",
+        "KIWA",
+        "KESX",
+        "KEMX",
+        "KABX",
+        "KYUX",
+        "KGJX"
+      ],
+      "nearby_wfos": [
+        "PSR",
+        "TWC",
+        "VEF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "FSD": {
+      "name": "Sioux Falls SD",
+      "description": "WFO FSD \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 43.5163,
+        "lon": -96.95
+      },
+      "region": "CR",
+      "radars": [
+        "KFSD",
+        "KABR",
+        "KOAX",
+        "KMPX",
+        "KDMX",
+        "KLNX",
+        "KUEX",
+        "KUDX"
+      ],
+      "nearby_wfos": [
+        "OAX",
+        "ABR",
+        "MPX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "FWD": {
+      "name": "Fort Worth TX",
+      "description": "WFO FWD \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 32.3665,
+        "lon": -97.1392
+      },
+      "region": "SR",
+      "radars": [
+        "KFWS",
+        "TDAL",
+        "TDFW",
+        "KGRK",
+        "KDYX",
+        "KFDR",
+        "TIAH",
+        "KEWX",
+        "KSJT",
+        "KSHV",
+        "KTLX",
+        "KSRX",
+        "KHGX",
+        "KPOE",
+        "KINX",
+        "KLCH",
+        "KDFX",
+        "KLBB"
+      ],
+      "nearby_wfos": [
+        "SJT",
+        "HGX",
+        "SHV"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GGW": {
+      "name": "Glasgow MT",
+      "description": "WFO GGW \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.8574,
+        "lon": -106.2361
+      },
+      "region": "WR",
+      "radars": [
+        "KGGW",
+        "KBLX",
+        "KTFX",
+        "KMBX",
+        "KBIS"
+      ],
+      "nearby_wfos": [
+        "BYZ",
+        "BIS",
+        "TFX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GID": {
+      "name": "Hastings NE",
+      "description": "WFO GID \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 40.4305,
+        "lon": -98.702
+      },
+      "region": "CR",
+      "radars": [
+        "KUEX",
+        "KOAX",
+        "KLNX",
+        "KGLD",
+        "KTWX",
+        "KDDC",
+        "KICT",
+        "KFSD",
+        "KVNX"
+      ],
+      "nearby_wfos": [
+        "OAX",
+        "LBF",
+        "TOP"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GJT": {
+      "name": "Grand Junction CO",
+      "description": "WFO GJT \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 38.9821,
+        "lon": -108.3875
+      },
+      "region": "CR",
+      "radars": [
+        "KGJX",
+        "KFTG",
+        "KCYS",
+        "KPUX",
+        "KICX",
+        "KABX",
+        "KMTX",
+        "KRIW",
+        "KFSX"
+      ],
+      "nearby_wfos": [
+        "SLC",
+        "BOU",
+        "PUB"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GLD": {
+      "name": "Goodland KS",
+      "description": "WFO GLD \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.4263,
+        "lon": -101.4683
+      },
+      "region": "CR",
+      "radars": [
+        "KGLD",
+        "KPUX",
+        "KDDC",
+        "KUEX",
+        "TDEN",
+        "KFTG",
+        "KLNX",
+        "KCYS",
+        "KICT"
+      ],
+      "nearby_wfos": [
+        "DDC",
+        "GID",
+        "BOU"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GRB": {
+      "name": "Green Bay WI",
+      "description": "WFO GRB \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 44.9881,
+        "lon": -88.8922
+      },
+      "region": "CR",
+      "radars": [
+        "KGRB",
+        "KMQT",
+        "KARX",
+        "KMKX",
+        "TMKE",
+        "KAPX",
+        "KDLH",
+        "KGRR",
+        "KLOT",
+        "KMPX",
+        "KDVN"
+      ],
+      "nearby_wfos": [
+        "MQT",
+        "MKX",
+        "ARX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GRR": {
+      "name": "Grand Rapids MI",
+      "description": "WFO GRR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 43.0913,
+        "lon": -85.3514
+      },
+      "region": "CR",
+      "radars": [
+        "KGRR",
+        "TDTW",
+        "KDTX",
+        "KIWX",
+        "KAPX",
+        "TMDW",
+        "TORD",
+        "KGRB",
+        "KLOT",
+        "KMKX",
+        "KCLE",
+        "KIND"
+      ],
+      "nearby_wfos": [
+        "DTX",
+        "IWX",
+        "APX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GSP": {
+      "name": "Greenville-Spartanburg SC",
+      "description": "WFO GSP \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.1557,
+        "lon": -82.08
+      },
+      "region": "ER",
+      "radars": [
+        "KGSP",
+        "TCLT",
+        "KMRX",
+        "KCAE",
+        "TATL",
+        "KFCX",
+        "KFFC",
+        "KJGX",
+        "KRAX",
+        "KCLX",
+        "KJKL",
+        "KHTX",
+        "KLTX",
+        "KRLX",
+        "KOHX"
+      ],
+      "nearby_wfos": [
+        "CAE",
+        "MRX",
+        "FFC"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GUM": {
+      "name": "Tiyan GU",
+      "description": "WFO GUM \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 14.5108,
+        "lon": 145.1588
+      },
+      "region": "PR",
+      "radars": [
+        "PGUA"
+      ],
+      "nearby_wfos": [
+        "PQW",
+        "PQE",
+        "PPG"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "GYX": {
+      "name": "Gray ME",
+      "description": "WFO GYX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 44.2035,
+        "lon": -70.7651
+      },
+      "region": "ER",
+      "radars": [
+        "KGYX",
+        "TBOS",
+        "KBOX",
+        "KCXX",
+        "KENX",
+        "KCBW",
+        "KOKX",
+        "KTYX"
+      ],
+      "nearby_wfos": [
+        "BTV",
+        "BOX",
+        "CAR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "HFO": {
+      "name": "Honolulu HI",
+      "description": "WFO HFO \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 20.2461,
+        "lon": -156.3449
+      },
+      "region": "PR",
+      "radars": [
+        "PHKI",
+        "PHKM",
+        "PHMO",
+        "PHWA"
+      ],
+      "nearby_wfos": [
+        "MTR",
+        "EKA",
+        "STO"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "HGX": {
+      "name": "Houston/Galveston TX",
+      "description": "WFO HGX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 30.046,
+        "lon": -95.6748
+      },
+      "region": "SR",
+      "radars": [
+        "KHGX",
+        "THOU",
+        "TIAH",
+        "KGRK",
+        "KEWX",
+        "KLCH",
+        "KCRP",
+        "KPOE",
+        "KSHV",
+        "KFWS"
+      ],
+      "nearby_wfos": [
+        "LCH",
+        "FWD",
+        "EWX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "HNX": {
+      "name": "Hanford CA",
+      "description": "WFO HNX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 36.344,
+        "lon": -119.3279
+      },
+      "region": "WR",
+      "radars": [
+        "KHNX",
+        "KEYX",
+        "KVTX",
+        "KMUX",
+        "KVBX",
+        "KSOX",
+        "KDAX",
+        "KRGX",
+        "KNKX",
+        "KBBX",
+        "KESX"
+      ],
+      "nearby_wfos": [
+        "LOX",
+        "MTR",
+        "VEF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "HUN": {
+      "name": "Huntsville AL",
+      "description": "WFO HUN \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 34.6661,
+        "lon": -86.7676
+      },
+      "region": "SR",
+      "radars": [
+        "KHTX",
+        "KGWX",
+        "TBNA",
+        "KBMX",
+        "KOHX",
+        "KFFC",
+        "KNQA",
+        "KHPX",
+        "KMXX",
+        "KPAH",
+        "KMRX"
+      ],
+      "nearby_wfos": [
+        "OHX",
+        "BMX",
+        "MEG"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ICT": {
+      "name": "Wichita KS",
+      "description": "WFO ICT \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.9143,
+        "lon": -97.176
+      },
+      "region": "CR",
+      "radars": [
+        "KICT",
+        "TICH",
+        "KVNX",
+        "KTWX",
+        "KINX",
+        "KDDC",
+        "TTUL",
+        "KEAX",
+        "KUEX",
+        "KSGF",
+        "KTLX",
+        "KSRX",
+        "KGLD",
+        "KOAX"
+      ],
+      "nearby_wfos": [
+        "TOP",
+        "DDC",
+        "TSA"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ILM": {
+      "name": "Wilmington NC",
+      "description": "WFO ILM \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 34.1676,
+        "lon": -79.0208
+      },
+      "region": "ER",
+      "radars": [
+        "KLTX",
+        "KMHX",
+        "KCAE",
+        "KRAX",
+        "TCLT",
+        "TRDU",
+        "KCLX",
+        "KGSP",
+        "KFCX",
+        "KAKQ"
+      ],
+      "nearby_wfos": [
+        "RAH",
+        "CAE",
+        "MHX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ILN": {
+      "name": "Wilmington OH",
+      "description": "WFO ILN \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.542,
+        "lon": -83.8856
+      },
+      "region": "ER",
+      "radars": [
+        "KILN",
+        "TCMH",
+        "TCVG",
+        "TDAY",
+        "TSDF",
+        "KJKL",
+        "KIND",
+        "KLVX",
+        "KRLX",
+        "TIDS",
+        "KIWX",
+        "TLVE",
+        "KCLE",
+        "KPBZ",
+        "KDTX",
+        "KVWX",
+        "KMRX",
+        "KGRR",
+        "KHPX"
+      ],
+      "nearby_wfos": [
+        "IND",
+        "IWX",
+        "RLX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "ILX": {
+      "name": "Lincoln IL",
+      "description": "WFO ILX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.9442,
+        "lon": -89.0049
+      },
+      "region": "CR",
+      "radars": [
+        "KILX",
+        "KVWX",
+        "KDVN",
+        "TSTL",
+        "KLSX",
+        "TIDS",
+        "KLOT",
+        "KIND",
+        "TMDW",
+        "TORD",
+        "KLVX",
+        "KPAH",
+        "KIWX",
+        "KHPX",
+        "KMKX",
+        "KOHX"
+      ],
+      "nearby_wfos": [
+        "LOT",
+        "LSX",
+        "IND"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "IND": {
+      "name": "Indianapolis IN",
+      "description": "WFO IND \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.6213,
+        "lon": -86.4451
+      },
+      "region": "CR",
+      "radars": [
+        "KIND",
+        "TIDS",
+        "KVWX",
+        "TDAY",
+        "TCVG",
+        "TSDF",
+        "KLVX",
+        "KIWX",
+        "KILN",
+        "TMDW",
+        "KLOT",
+        "KILX",
+        "KPAH",
+        "KHPX",
+        "KJKL",
+        "KOHX",
+        "KGRR",
+        "KLSX"
+      ],
+      "nearby_wfos": [
+        "IWX",
+        "ILN",
+        "LMK"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "IWX": {
+      "name": "Northern Indiana",
+      "description": "WFO IWX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.2653,
+        "lon": -85.4551
+      },
+      "region": "CR",
+      "radars": [
+        "KIWX",
+        "TDTW",
+        "TDAY",
+        "TMDW",
+        "TORD",
+        "KIND",
+        "KGRR",
+        "TIDS",
+        "KLOT",
+        "KDTX",
+        "TCMH",
+        "KILN",
+        "KCLE",
+        "KMKX",
+        "KILX",
+        "KVWX",
+        "KLVX"
+      ],
+      "nearby_wfos": [
+        "IND",
+        "GRR",
+        "ILN"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "JAN": {
+      "name": "Jackson MS",
+      "description": "WFO JAN \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 32.5382,
+        "lon": -90.1996
+      },
+      "region": "SR",
+      "radars": [
+        "KDGX",
+        "V179",
+        "KGWX",
+        "V018",
+        "KLIX",
+        "KHDC",
+        "V001",
+        "KMOB",
+        "KPOE",
+        "TMEM",
+        "TMSY",
+        "KBMX",
+        "KLZK",
+        "KNQA",
+        "KSHV",
+        "KLCH",
+        "KHTX",
+        "KMXX"
+      ],
+      "nearby_wfos": [
+        "LIX",
+        "MOB",
+        "MEG"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "JAX": {
+      "name": "Jacksonville",
+      "description": "WFO JAX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 30.4621,
+        "lon": -82.2078
+      },
+      "region": "SR",
+      "radars": [
+        "KJAX",
         "KTLH",
         "KVAX",
-        "KJAX",
-        "KJGX"
-      ]
+        "KJGX",
+        "KEVX",
+        "KMLB",
+        "KTBW",
+        "TMCO"
+      ],
+      "nearby_wfos": [
+        "TAE",
+        "CHS",
+        "MLB"
+      ],
+      "radar_ring_source": "curated override"
+    },
+    "JKL": {
+      "name": "Jackson KY",
+      "description": "WFO JKL \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.3903,
+        "lon": -83.575
+      },
+      "region": "CR",
+      "radars": [
+        "KJKL",
+        "KMRX",
+        "TCVG",
+        "KRLX",
+        "KILN",
+        "TSDF",
+        "KLVX",
+        "KOHX",
+        "KFCX",
+        "KHPX",
+        "KHTX",
+        "KGSP",
+        "KIND"
+      ],
+      "nearby_wfos": [
+        "MRX",
+        "LMK",
+        "RLX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
     },
     "KEY": {
       "name": "Key West",
-      "description": "Configured as MOB tertiary backup.",
-      "selectable": false,
+      "description": "WFO KEY \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
       "center": {
-        "lat": 24.6,
-        "lon": -81.7
+        "lat": 24.8422,
+        "lon": -81.0867
       },
+      "region": "SR",
       "radars": [
         "KBYX",
         "KAMX",
         "TMIA",
         "TFLL",
         "TPBI"
-      ]
+      ],
+      "nearby_wfos": [
+        "MFL",
+        "TBW",
+        "MLB"
+      ],
+      "radar_ring_source": "curated override"
+    },
+    "LBF": {
+      "name": "North Platte NE",
+      "description": "WFO LBF \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.8755,
+        "lon": -100.712
+      },
+      "region": "CR",
+      "radars": [
+        "KLNX",
+        "KUEX",
+        "KGLD",
+        "KUDX",
+        "KFSD",
+        "KOAX",
+        "KCYS",
+        "KFTG",
+        "KABR"
+      ],
+      "nearby_wfos": [
+        "GID",
+        "GLD",
+        "UNR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
     },
     "LCH": {
       "name": "Lake Charles",
-      "description": "Starter neighboring-radar ring for use as LIX secondary backup.",
-      "selectable": false,
+      "description": "WFO LCH \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
       "center": {
-        "lat": 30.13,
-        "lon": -93.22
+        "lat": 30.4524,
+        "lon": -92.9684
       },
+      "region": "SR",
       "radars": [
         "KLCH",
         "KPOE",
@@ -97,26 +1859,1683 @@
         "TMSY",
         "V015",
         "V018"
-      ]
+      ],
+      "nearby_wfos": [
+        "LIX",
+        "SHV",
+        "HGX"
+      ],
+      "radar_ring_source": "curated override"
     },
-    "JAX": {
-      "name": "Jacksonville",
-      "description": "Starter neighboring-radar ring for use as LIX tertiary backup.",
-      "selectable": false,
+    "LIX": {
+      "name": "New Orleans/Baton Rouge",
+      "description": "WFO LIX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
       "center": {
-        "lat": 30.48,
-        "lon": -81.7
+        "lat": 30.3718,
+        "lon": -90.3975
       },
+      "region": "SR",
       "radars": [
-        "KJAX",
-        "KTLH",
-        "KVAX",
-        "KJGX",
-        "KEVX",
+        "KHDC",
+        "KMOB",
+        "KDGX",
+        "KPOE",
+        "KLCH",
+        "TMSY",
+        "V018",
+        "V015",
+        "V014"
+      ],
+      "nearby_wfos": [
+        "JAN",
+        "LCH",
+        "MOB"
+      ],
+      "radar_ring_source": "curated override"
+    },
+    "LKN": {
+      "name": "Elko NV",
+      "description": "WFO LKN \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 40.2485,
+        "lon": -116.2084
+      },
+      "region": "WR",
+      "radars": [
+        "KLRX",
+        "KMTX",
+        "KRGX",
+        "KICX",
+        "KCBX",
+        "KSFX",
+        "KBBX",
+        "KESX"
+      ],
+      "nearby_wfos": [
+        "REV",
+        "BOI",
+        "SLC"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LMK": {
+      "name": "Louisville KY",
+      "description": "WFO LMK \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.7254,
+        "lon": -85.6681
+      },
+      "region": "CR",
+      "radars": [
+        "KLVX",
+        "TSDF",
+        "KHPX",
+        "TCVG",
+        "KOHX",
+        "KVWX",
+        "KJKL",
+        "TBNA",
+        "TIDS",
+        "KILN",
+        "KIND",
+        "KPAH",
+        "KMRX",
+        "KRLX",
+        "KHTX",
+        "KILX",
+        "KIWX"
+      ],
+      "nearby_wfos": [
+        "JKL",
+        "OHX",
+        "IND"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LOT": {
+      "name": "Chicago IL",
+      "description": "WFO LOT \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.4841,
+        "lon": -88.2582
+      },
+      "region": "CR",
+      "radars": [
+        "KLOT",
+        "TMDW",
+        "TORD",
+        "TMKE",
+        "KMKX",
+        "KILX",
+        "KDVN",
+        "KIWX",
+        "TIDS",
+        "KIND",
+        "KGRR",
+        "KARX",
+        "KGRB",
+        "KVWX",
+        "KLSX"
+      ],
+      "nearby_wfos": [
+        "ILX",
+        "MKX",
+        "DVN"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LOX": {
+      "name": "Los Angeles/Oxnard CA",
+      "description": "WFO LOX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 34.7187,
+        "lon": -119.3729
+      },
+      "region": "WR",
+      "radars": [
+        "KVBX",
+        "KVTX",
+        "KSOX",
+        "KEYX",
+        "KHNX",
+        "KNKX",
+        "KMUX",
+        "KESX"
+      ],
+      "nearby_wfos": [
+        "HNX",
+        "SGX",
+        "MTR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LSX": {
+      "name": "St Louis MO",
+      "description": "WFO LSX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 38.8167,
+        "lon": -90.8305
+      },
+      "region": "CR",
+      "radars": [
+        "KLSX",
+        "TSTL",
+        "KILX",
+        "KVWX",
+        "KPAH",
+        "KEAX",
+        "KSGF",
+        "KDVN",
+        "KDMX",
+        "KNQA",
+        "KIND",
+        "KHPX",
+        "KLVX",
+        "KLOT",
+        "KLZK"
+      ],
+      "nearby_wfos": [
+        "ILX",
+        "PAH",
+        "SGF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LUB": {
+      "name": "Lubbock TX",
+      "description": "WFO LUB \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 33.852,
+        "lon": -101.5287
+      },
+      "region": "SR",
+      "radars": [
+        "KLBB",
+        "KFDX",
+        "KAMA",
+        "KDYX",
+        "KFDR",
+        "KMAF",
+        "KSJT",
+        "KFWS",
+        "KTLX"
+      ],
+      "nearby_wfos": [
+        "AMA",
+        "SJT",
+        "MAF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LWX": {
+      "name": "Baltimore MD/Washington DC",
+      "description": "WFO LWX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 38.8767,
+        "lon": -78.0002
+      },
+      "region": "ER",
+      "radars": [
+        "KLWX",
+        "TADW",
+        "TBWI",
+        "TDCA",
+        "TIAD",
+        "TPHL",
+        "KDOX",
+        "KPBZ",
+        "KDIX",
+        "TPIT",
+        "KAKQ",
+        "KFCX",
+        "KCCX",
+        "KRLX",
+        "KRAX",
+        "KBGM",
+        "KCLE"
+      ],
+      "nearby_wfos": [
+        "AKQ",
+        "CTP",
+        "PBZ"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "LZK": {
+      "name": "Little Rock AR",
+      "description": "WFO LZK \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 34.9573,
+        "lon": -92.4255
+      },
+      "region": "SR",
+      "radars": [
+        "KLZK",
+        "KSRX",
+        "KSGF",
+        "TMEM",
+        "KNQA",
+        "KSHV",
+        "KINX",
+        "KDGX",
+        "KPAH",
+        "KPOE",
+        "KGWX",
+        "KLSX",
+        "KTLX",
+        "KEAX"
+      ],
+      "nearby_wfos": [
+        "MEG",
+        "TSA",
+        "SGF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MAF": {
+      "name": "Midland/Odessa TX",
+      "description": "WFO MAF \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 31.4029,
+        "lon": -103.1013
+      },
+      "region": "SR",
+      "radars": [
+        "KMAF",
+        "KSJT",
+        "KLBB",
+        "KFDX",
+        "KHDX",
+        "KDYX",
+        "KDFX",
+        "KEPZ",
+        "KFDR",
+        "KAMA"
+      ],
+      "nearby_wfos": [
+        "SJT",
+        "LUB",
+        "EPZ"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MEG": {
+      "name": "Memphis TN",
+      "description": "WFO MEG \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.1629,
+        "lon": -89.4991
+      },
+      "region": "SR",
+      "radars": [
+        "KGWX",
+        "KNQA",
+        "TMEM",
+        "KPAH",
+        "KHPX",
+        "KLZK",
+        "TBNA",
+        "KOHX",
+        "KBMX",
+        "KDGX",
+        "KHTX",
+        "KVWX",
+        "KLSX",
+        "KSGF",
+        "KLVX",
+        "KMXX"
+      ],
+      "nearby_wfos": [
+        "HUN",
+        "PAH",
+        "LZK"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MFL": {
+      "name": "Miami FL",
+      "description": "WFO MFL \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 26.1968,
+        "lon": -80.8497
+      },
+      "region": "SR",
+      "radars": [
+        "KAMX",
+        "TFLL",
+        "TMIA",
+        "TPBI",
+        "KBYX",
         "KMLB",
         "KTBW",
-        "TMCO"
-      ]
+        "TMCO",
+        "TTPA"
+      ],
+      "nearby_wfos": [
+        "KEY",
+        "TBW",
+        "MLB"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MFR": {
+      "name": "Medford OR",
+      "description": "WFO MFR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 42.4785,
+        "lon": -122.0204
+      },
+      "region": "WR",
+      "radars": [
+        "KMAX",
+        "KBHX",
+        "KRGX",
+        "KBBX",
+        "KRTX",
+        "KPDT",
+        "KLRX",
+        "KCBX"
+      ],
+      "nearby_wfos": [
+        "EKA",
+        "PQR",
+        "STO"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MHX": {
+      "name": "Newport/Morehead City NC",
+      "description": "WFO MHX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.3123,
+        "lon": -77.03
+      },
+      "region": "ER",
+      "radars": [
+        "KMHX",
+        "KRAX",
+        "KLTX",
+        "TRDU",
+        "KAKQ",
+        "KFCX"
+      ],
+      "nearby_wfos": [
+        "RAH",
+        "AKQ",
+        "ILM"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MKX": {
+      "name": "Milwaukee/Sullivan WI",
+      "description": "WFO MKX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 43.176,
+        "lon": -89.0292
+      },
+      "region": "CR",
+      "radars": [
+        "KMKX",
+        "TMKE",
+        "KGRB",
+        "KARX",
+        "TORD",
+        "TMDW",
+        "KLOT",
+        "KDVN",
+        "KGRR",
+        "KIWX",
+        "KILX",
+        "KAPX"
+      ],
+      "nearby_wfos": [
+        "LOT",
+        "ARX",
+        "GRB"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MLB": {
+      "name": "Melbourne FL",
+      "description": "WFO MLB \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 28.215,
+        "lon": -81.0596
+      },
+      "region": "SR",
+      "radars": [
+        "KMLB",
+        "TMCO",
+        "TPBI",
+        "TTPA",
+        "KTBW",
+        "TFLL",
+        "KJAX",
+        "TMIA",
+        "KAMX",
+        "KVAX"
+      ],
+      "nearby_wfos": [
+        "TBW",
+        "MFL",
+        "JAX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MOB": {
+      "name": "Mobile/Pensacola",
+      "description": "WFO MOB \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 31.2618,
+        "lon": -87.6231
+      },
+      "region": "SR",
+      "radars": [
+        "KMOB",
+        "KDGX",
+        "KBMX",
+        "KMXX",
+        "KEOX",
+        "KEVX",
+        "KHDC",
+        "V179",
+        "V001"
+      ],
+      "nearby_wfos": [
+        "BMX",
+        "JAN",
+        "LIX"
+      ],
+      "radar_ring_source": "curated override"
+    },
+    "MPX": {
+      "name": "Twin Cities/Chanhassen MN",
+      "description": "WFO MPX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 44.9942,
+        "lon": -93.8279
+      },
+      "region": "CR",
+      "radars": [
+        "KMPX",
+        "TMSP",
+        "KARX",
+        "KDLH",
+        "KFSD",
+        "KABR",
+        "KDMX",
+        "KMVX",
+        "KGRB",
+        "KMQT",
+        "KMKX",
+        "KOAX"
+      ],
+      "nearby_wfos": [
+        "ARX",
+        "DLH",
+        "FSD"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MQT": {
+      "name": "Marquette MI",
+      "description": "WFO MQT \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 46.3821,
+        "lon": -87.8128
+      },
+      "region": "CR",
+      "radars": [
+        "KMQT",
+        "KGRB",
+        "KDLH",
+        "KAPX",
+        "KMKX"
+      ],
+      "nearby_wfos": [
+        "GRB",
+        "APX",
+        "DLH"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MRX": {
+      "name": "Morristown TN",
+      "description": "WFO MRX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 36.0098,
+        "lon": -83.7137
+      },
+      "region": "SR",
+      "radars": [
+        "KMRX",
+        "KHTX",
+        "KJKL",
+        "TBNA",
+        "KGSP",
+        "KOHX",
+        "KFCX",
+        "KRLX",
+        "TCLT",
+        "KFFC",
+        "KLVX",
+        "KHPX",
+        "KBMX",
+        "KCAE",
+        "KGWX",
+        "KJGX",
+        "KILN",
+        "KMXX"
+      ],
+      "nearby_wfos": [
+        "JKL",
+        "GSP",
+        "OHX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MSO": {
+      "name": "Missoula MT",
+      "description": "WFO MSO \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 46.793,
+        "lon": -114.5229
+      },
+      "region": "WR",
+      "radars": [
+        "KMSX",
+        "KTFX",
+        "KOTX",
+        "KSFX",
+        "KPDT",
+        "KCBX"
+      ],
+      "nearby_wfos": [
+        "TFX",
+        "OTX",
+        "PIH"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "MTR": {
+      "name": "San Francisco CA",
+      "description": "WFO MTR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.2529,
+        "lon": -121.8196
+      },
+      "region": "WR",
+      "radars": [
+        "KMUX",
+        "KDAX",
+        "KHNX",
+        "KBBX",
+        "KVBX",
+        "KVTX",
+        "KBHX",
+        "KEYX",
+        "KRGX"
+      ],
+      "nearby_wfos": [
+        "STO",
+        "HNX",
+        "LOX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "OAX": {
+      "name": "Omaha/Valley NE",
+      "description": "WFO OAX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.3772,
+        "lon": -96.6469
+      },
+      "region": "CR",
+      "radars": [
+        "KOAX",
+        "TMCI",
+        "KUEX",
+        "KFSD",
+        "KDMX",
+        "KTWX",
+        "KEAX",
+        "KLNX",
+        "KICT"
+      ],
+      "nearby_wfos": [
+        "GID",
+        "FSD",
+        "TOP"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "OHX": {
+      "name": "Nashville TN",
+      "description": "WFO OHX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.9383,
+        "lon": -86.5656
+      },
+      "region": "SR",
+      "radars": [
+        "KOHX",
+        "TBNA",
+        "KHPX",
+        "KHTX",
+        "KPAH",
+        "KMRX",
+        "KGWX",
+        "KLVX",
+        "KNQA",
+        "KJKL",
+        "KVWX",
+        "KBMX",
+        "KFFC",
+        "KGSP"
+      ],
+      "nearby_wfos": [
+        "HUN",
+        "LMK",
+        "PAH"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "OKX": {
+      "name": "Upton NY",
+      "description": "WFO OKX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 41.1775,
+        "lon": -73.3881
+      },
+      "region": "ER",
+      "radars": [
+        "KOKX",
+        "TJFK",
+        "TEWR",
+        "KDIX",
+        "KBOX",
+        "TPHL",
+        "TBOS",
+        "KENX",
+        "KBGM",
+        "KDOX",
+        "KTYX"
+      ],
+      "nearby_wfos": [
+        "BOX",
+        "ALY",
+        "PHI"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "OTX": {
+      "name": "Spokane WA",
+      "description": "WFO OTX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.7432,
+        "lon": -118.1834
+      },
+      "region": "WR",
+      "radars": [
+        "KOTX",
+        "KMSX",
+        "KATX",
+        "KPDT",
+        "KLGX",
+        "KRTX",
+        "KCBX"
+      ],
+      "nearby_wfos": [
+        "PDT",
+        "MSO",
+        "SEW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "OUN": {
+      "name": "Norman OK",
+      "description": "WFO OUN \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.1996,
+        "lon": -98.2194
+      },
+      "region": "SR",
+      "radars": [
+        "KFDR",
+        "KTLX",
+        "KVNX",
+        "TOKC",
+        "TICH",
+        "TTUL",
+        "KICT",
+        "TDFW",
+        "KDDC",
+        "TDAL",
+        "KINX",
+        "KDYX",
+        "KFWS",
+        "KSRX",
+        "KAMA",
+        "KLBB",
+        "KTWX",
+        "KSJT",
+        "KSHV",
+        "KMAF"
+      ],
+      "nearby_wfos": [
+        "TSA",
+        "AMA",
+        "ICT"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PAH": {
+      "name": "Paducah KY",
+      "description": "WFO PAH \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.4122,
+        "lon": -88.7169
+      },
+      "region": "CR",
+      "radars": [
+        "KHPX",
+        "KPAH",
+        "KVWX",
+        "KOHX",
+        "KLVX",
+        "TBNA",
+        "TSDF",
+        "TSTL",
+        "KLSX",
+        "KNQA",
+        "TIDS",
+        "KIND",
+        "KILX",
+        "KSGF",
+        "KHTX",
+        "KLZK"
+      ],
+      "nearby_wfos": [
+        "LSX",
+        "OHX",
+        "MEG"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PBZ": {
+      "name": "Pittsburgh PA",
+      "description": "WFO PBZ \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 40.3937,
+        "lon": -80.2597
+      },
+      "region": "ER",
+      "radars": [
+        "KPBZ",
+        "TPIT",
+        "TCMH",
+        "KCCX",
+        "TLVE",
+        "KCLE",
+        "KRLX",
+        "KILN",
+        "KBUF",
+        "KLWX",
+        "KFCX",
+        "KBGM",
+        "KJKL",
+        "KDTX"
+      ],
+      "nearby_wfos": [
+        "CLE",
+        "CTP",
+        "RLX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PDT": {
+      "name": "Pendleton OR",
+      "description": "WFO PDT \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 45.4083,
+        "lon": -119.7273
+      },
+      "region": "WR",
+      "radars": [
+        "KPDT",
+        "KRTX",
+        "KOTX",
+        "KATX",
+        "KCBX",
+        "KMAX",
+        "KLGX",
+        "KMSX"
+      ],
+      "nearby_wfos": [
+        "PQR",
+        "OTX",
+        "BOI"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PHI": {
+      "name": "Mount Holly NJ",
+      "description": "WFO PHI \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.9819,
+        "lon": -75.1957
+      },
+      "region": "ER",
+      "radars": [
+        "KDIX",
+        "KDOX",
+        "TEWR",
+        "TPHL",
+        "TJFK",
+        "TBWI",
+        "TADW",
+        "TDCA",
+        "KLWX",
+        "TIAD",
+        "KOKX",
+        "KBGM",
+        "KCCX",
+        "KENX",
+        "KAKQ"
+      ],
+      "nearby_wfos": [
+        "OKX",
+        "CTP",
+        "BGM"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PIH": {
+      "name": "Pocatello ID",
+      "description": "WFO PIH \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 43.3523,
+        "lon": -112.8684
+      },
+      "region": "WR",
+      "radars": [
+        "KSFX",
+        "KMTX",
+        "KCBX",
+        "TSLC",
+        "KRIW",
+        "KMSX",
+        "KBLX",
+        "KLRX"
+      ],
+      "nearby_wfos": [
+        "BOI",
+        "RIW",
+        "MSO"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PPG": {
+      "name": "Pago Pago  AS",
+      "description": "WFO PPG \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": -14.2739,
+        "lon": -170.301
+      },
+      "region": "PR",
+      "radars": [],
+      "nearby_wfos": [
+        "PQE",
+        "HFO",
+        "GUM"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PQE": {
+      "name": "Micronesia Domain East",
+      "description": "WFO PQE \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 6.7068,
+        "lon": 161.4598
+      },
+      "region": "PR",
+      "radars": [],
+      "nearby_wfos": [
+        "GUM",
+        "PQW",
+        "PPG"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PQR": {
+      "name": "Portland OR",
+      "description": "WFO PQR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 45.0967,
+        "lon": -122.8474
+      },
+      "region": "WR",
+      "radars": [
+        "KRTX",
+        "KLGX",
+        "KMAX",
+        "KATX",
+        "KPDT"
+      ],
+      "nearby_wfos": [
+        "PDT",
+        "SEW",
+        "MFR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PQW": {
+      "name": "Micronesia Domain West",
+      "description": "WFO PQW \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 7.7452,
+        "lon": 138.0802
+      },
+      "region": "PR",
+      "radars": [],
+      "nearby_wfos": [
+        "GUM",
+        "PQE",
+        "PPG"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PSR": {
+      "name": "Phoenix AZ",
+      "description": "WFO PSR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 33.3111,
+        "lon": -113.5156
+      },
+      "region": "WR",
+      "radars": [
+        "KIWA",
+        "KYUX",
+        "TPHX",
+        "KFSX",
+        "KNKX",
+        "KSOX",
+        "KEMX",
+        "KEYX",
+        "KESX",
+        "KVTX"
+      ],
+      "nearby_wfos": [
+        "TWC",
+        "SGX",
+        "FGZ"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "PUB": {
+      "name": "Pueblo CO",
+      "description": "WFO PUB \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.9223,
+        "lon": -104.5593
+      },
+      "region": "CR",
+      "radars": [
+        "KPUX",
+        "TDEN",
+        "KFTG",
+        "KGLD",
+        "KGJX",
+        "KDDC",
+        "KAMA",
+        "KABX",
+        "KCYS",
+        "KFDX"
+      ],
+      "nearby_wfos": [
+        "BOU",
+        "GLD",
+        "ABQ"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "RAH": {
+      "name": "Raleigh NC",
+      "description": "WFO RAH \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.6624,
+        "lon": -78.9605
+      },
+      "region": "ER",
+      "radars": [
+        "KRAX",
+        "TRDU",
+        "TCLT",
+        "KLTX",
+        "KAKQ",
+        "KFCX",
+        "KMHX",
+        "KCAE",
+        "KGSP",
+        "KCLX",
+        "KRLX",
+        "KMRX",
+        "KLWX"
+      ],
+      "nearby_wfos": [
+        "ILM",
+        "MHX",
+        "RNK"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "REV": {
+      "name": "Reno NV",
+      "description": "WFO REV \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.7992,
+        "lon": -119.2094
+      },
+      "region": "WR",
+      "radars": [
+        "KRGX",
+        "KLRX",
+        "KBBX",
+        "KDAX",
+        "KHNX",
+        "KMAX",
+        "KMUX",
+        "KBHX",
+        "KEYX"
+      ],
+      "nearby_wfos": [
+        "STO",
+        "LKN",
+        "MTR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "RIW": {
+      "name": "Riverton WY",
+      "description": "WFO RIW \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 43.1754,
+        "lon": -108.7912
+      },
+      "region": "CR",
+      "radars": [
+        "KRIW",
+        "KBLX",
+        "TSLC",
+        "KMTX",
+        "KSFX",
+        "KCYS",
+        "KGJX",
+        "KUDX",
+        "KTFX"
+      ],
+      "nearby_wfos": [
+        "BYZ",
+        "PIH",
+        "CYS"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "RLX": {
+      "name": "Charleston WV",
+      "description": "WFO RLX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 38.5741,
+        "lon": -81.4497
+      },
+      "region": "ER",
+      "radars": [
+        "KRLX",
+        "TCMH",
+        "KJKL",
+        "KFCX",
+        "KILN",
+        "TPIT",
+        "KPBZ",
+        "TCVG",
+        "KMRX",
+        "KLWX",
+        "KCLE",
+        "KGSP",
+        "KCCX",
+        "KLVX"
+      ],
+      "nearby_wfos": [
+        "RNK",
+        "PBZ",
+        "JKL"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "RNK": {
+      "name": "Blacksburg VA",
+      "description": "WFO RNK \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.0675,
+        "lon": -80.1517
+      },
+      "region": "ER",
+      "radars": [
+        "KFCX",
+        "TRDU",
+        "KRLX",
+        "TCLT",
+        "KRAX",
+        "KAKQ",
+        "KMRX",
+        "KJKL",
+        "KGSP",
+        "KLWX",
+        "KCAE",
+        "KPBZ",
+        "KMHX",
+        "KLTX",
+        "KDOX"
+      ],
+      "nearby_wfos": [
+        "RAH",
+        "RLX",
+        "GSP"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SEW": {
+      "name": "Seattle WA",
+      "description": "WFO SEW \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.6667,
+        "lon": -122.5398
+      },
+      "region": "WR",
+      "radars": [
+        "KATX",
+        "KLGX",
+        "KRTX",
+        "KPDT",
+        "KOTX"
+      ],
+      "nearby_wfos": [
+        "PQR",
+        "OTX",
+        "PDT"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SGF": {
+      "name": "Springfield MO",
+      "description": "WFO SGF \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 37.404,
+        "lon": -93.052
+      },
+      "region": "CR",
+      "radars": [
+        "KSGF",
+        "KEAX",
+        "KINX",
+        "KLSX",
+        "TSTL",
+        "TTUL",
+        "KSRX",
+        "KTWX",
+        "KNQA",
+        "KLZK",
+        "KPAH",
+        "KICT",
+        "KTLX",
+        "KVNX"
+      ],
+      "nearby_wfos": [
+        "EAX",
+        "LSX",
+        "TSA"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SGX": {
+      "name": "San Diego CA",
+      "description": "WFO SGX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 33.6871,
+        "lon": -116.9296
+      },
+      "region": "WR",
+      "radars": [
+        "KNKX",
+        "KSOX",
+        "KEYX",
+        "KVTX",
+        "KYUX",
+        "KESX",
+        "KVBX",
+        "KHNX"
+      ],
+      "nearby_wfos": [
+        "LOX",
+        "VEF",
+        "PSR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SHV": {
+      "name": "Shreveport LA",
+      "description": "WFO SHV \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 32.6255,
+        "lon": -93.8746
+      },
+      "region": "SR",
+      "radars": [
+        "KSHV",
+        "KPOE",
+        "V018",
+        "KSRX",
+        "TDFW",
+        "KLCH",
+        "TDAL",
+        "KLZK",
+        "KFWS",
+        "KHDC",
+        "KDGX",
+        "KHGX",
+        "KINX",
+        "KGRK",
+        "KTLX",
+        "KLIX"
+      ],
+      "nearby_wfos": [
+        "LCH",
+        "LZK",
+        "FWD"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SJT": {
+      "name": "San Angelo TX",
+      "description": "WFO SJT \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 31.5841,
+        "lon": -100.072
+      },
+      "region": "SR",
+      "radars": [
+        "KDYX",
+        "KSJT",
+        "KMAF",
+        "KGRK",
+        "KFDR",
+        "KDFX",
+        "KEWX",
+        "KLBB",
+        "KFWS",
+        "KAMA",
+        "KTLX"
+      ],
+      "nearby_wfos": [
+        "EWX",
+        "LUB",
+        "MAF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SJU": {
+      "name": "San Juan PR",
+      "description": "WFO SJU \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 18.2127,
+        "lon": -66.4065
+      },
+      "region": "SR",
+      "radars": [
+        "TJUA",
+        "TJBQ",
+        "TJRV",
+        "TSJU"
+      ],
+      "nearby_wfos": [
+        "KEY",
+        "MFL",
+        "MLB"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "SLC": {
+      "name": "Salt Lake City UT",
+      "description": "WFO SLC \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.4941,
+        "lon": -112.1047
+      },
+      "region": "WR",
+      "radars": [
+        "KICX",
+        "KMTX",
+        "TSLC",
+        "KSFX",
+        "TLAS",
+        "KGJX",
+        "KESX",
+        "KRIW",
+        "KLRX",
+        "KCBX",
+        "KFSX"
+      ],
+      "nearby_wfos": [
+        "GJT",
+        "LKN",
+        "PIH"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "STO": {
+      "name": "Sacramento CA",
+      "description": "WFO STO \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.24,
+        "lon": -121.4363
+      },
+      "region": "WR",
+      "radars": [
+        "KBBX",
+        "KDAX",
+        "KMUX",
+        "KRGX",
+        "KMAX",
+        "KBHX",
+        "KHNX",
+        "KVBX"
+      ],
+      "nearby_wfos": [
+        "REV",
+        "EKA",
+        "MTR"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "TAE": {
+      "name": "Tallahassee",
+      "description": "WFO TAE \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 30.8342,
+        "lon": -84.5416
+      },
+      "region": "SR",
+      "radars": [
+        "KEVX",
+        "KMOB",
+        "KEOX",
+        "KMXX",
+        "KTLH",
+        "KVAX",
+        "KJAX",
+        "KJGX"
+      ],
+      "nearby_wfos": [
+        "JAX",
+        "FFC",
+        "MOB"
+      ],
+      "radar_ring_source": "curated override"
+    },
+    "TBW": {
+      "name": "Tampa Bay Ruskin FL",
+      "description": "WFO TBW \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 27.8688,
+        "lon": -82.0702
+      },
+      "region": "SR",
+      "radars": [
+        "KTBW",
+        "TTPA",
+        "TMCO",
+        "KMLB",
+        "TPBI",
+        "TFLL",
+        "KJAX",
+        "TMIA",
+        "KVAX",
+        "KAMX",
+        "KTLH",
+        "KBYX"
+      ],
+      "nearby_wfos": [
+        "MLB",
+        "MFL",
+        "JAX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "TFX": {
+      "name": "Great Falls MT",
+      "description": "WFO TFX \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 47.1821,
+        "lon": -111.2238
+      },
+      "region": "WR",
+      "radars": [
+        "KTFX",
+        "KMSX",
+        "KBLX",
+        "KGGW",
+        "KSFX",
+        "KRIW",
+        "KCBX"
+      ],
+      "nearby_wfos": [
+        "MSO",
+        "BYZ",
+        "GGW"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "TOP": {
+      "name": "Topeka KS",
+      "description": "WFO TOP \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 39.1496,
+        "lon": -96.3939
+      },
+      "region": "CR",
+      "radars": [
+        "KTWX",
+        "TMCI",
+        "KUEX",
+        "KEAX",
+        "KICT",
+        "TICH",
+        "KOAX",
+        "KSGF",
+        "KINX",
+        "KVNX",
+        "KDDC",
+        "KDMX"
+      ],
+      "nearby_wfos": [
+        "ICT",
+        "EAX",
+        "GID"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "TSA": {
+      "name": "Tulsa OK",
+      "description": "WFO TSA \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 35.7542,
+        "lon": -95.2473
+      },
+      "region": "SR",
+      "radars": [
+        "KINX",
+        "KSRX",
+        "TTUL",
+        "KTLX",
+        "KSGF",
+        "TOKC",
+        "TICH",
+        "KICT",
+        "KVNX",
+        "TDFW",
+        "KLZK",
+        "KFWS",
+        "KEAX",
+        "KSHV",
+        "KTWX",
+        "KFDR"
+      ],
+      "nearby_wfos": [
+        "SGF",
+        "LZK",
+        "OUN"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "TWC": {
+      "name": "Tucson AZ",
+      "description": "WFO TWC \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 32.3279,
+        "lon": -110.6691
+      },
+      "region": "WR",
+      "radars": [
+        "KEMX",
+        "KIWA",
+        "TPHX",
+        "KYUX",
+        "KFSX",
+        "KEPZ",
+        "KABX",
+        "KHDX"
+      ],
+      "nearby_wfos": [
+        "PSR",
+        "FGZ",
+        "EPZ"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "UNR": {
+      "name": "Rapid City SD",
+      "description": "WFO UNR \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 44.2579,
+        "lon": -103.0215
+      },
+      "region": "CR",
+      "radars": [
+        "KUDX",
+        "KLNX",
+        "KBIS",
+        "KRIW",
+        "KABR",
+        "KCYS",
+        "KBLX",
+        "KFSD"
+      ],
+      "nearby_wfos": [
+        "CYS",
+        "ABR",
+        "LBF"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
+    },
+    "VEF": {
+      "name": "Las Vegas NV",
+      "description": "WFO VEF \u2014 national radar ring generated from CWA coverage.",
+      "selectable": true,
+      "center": {
+        "lat": 36.287,
+        "lon": -115.6208
+      },
+      "region": "WR",
+      "radars": [
+        "KESX",
+        "KEYX",
+        "TLAS",
+        "KICX",
+        "KSOX",
+        "KHNX",
+        "KNKX",
+        "KVTX",
+        "KYUX",
+        "KIWA",
+        "KFSX",
+        "KRGX",
+        "KVBX",
+        "KLRX"
+      ],
+      "nearby_wfos": [
+        "SGX",
+        "HNX",
+        "LOX"
+      ],
+      "radar_ring_source": "NOAA CWA/radar-range intersection"
     }
   }
 }
