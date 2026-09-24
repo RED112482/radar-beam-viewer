@@ -40,7 +40,7 @@ SUPPLEMENTAL_MAX_GAP_NM = {
     "NEXRAD": 100.0,
     "TDWR": 50.0,
     "TERMINAL": 50.0,
-    "CLIMAVISION": 35.0,
+    "CLIMAVISION": 54.0,
 }
 
 
