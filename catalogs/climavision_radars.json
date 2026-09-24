@@ -7,7 +7,7 @@
     "state": "AL",
     "site_name": "Pine Hill",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#FF1493",
     "source": "customradars.gis (user-provided)"
   },
@@ -19,7 +19,7 @@
     "state": "AL",
     "site_name": "Moulton",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#6A994E",
     "source": "customradars.gis (user-provided)"
   },
@@ -31,7 +31,7 @@
     "state": "FL",
     "site_name": "Fort Myers",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D35400",
     "source": "customradars.gis (user-provided)"
   },
@@ -43,7 +43,7 @@
     "state": "GA",
     "site_name": "Americus",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#A23B72",
     "source": "customradars.gis (user-provided)"
   },
@@ -55,7 +55,7 @@
     "state": "GA",
     "site_name": "Harlem",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#6A994E",
     "source": "customradars.gis (user-provided)"
   },
@@ -67,7 +67,7 @@
     "state": "LA",
     "site_name": "Chauvin",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#00B894",
     "source": "customradars.gis (user-provided)"
   },
@@ -79,7 +79,7 @@
     "state": "LA",
     "site_name": "Franklin",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#FF6B6B",
     "source": "customradars.gis (user-provided)"
   },
@@ -91,7 +91,7 @@
     "state": "AR",
     "site_name": "Dermott",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#00B894",
     "source": "customradars.gis (user-provided)"
   },
@@ -103,7 +103,7 @@
     "state": "LA",
     "site_name": "St. Francisville",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#9B59B6",
     "source": "customradars.gis (user-provided)"
   },
@@ -115,7 +115,7 @@
     "state": "MS",
     "site_name": "Clarksdale",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#0EA5E9",
     "source": "customradars.gis (user-provided)"
   },
@@ -127,7 +127,7 @@
     "state": "NC",
     "site_name": "Wagram",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#EC4899",
     "source": "customradars.gis (user-provided)"
   },
@@ -139,7 +139,7 @@
     "state": "NC",
     "site_name": "Denver",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#00B894",
     "source": "customradars.gis (user-provided)"
   },
@@ -151,7 +151,7 @@
     "state": "NC",
     "site_name": "High Point",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#8B5CF6",
     "source": "customradars.gis (user-provided)"
   },
@@ -163,7 +163,7 @@
     "state": "OK",
     "site_name": "Guymon",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#C0392B",
     "source": "customradars.gis (user-provided)"
   },
@@ -175,7 +175,7 @@
     "state": "TN",
     "site_name": "Sparta",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#00B894",
     "source": "customradars.gis (user-provided)"
   },
@@ -187,7 +187,7 @@
     "state": "TN",
     "site_name": "Camden",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#8B5CF6",
     "source": "customradars.gis (user-provided)"
   },
@@ -199,7 +199,7 @@
     "state": "TX",
     "site_name": "Edna",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D7191C",
     "source": "customradars.gis (user-provided)"
   },
@@ -211,7 +211,7 @@
     "state": "TX",
     "site_name": "College Station",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#18A558",
     "source": "customradars.gis (user-provided)"
   },
@@ -223,7 +223,7 @@
     "state": "TX",
     "site_name": "Whitehouse",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#246BCE",
     "source": "customradars.gis (user-provided)"
   },
@@ -235,7 +235,7 @@
     "state": "TX",
     "site_name": "Reno",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#C0392B",
     "source": "customradars.gis (user-provided)"
   },
@@ -247,7 +247,7 @@
     "state": "TX",
     "site_name": "Hamilton",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#8B5CF6",
     "source": "customradars.gis (user-provided)"
   },
@@ -259,7 +259,7 @@
     "state": "TX",
     "site_name": "Snyder",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D35400",
     "source": "customradars.gis (user-provided)"
   },
@@ -271,7 +271,7 @@
     "state": "TX",
     "site_name": "Pecos",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#18A558",
     "source": "customradars.gis (user-provided)"
   },
@@ -283,7 +283,7 @@
     "state": "TX",
     "site_name": "Saint Jo",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#F28E2B",
     "source": "customradars.gis (user-provided)"
   },
@@ -295,7 +295,7 @@
     "state": "MN",
     "site_name": "Wendell",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D7191C",
     "source": "customradars.gis (user-provided)"
   },
@@ -307,7 +307,7 @@
     "state": "KS",
     "site_name": "Humboldt",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#246BCE",
     "source": "customradars.gis (user-provided)"
   },
@@ -319,7 +319,7 @@
     "state": "MO",
     "site_name": "Boonville",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#00A7B5",
     "source": "customradars.gis (user-provided)"
   },
@@ -331,7 +331,7 @@
     "state": "KY",
     "site_name": "Dry Ridge",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D35400",
     "source": "customradars.gis (user-provided)"
   },
@@ -343,7 +343,7 @@
     "state": "KY",
     "site_name": "Jamestown",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D7191C",
     "source": "customradars.gis (user-provided)"
   },
@@ -355,7 +355,7 @@
     "state": "PA",
     "site_name": "Millersville",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D35400",
     "source": "customradars.gis (user-provided)"
   },
@@ -367,7 +367,7 @@
     "state": "PA",
     "site_name": "Pleasantville",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#D7191C",
     "source": "customradars.gis (user-provided)"
   },
@@ -379,7 +379,7 @@
     "state": "MS",
     "site_name": "Meridian",
     "lowest_tilt_deg": 0.5,
-    "range_nm": 40,
+    "range_nm": 54,
     "color": "#00C853",
     "source": "customradars.gis (user-provided)"
   }
