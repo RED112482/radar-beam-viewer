@@ -20,6 +20,7 @@
   const strategyRadarStatus=$('strategyRadarStatus');
   const strategyRisk=$('strategyRisk');
   const strategyTargetInfo=$('strategyTargetInfo');
+  const strategyRangeOptions=$('strategyRangeOptions');
   const strategyRecommendation=$('strategyRecommendation');
   const strategyReferenceBody=$('strategyReferenceBody');
   const mapUI=new RadarMap('map');
@@ -138,6 +139,10 @@
     beamToolPanel.classList.toggle('hidden',scan);
     scanToolPanel.classList.toggle('hidden',!scan);
     scanToolPanel.setAttribute('aria-hidden',scan?'false':'true');
+    if(scan){
+      renderStrategyRangeOptions();
+      renderToolReadouts();
+    }
   }
 
   function renderStrategyReference(){
@@ -164,6 +169,35 @@
       }
     }
     return blocks.join('');
+  }
+
+  function strategyRangeLabel(seg){
+    if(seg.max>=1000)return seg.min<=0?'All ranges':seg.min+'+ nmi';
+    if(seg.min<=0)return '0–'+seg.max+' nmi';
+    return seg.min+'–'+seg.max+' nmi';
+  }
+
+  function renderStrategyRangeOptions(){
+    if(!strategyRangeOptions)return;
+    const risk=strategyRisk.value;
+    const segs=ScanningStrategy.RULES[risk]||[];
+    let activeSeg=null;
+    if(selectedRadar&&strategyTarget&&(selectedRadar.network||'')==='NEXRAD'){
+      const distanceNm=BeamEngine.haversineMeters(
+        selectedRadar.lat,selectedRadar.lon,
+        strategyTarget.lat,strategyTarget.lng
+      )/1852;
+      activeSeg=ScanningStrategy.pickSegment(risk,distanceNm);
+    }
+    strategyRangeOptions.innerHTML=segs.map(seg=>{
+      const active=seg===activeSeg?' active-range':'';
+      const rec={segment:seg};
+      return '<div class="strategy-range-card'+active+'">'+
+        '<div class="strategy-range-head">'+escapeHtml(strategyRangeLabel(seg))+
+        (seg===activeSeg?'<span>APPLICABLE</span>':'')+'</div>'+
+        renderStrategySegment(rec)+
+      '</div>';
+    }).join('');
   }
 
   function activeRadarById(id){
@@ -193,13 +227,15 @@
   }
 
   function renderToolReadouts(){
+    renderStrategyRangeOptions();
     if(!selectedRadar){
       selectedRadarBeam.innerHTML='Click a radar dot on the map.';
       beamTargetReadout.innerHTML='Select a radar, then click the map to compare that radar with the lowest beam available from the active WFO radar set.';
       strategyRadarStatus.classList.remove('strategy-unavailable');
       strategyRadarStatus.innerHTML='Click a WSR-88D radar dot on the map.';
       strategyTargetInfo.innerHTML='Click a WSR-88D radar, then click a target point on the map.';
-      strategyRecommendation.innerHTML='No target selected.';
+      strategyRecommendation.innerHTML='Select a WSR-88D and target point to highlight the applicable recommendation.';
+      renderStrategyRangeOptions();
       return;
     }
 
@@ -236,6 +272,7 @@
         '<br><span class="soft">Scanning-strategy recommendations are only available for WSR-88D/NEXRAD sites.</span>';
       strategyTargetInfo.innerHTML='Select a WSR-88D radar dot to use the scanning-strategy tool.';
       strategyRecommendation.innerHTML='<span class="soft">Not applicable to this radar type.</span>';
+      renderStrategyRangeOptions();
       return;
     }
 
@@ -246,7 +283,8 @@
 
     if(!strategyTarget){
       strategyTargetInfo.innerHTML='Click a target point on the map to calculate distance and the recommended strategy.';
-      strategyRecommendation.innerHTML='No target selected.';
+      strategyRecommendation.innerHTML='Choose a target point to highlight which range-based option applies.';
+      renderStrategyRangeOptions();
       return;
     }
 
@@ -256,6 +294,7 @@
       '<div><strong>'+distanceNm.toFixed(1)+' nmi</strong> from '+escapeHtml(selectedRadar.id)+'</div>'+
       '<div class="soft">'+strategyTarget.lat.toFixed(3)+', '+strategyTarget.lng.toFixed(3)+' • '+escapeHtml(rec.label)+'</div>';
     strategyRecommendation.innerHTML=renderStrategySegment(rec);
+    renderStrategyRangeOptions();
   }
 
   async function recalc(){
@@ -351,6 +390,7 @@
         const color=ScanningStrategy.RISK_COLORS[strategyRisk.value]||'#ff2d2d';
         mapUI.setTarget(strategyTarget,color);
       }
+      renderStrategyRangeOptions();
       renderToolReadouts();
     });
     renderStrategyReference();
