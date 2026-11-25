@@ -1,7 +1,8 @@
 (function(){
   const REF_FS='https://mapservices.weather.noaa.gov/static/rest/services/nws_reference_maps/nws_reference_map/FeatureServer';
-  const WARN_BASE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/FeatureServer/0';
-  const MRMS_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity/MapServer/export';
+  const WARN_BASE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/MapServer/0';
+  const MRMS_IMAGE_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer/exportImage';
+  const MRMS_MAP_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity/MapServer/export';
 
   async function fetchJsonWithTimeout(url,timeoutMs=7000){
     const controller=new AbortController();
@@ -25,8 +26,8 @@
     constructor(divId){
       this.map=L.map(divId,{zoomControl:true,preferCanvas:true,minZoom:3});
 
-      this.map.createPane('mrmsPane');this.map.getPane('mrmsPane').style.zIndex=220;this.map.getPane('mrmsPane').style.pointerEvents='none';
       this.map.createPane('beamPane');this.map.getPane('beamPane').style.zIndex=240;this.map.getPane('beamPane').style.pointerEvents='none';
+      this.map.createPane('mrmsPane');this.map.getPane('mrmsPane').style.zIndex=270;this.map.getPane('mrmsPane').style.pointerEvents='none';
       this.map.createPane('referencePane');this.map.getPane('referencePane').style.zIndex=420;this.map.getPane('referencePane').style.pointerEvents='none';
       this.map.createPane('cwaPane');this.map.getPane('cwaPane').style.zIndex=430;this.map.getPane('cwaPane').style.pointerEvents='none';
       this.map.createPane('warningPane');this.map.getPane('warningPane').style.zIndex=460;
@@ -45,12 +46,12 @@
       this.mosaic=null;this.mrmsLayer=null;this.siteLayer=L.layerGroup().addTo(this.map);
       this.siteMarkers=new Map();this.radarSelectHandler=null;this.selectedRadarId=null;this.selectedRadarPulse=null;this.targetMarker=null;
       this.warningLayer=L.geoJSON(null,{
-        pane:'warningPane',style:warningStyle,
+        pane:'warningPane',style:warningStyle,interactive:false,
         onEachFeature:(feature,layer)=>{const p=feature.properties||{};const label=p.prod_type||`${p.phenom||''}.${p.sig||''}`;layer.bindTooltip(`<strong>${label}</strong>${p.wfo?`<br>WFO ${p.wfo}`:''}`,{sticky:true})}
       });
 
       this.referenceEnabled=true;this.allCwaEnabled=false;this.warningEnabled=false;this.mrmsEnabled=false;
-      this._warningTimer=null;this._mrmsTimer=null;this._referenceTimer=null;this._warningKey='';this._referenceKey='';this._allCwasLoaded=false;
+      this._warningTimer=null;this._warningInterval=null;this._mrmsTimer=null;this._referenceTimer=null;this._warningKey='';this._referenceKey='';this._allCwasLoaded=false;
       this.map.on('moveend',()=>{
         if(this.referenceEnabled)this._scheduleReferenceRefresh();
         if(this.warningEnabled)this._maybeRefreshWarnings();
@@ -230,24 +231,62 @@
 
     async setMrmsVisible(show){
       this.mrmsEnabled=show;
-      if(show){this._refreshMrms();clearInterval(this._mrmsTimer);this._mrmsTimer=setInterval(()=>this._refreshMrms(),300000)}
-      else{clearInterval(this._mrmsTimer);this._mrmsTimer=null;if(this.mrmsLayer){this.map.removeLayer(this.mrmsLayer);this.mrmsLayer=null}}
+      if(show){
+        this._refreshMrms();
+        clearInterval(this._mrmsTimer);
+        this._mrmsTimer=setInterval(()=>this._refreshMrms(),300000);
+      }else{
+        clearInterval(this._mrmsTimer);this._mrmsTimer=null;
+        if(this.mrmsLayer&&this.map.hasLayer(this.mrmsLayer))this.map.removeLayer(this.mrmsLayer);
+        this.mrmsLayer=null;
+      }
     }
+
     _refreshMrms(){
       if(!this.mrmsEnabled)return;
       const b=this.map.getBounds(),size=this.map.getSize();
-      const width=Math.max(400,Math.min(1400,Math.round(size.x))),height=Math.max(300,Math.min(1200,Math.round(size.y)));
+      const width=Math.max(400,Math.min(1600,Math.round(size.x)));
+      const height=Math.max(300,Math.min(1400,Math.round(size.y)));
       const bbox=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].join(',');
-      const url=`${MRMS_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&format=png32&transparent=true&f=image&_=${Date.now()}`;
-      const next=L.imageOverlay(url,b,{opacity:.58,interactive:false,pane:'mrmsPane'});
-      next.once('load',()=>{if(this.mrmsLayer&&this.mrmsLayer!==next&&this.map.hasLayer(this.mrmsLayer))this.map.removeLayer(this.mrmsLayer);this.mrmsLayer=next});
-      next.addTo(this.map);if(!this.mrmsLayer)this.mrmsLayer=next;
+      const stamp=Date.now();
+      const urls=[
+        `${MRMS_IMAGE_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&format=png32&transparent=true&f=image&_=${stamp}`,
+        `${MRMS_MAP_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&layers=show%3A3&format=png32&transparent=true&f=image&_=${stamp}`
+      ];
+
+      const tryUrl=(index)=>{
+        if(!this.mrmsEnabled||index>=urls.length)return;
+        const next=L.imageOverlay(urls[index],b,{opacity:.66,interactive:false,pane:'mrmsPane'});
+        next.once('load',()=>{
+          if(!this.mrmsEnabled){
+            if(this.map.hasLayer(next))this.map.removeLayer(next);
+            return;
+          }
+          if(this.mrmsLayer&&this.mrmsLayer!==next&&this.map.hasLayer(this.mrmsLayer))this.map.removeLayer(this.mrmsLayer);
+          this.mrmsLayer=next;
+        });
+        next.once('error',()=>{
+          if(this.map.hasLayer(next))this.map.removeLayer(next);
+          console.warn(`MRMS source ${index+1} failed; trying fallback`);
+          tryUrl(index+1);
+        });
+        next.addTo(this.map);
+      };
+      tryUrl(0);
     }
 
     async setWarningsVisible(show){
       this.warningEnabled=show;
-      if(show){if(!this.map.hasLayer(this.warningLayer))this.warningLayer.addTo(this.map);await this._refreshWarnings(true)}
-      else{this.warningLayer.clearLayers();if(this.map.hasLayer(this.warningLayer))this.map.removeLayer(this.warningLayer)}
+      if(show){
+        if(!this.map.hasLayer(this.warningLayer))this.warningLayer.addTo(this.map);
+        await this._refreshWarnings(true);
+        clearInterval(this._warningInterval);
+        this._warningInterval=setInterval(()=>this._refreshWarnings(true),300000);
+      }else{
+        clearInterval(this._warningInterval);this._warningInterval=null;
+        this.warningLayer.clearLayers();
+        if(this.map.hasLayer(this.warningLayer))this.map.removeLayer(this.warningLayer);
+      }
     }
     _maybeRefreshWarnings(force=false){clearTimeout(this._warningTimer);this._warningTimer=setTimeout(()=>this._refreshWarnings(force),220)}
     async _refreshWarnings(force=false){
@@ -255,8 +294,25 @@
       const b=this.map.getBounds();const key=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].map(v=>v.toFixed(1)).join(',');
       if(!force&&key===this._warningKey)return;this._warningKey=key;
       const geom=`${b.getWest()},${b.getSouth()},${b.getEast()},${b.getNorth()}`;
-      const u=`${WARN_BASE}/query?where=1%3D1&geometry=${encodeURIComponent(geom)}&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=prod_type,phenom,sig,wfo,event,expiration&returnGeometry=true&outSR=4326&f=geojson`;
-      try{const d=await fetchJsonWithTimeout(u,6500);if(!this.warningEnabled)return;this.warningLayer.clearLayers();this.warningLayer.addData(d)}catch(e){console.warn('Warning polygons skipped/failed',e)}
+      const q=new URLSearchParams({
+        where:'1=1',
+        geometry:geom,
+        geometryType:'esriGeometryEnvelope',
+        inSR:'4326',
+        spatialRel:'esriSpatialRelIntersects',
+        outFields:'prod_type,phenom,sig,wfo,event,expiration',
+        returnGeometry:'true',
+        outSR:'4326',
+        geometryPrecision:'5',
+        resultRecordCount:'4000',
+        f:'geojson'
+      });
+      try{
+        const d=await fetchJsonWithTimeout(`${WARN_BASE}/query?${q.toString()}`,8000);
+        if(!this.warningEnabled)return;
+        this.warningLayer.clearLayers();
+        this.warningLayer.addData(d);
+      }catch(e){console.warn('Warning polygons skipped/failed',e)}
     }
   }
   window.RadarMap=RadarMap;
