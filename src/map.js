@@ -1,9 +1,8 @@
 (function(){
   const REF_FS='https://mapservices.weather.noaa.gov/static/rest/services/nws_reference_maps/nws_reference_map/FeatureServer';
-  const WARN_BASE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/MapServer/0';
-  const MRMS_IMAGE_SERVICE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer';
-  const MRMS_IMAGE_EXPORT=MRMS_IMAGE_SERVICE+'/exportImage';
+  const WARN_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/MapServer/export';
   const MRMS_MAP_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity/MapServer/export';
+  const MRMS_IMAGE_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer/exportImage';
 
   async function fetchJsonWithTimeout(url,timeoutMs=7000){
     const controller=new AbortController();
@@ -13,14 +12,6 @@
       if(!r.ok)throw new Error(`HTTP ${r.status}`);
       return await r.json();
     }finally{clearTimeout(timer)}
-  }
-
-  function warningStyle(feature){
-    const p=feature?.properties||{};
-    const key=`${p.phenom||''},${p.sig||''}`;
-    const colors={'TO,W':'#ff3b30','SV,W':'#ffe600','FF,W':'#4caf50','MA,W':'#ff9f0a','SQ,W':'#d62da0'};
-    const color=colors[key]||'#ff5ea8';
-    return{color,weight:2.2,opacity:.95,fillColor:color,fillOpacity:.10};
   }
 
   class RadarMap{
@@ -46,17 +37,14 @@
       this.map.setView([37.8,-96.5],4);
       this.mosaic=null;this.mrmsLayer=null;this.siteLayer=L.layerGroup().addTo(this.map);
       this.siteMarkers=new Map();this.radarSelectHandler=null;this.selectedRadarId=null;this.selectedRadarPulse=null;this.targetMarker=null;
-      this.warningLayer=L.geoJSON(null,{
-        pane:'warningPane',style:warningStyle,interactive:false,
-        onEachFeature:(feature,layer)=>{const p=feature.properties||{};const label=p.prod_type||`${p.phenom||''}.${p.sig||''}`;layer.bindTooltip(`<strong>${label}</strong>${p.wfo?`<br>WFO ${p.wfo}`:''}`,{sticky:true})}
-      });
+      this.warningLayer=null;
 
       this.referenceEnabled=true;this.allCwaEnabled=false;this.warningEnabled=false;this.mrmsEnabled=false;
-      this._warningTimer=null;this._warningInterval=null;this._mrmsTimer=null;this._mrmsLatestTime=null;this._mrmsCheckInFlight=false;this._referenceTimer=null;this._warningKey='';this._referenceKey='';this._allCwasLoaded=false;
+      this._warningTimer=null;this._warningInterval=null;this._mrmsTimer=null;this._referenceTimer=null;this._referenceKey='';this._allCwasLoaded=false;
       this.map.on('moveend',()=>{
         if(this.referenceEnabled)this._scheduleReferenceRefresh();
         if(this.warningEnabled)this._maybeRefreshWarnings();
-        if(this.mrmsEnabled)this._refreshMrms(this._mrmsLatestTime);
+        if(this.mrmsEnabled)this._refreshMrms();
       });
     }
 
@@ -233,61 +221,45 @@
     async setMrmsVisible(show){
       this.mrmsEnabled=show;
       if(show){
-        await this._checkMrmsForUpdate(true);
+        this._refreshMrms();
         clearInterval(this._mrmsTimer);
-        // Poll much faster than the source cadence so a newly published
-        // 5-minute MRMS frame appears promptly even if the map is stationary.
-        this._mrmsTimer=setInterval(()=>this._checkMrmsForUpdate(false),45000);
+        // NOAA publishes new MRMS imagery about every 5 minutes.
+        // Re-request the latest rendered image every 45 seconds so a
+        // stationary map picks up a new scan promptly.
+        this._mrmsTimer=setInterval(()=>this._refreshMrms(),45000);
       }else{
         clearInterval(this._mrmsTimer);this._mrmsTimer=null;
-        this._mrmsLatestTime=null;
-        this._mrmsCheckInFlight=false;
         if(this.mrmsLayer&&this.map.hasLayer(this.mrmsLayer))this.map.removeLayer(this.mrmsLayer);
         this.mrmsLayer=null;
       }
     }
 
-    async _checkMrmsForUpdate(force=false){
-      if(!this.mrmsEnabled||this._mrmsCheckInFlight)return;
-      this._mrmsCheckInFlight=true;
-      try{
-        const meta=await fetchJsonWithTimeout(`${MRMS_IMAGE_SERVICE}?f=pjson&_=${Date.now()}`,7000);
-        const extent=meta?.timeInfo?.timeExtent;
-        const latest=Array.isArray(extent)&&Number.isFinite(Number(extent[1]))?Number(extent[1]):null;
-        if(force||latest==null||latest!==this._mrmsLatestTime){
-          this._mrmsLatestTime=latest;
-          this._refreshMrms(latest);
-        }
-      }catch(e){
-        console.warn('MRMS latest-time check failed; refreshing image directly',e);
-        if(force||!this.mrmsLayer)this._refreshMrms(null);
-      }finally{
-        this._mrmsCheckInFlight=false;
-      }
-    }
-
-    _refreshMrms(latestTime=null){
+    _refreshMrms(){
       if(!this.mrmsEnabled)return;
       const b=this.map.getBounds(),size=this.map.getSize();
       const width=Math.max(400,Math.min(1600,Math.round(size.x)));
       const height=Math.max(300,Math.min(1400,Math.round(size.y)));
       const bbox=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].join(',');
       const stamp=Date.now();
-      const timeArg=Number.isFinite(Number(latestTime))?`&time=${encodeURIComponent(String(latestTime))}`:'';
+
+      // Use the non-time-enabled MapServer first: with no time parameter it
+      // always renders NOAA's latest MRMS mosaic.  Keep ImageServer fallback.
       const urls=[
-        `${MRMS_IMAGE_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&format=png32&transparent=true&f=image${timeArg}&_=${stamp}`,
-        `${MRMS_MAP_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&layers=show%3A3&format=png32&transparent=true&f=image&_=${stamp}`
+        `${MRMS_MAP_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&layers=show%3A3&format=png32&transparent=true&f=image&_=${stamp}`,
+        `${MRMS_IMAGE_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&format=png32&transparent=true&f=image&_=${stamp}`
       ];
 
       const tryUrl=(index)=>{
         if(!this.mrmsEnabled||index>=urls.length)return;
-        const next=L.imageOverlay(urls[index],b,{opacity:.66,interactive:false,pane:'mrmsPane'});
+        const next=L.imageOverlay(urls[index],b,{opacity:.68,interactive:false,pane:'mrmsPane'});
         next.once('load',()=>{
           if(!this.mrmsEnabled){
             if(this.map.hasLayer(next))this.map.removeLayer(next);
             return;
           }
-          if(this.mrmsLayer&&this.mrmsLayer!==next&&this.map.hasLayer(this.mrmsLayer))this.map.removeLayer(this.mrmsLayer);
+          if(this.mrmsLayer&&this.mrmsLayer!==next&&this.map.hasLayer(this.mrmsLayer)){
+            this.map.removeLayer(this.mrmsLayer);
+          }
           this.mrmsLayer=next;
         });
         next.once('error',()=>{
@@ -303,42 +275,51 @@
     async setWarningsVisible(show){
       this.warningEnabled=show;
       if(show){
-        if(!this.map.hasLayer(this.warningLayer))this.warningLayer.addTo(this.map);
-        await this._refreshWarnings(true);
+        this._refreshWarnings();
         clearInterval(this._warningInterval);
-        this._warningInterval=setInterval(()=>this._refreshWarnings(true),300000);
+        // Poll more often than the source cadence so new/expired warnings
+        // appear without a page refresh.
+        this._warningInterval=setInterval(()=>this._refreshWarnings(),60000);
       }else{
+        clearTimeout(this._warningTimer);
         clearInterval(this._warningInterval);this._warningInterval=null;
-        this.warningLayer.clearLayers();
-        if(this.map.hasLayer(this.warningLayer))this.map.removeLayer(this.warningLayer);
+        if(this.warningLayer&&this.map.hasLayer(this.warningLayer))this.map.removeLayer(this.warningLayer);
+        this.warningLayer=null;
       }
     }
-    _maybeRefreshWarnings(force=false){clearTimeout(this._warningTimer);this._warningTimer=setTimeout(()=>this._refreshWarnings(force),220)}
-    async _refreshWarnings(force=false){
-      if(!this.warningEnabled)return;
-      const b=this.map.getBounds();const key=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].map(v=>v.toFixed(1)).join(',');
-      if(!force&&key===this._warningKey)return;this._warningKey=key;
-      const geom=`${b.getWest()},${b.getSouth()},${b.getEast()},${b.getNorth()}`;
-      const q=new URLSearchParams({
-        where:'1=1',
-        geometry:geom,
-        geometryType:'esriGeometryEnvelope',
-        inSR:'4326',
-        spatialRel:'esriSpatialRelIntersects',
-        outFields:'prod_type,phenom,sig,wfo,event,expiration',
-        returnGeometry:'true',
-        outSR:'4326',
-        geometryPrecision:'5',
-        resultRecordCount:'4000',
-        f:'geojson'
-      });
-      try{
-        const d=await fetchJsonWithTimeout(`${WARN_BASE}/query?${q.toString()}`,8000);
-        if(!this.warningEnabled)return;
-        this.warningLayer.clearLayers();
-        this.warningLayer.addData(d);
-      }catch(e){console.warn('Warning polygons skipped/failed',e)}
+
+    _maybeRefreshWarnings(){
+      clearTimeout(this._warningTimer);
+      this._warningTimer=setTimeout(()=>this._refreshWarnings(),220);
     }
+
+    _refreshWarnings(){
+      if(!this.warningEnabled)return;
+      const b=this.map.getBounds(),size=this.map.getSize();
+      const width=Math.max(400,Math.min(1600,Math.round(size.x)));
+      const height=Math.max(300,Math.min(1400,Math.round(size.y)));
+      const bbox=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].join(',');
+      const stamp=Date.now();
+      const url=`${WARN_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&layers=show%3A0&format=png32&transparent=true&f=image&_=${stamp}`;
+      const next=L.imageOverlay(url,b,{opacity:.92,interactive:false,pane:'warningPane'});
+
+      next.once('load',()=>{
+        if(!this.warningEnabled){
+          if(this.map.hasLayer(next))this.map.removeLayer(next);
+          return;
+        }
+        if(this.warningLayer&&this.warningLayer!==next&&this.map.hasLayer(this.warningLayer)){
+          this.map.removeLayer(this.warningLayer);
+        }
+        this.warningLayer=next;
+      });
+      next.once('error',()=>{
+        if(this.map.hasLayer(next))this.map.removeLayer(next);
+        console.warn('NWS warning image failed to load');
+      });
+      next.addTo(this.map);
+    }
+
   }
   window.RadarMap=RadarMap;
 })();
