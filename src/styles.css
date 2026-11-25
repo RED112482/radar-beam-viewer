@@ -363,3 +363,45 @@ button,select,input{font-family:"Poppins",sans-serif}input[type="checkbox"]{acce
   .radar-pulse-ring,
   .strategy-target-pulse{animation:none}
 }
+
+
+/* ===== Scanning strategy range option cards ===== */
+.strategy-options-label{margin-top:12px}
+.strategy-range-options{
+  display:grid;
+  gap:8px;
+  margin:0 0 13px
+}
+.strategy-range-card{
+  border:1px solid #2c4357;
+  border-radius:9px;
+  background:#09141e;
+  padding:9px 10px;
+  color:#dbe7f0;
+  font-size:11.5px;
+  line-height:1.45
+}
+.strategy-range-card.active-range{
+  border-color:#72ddff;
+  background:#0d2230;
+  box-shadow:0 0 0 1px rgba(114,221,255,.16),0 0 16px rgba(114,221,255,.08)
+}
+.strategy-range-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:6px;
+  color:#91cef4;
+  font-weight:700
+}
+.strategy-range-head span{
+  border:1px solid rgba(114,221,255,.55);
+  border-radius:999px;
+  padding:2px 6px;
+  color:#a8edff;
+  font-size:9px;
+  letter-spacing:.45px
+}
+.strategy-range-card .strategy-option{margin-top:7px}
+.strategy-range-card .strategy-line{font-size:11px}
