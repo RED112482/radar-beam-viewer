@@ -1,7 +1,8 @@
 (function(){
   const REF_FS='https://mapservices.weather.noaa.gov/static/rest/services/nws_reference_maps/nws_reference_map/FeatureServer';
   const WARN_BASE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/MapServer/0';
-  const MRMS_IMAGE_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer/exportImage';
+  const MRMS_IMAGE_SERVICE='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer';
+  const MRMS_IMAGE_EXPORT=MRMS_IMAGE_SERVICE+'/exportImage';
   const MRMS_MAP_EXPORT='https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity/MapServer/export';
 
   async function fetchJsonWithTimeout(url,timeoutMs=7000){
@@ -51,11 +52,11 @@
       });
 
       this.referenceEnabled=true;this.allCwaEnabled=false;this.warningEnabled=false;this.mrmsEnabled=false;
-      this._warningTimer=null;this._warningInterval=null;this._mrmsTimer=null;this._referenceTimer=null;this._warningKey='';this._referenceKey='';this._allCwasLoaded=false;
+      this._warningTimer=null;this._warningInterval=null;this._mrmsTimer=null;this._mrmsLatestTime=null;this._mrmsCheckInFlight=false;this._referenceTimer=null;this._warningKey='';this._referenceKey='';this._allCwasLoaded=false;
       this.map.on('moveend',()=>{
         if(this.referenceEnabled)this._scheduleReferenceRefresh();
         if(this.warningEnabled)this._maybeRefreshWarnings();
-        if(this.mrmsEnabled)this._refreshMrms();
+        if(this.mrmsEnabled)this._refreshMrms(this._mrmsLatestTime);
       });
     }
 
@@ -232,25 +233,49 @@
     async setMrmsVisible(show){
       this.mrmsEnabled=show;
       if(show){
-        this._refreshMrms();
+        await this._checkMrmsForUpdate(true);
         clearInterval(this._mrmsTimer);
-        this._mrmsTimer=setInterval(()=>this._refreshMrms(),300000);
+        // Poll much faster than the source cadence so a newly published
+        // 5-minute MRMS frame appears promptly even if the map is stationary.
+        this._mrmsTimer=setInterval(()=>this._checkMrmsForUpdate(false),45000);
       }else{
         clearInterval(this._mrmsTimer);this._mrmsTimer=null;
+        this._mrmsLatestTime=null;
+        this._mrmsCheckInFlight=false;
         if(this.mrmsLayer&&this.map.hasLayer(this.mrmsLayer))this.map.removeLayer(this.mrmsLayer);
         this.mrmsLayer=null;
       }
     }
 
-    _refreshMrms(){
+    async _checkMrmsForUpdate(force=false){
+      if(!this.mrmsEnabled||this._mrmsCheckInFlight)return;
+      this._mrmsCheckInFlight=true;
+      try{
+        const meta=await fetchJsonWithTimeout(`${MRMS_IMAGE_SERVICE}?f=pjson&_=${Date.now()}`,7000);
+        const extent=meta?.timeInfo?.timeExtent;
+        const latest=Array.isArray(extent)&&Number.isFinite(Number(extent[1]))?Number(extent[1]):null;
+        if(force||latest==null||latest!==this._mrmsLatestTime){
+          this._mrmsLatestTime=latest;
+          this._refreshMrms(latest);
+        }
+      }catch(e){
+        console.warn('MRMS latest-time check failed; refreshing image directly',e);
+        if(force||!this.mrmsLayer)this._refreshMrms(null);
+      }finally{
+        this._mrmsCheckInFlight=false;
+      }
+    }
+
+    _refreshMrms(latestTime=null){
       if(!this.mrmsEnabled)return;
       const b=this.map.getBounds(),size=this.map.getSize();
       const width=Math.max(400,Math.min(1600,Math.round(size.x)));
       const height=Math.max(300,Math.min(1400,Math.round(size.y)));
       const bbox=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()].join(',');
       const stamp=Date.now();
+      const timeArg=Number.isFinite(Number(latestTime))?`&time=${encodeURIComponent(String(latestTime))}`:'';
       const urls=[
-        `${MRMS_IMAGE_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&format=png32&transparent=true&f=image&_=${stamp}`,
+        `${MRMS_IMAGE_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&format=png32&transparent=true&f=image${timeArg}&_=${stamp}`,
         `${MRMS_MAP_EXPORT}?bbox=${encodeURIComponent(bbox)}&bboxSR=4326&imageSR=4326&size=${width},${height}&layers=show%3A3&format=png32&transparent=true&f=image&_=${stamp}`
       ];
 
